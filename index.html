@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>和食材カレンダー｜Washokuzai Calendar</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="description" content="日本の魚介・野菜・果物の旬がひと目でわかるカレンダー。Washokuzai Calendar.">
+<meta property="og:title" content="和食材カレンダー｜Washokuzai Calendar">
+<meta property="og:description" content="日本の旬を、世界へ。">
+<meta property="og:image" content="https://washokuzai-calendar.vercel.app/washokuzai-mark.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:url" content="https://washokuzai-calendar.vercel.app/">
+<meta property="og:site_name" content="和食材カレンダー">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://washokuzai-calendar.vercel.app/">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --paper:#F2F4F3;
+  --paper-2:#E9EDEB;
+  --gold:#B08D53;
+  --ink:#283D48;
+  --ink-soft:#5F7278;
+  --rule:#DCE2E0;
+  --rule-strong:#C2CCC9;
+  --now:#C8462F;
+  --sea:#2C5871;      --sea-soft:#C8D8E1;
+  --land:#556B33;     --land-soft:#D9E1CB;
+  --fruit:#B0543E;    --fruit-soft:#EFD8CF;
+  --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Meiryo",system-ui,sans-serif;
+  --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","MS PMincho",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--gothic);
+  font-size:15px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:0 20px 72px}
+
+/* ---------- hero ---------- */
+.masthead{padding:36px 0 0;position:relative}
+.langbar{position:absolute;top:34px;right:0}
+.langbar select{
+  font-family:inherit;font-size:12.5px;padding:5px 9px;cursor:pointer;
+  border:1px solid var(--rule-strong);border-radius:2px;background:#fff;color:var(--ink);
+}
+.langbar select:focus{outline:2px solid var(--ink);outline-offset:1px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.masthead h1{
+  font-family:var(--mincho);
+  font-size:26px;font-weight:600;margin:0;letter-spacing:.06em;
+}
+.logo img{display:block;width:auto;height:74px;max-width:100%}
+/* ロゴ画像が読み込めないときは文字のサイト名を出します */
+.logo #siteTitle{display:none}
+.logo.fallback img{display:none}
+.logo.fallback #siteTitle{display:inline}
+.masthead p{margin:2px 0 0;font-size:12.5px;color:var(--ink-soft)}
+
+.now-panel{
+  margin-top:26px;
+  border-top:2px solid var(--ink);
+  border-bottom:1px solid var(--rule-strong);
+  padding:18px 0 20px;
+}
+.now-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.now-month{
+  font-family:var(--mincho);
+  font-size:44px;line-height:1;font-weight:600;
+  color:var(--now);
+}
+.now-en{font-size:13px;color:var(--ink-soft)}
+.now-count{font-size:13px;color:var(--ink-soft);margin-left:auto}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chip{
+  font-size:13px;padding:3px 9px;border-radius:2px;
+  background:var(--paper-2);border:1px solid var(--rule-strong);
+  cursor:pointer;
+}
+.chip:hover{border-color:var(--ink)}
+.chip .en{color:var(--ink-soft);font-size:11px;margin-left:5px}
+.chip.sea{border-left:3px solid var(--sea)}
+.chip.land{border-left:3px solid var(--land)}
+.chip.fruit{border-left:3px solid var(--fruit)}
+
+/* ---------- controls ---------- */
+.controls{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  padding:18px 0;position:sticky;top:0;background:var(--paper);z-index:5;
+  border-bottom:1px solid var(--rule);
+}
+.tabs{display:flex;gap:0;border:1px solid var(--rule-strong);border-radius:2px;overflow:hidden}
+.tabs button{
+  font-family:inherit;font-size:13px;padding:6px 13px;border:0;cursor:pointer;
+  background:transparent;color:var(--ink-soft);border-right:1px solid var(--rule-strong);
+}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+input[type="search"]{
+  font-family:inherit;font-size:13px;padding:6px 10px;
+  border:1px solid var(--rule-strong);border-radius:2px;background:#fff;color:var(--ink);
+  width:200px;
+}
+input[type="search"]:focus{outline:2px solid var(--ink);outline-offset:1px}
+.monthfilter{font-size:12.5px;color:var(--ink-soft);display:flex;align-items:center;gap:8px}
+.monthfilter button{
+  font-family:inherit;font-size:12px;background:var(--now);color:#fff;
+  border:0;border-radius:2px;padding:3px 8px;cursor:pointer;
+}
+
+/* ---------- grid ---------- */
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--ink-soft);padding:14px 0 6px}
+.legend span{display:flex;align-items:center;gap:6px}
+.sw{width:16px;height:11px;display:inline-block;border:1px solid var(--rule-strong)}
+
+.months{
+  display:grid;grid-template-columns:236px 1fr;gap:14px;align-items:end;
+  position:sticky;top:63px;background:var(--paper);z-index:4;padding:8px 0 6px;
+  border-bottom:1px solid var(--rule-strong);
+}
+.months .mrow{display:grid;grid-template-columns:repeat(12,1fr);gap:1px}
+.months button{
+  font-family:inherit;font-size:11px;padding:3px 0;text-align:center;cursor:pointer;
+  background:transparent;border:0;color:var(--ink-soft);border-radius:2px;
+}
+.months button:hover{background:var(--paper-2);color:var(--ink)}
+.months button.iscurrent{background:var(--now);color:#fff}
+.months .label{font-size:11.5px;color:var(--ink-soft)}
+
+.row{
+  display:grid;grid-template-columns:52px 170px 1fr;gap:14px;align-items:center;
+  padding:6px 0;border-bottom:1px solid var(--rule);cursor:pointer;
+}
+.row:hover .name .ja{text-decoration:underline;text-underline-offset:2px}
+.row:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.thumb{
+  width:52px;height:40px;border:1px solid var(--rule-strong);border-radius:2px;
+  overflow:hidden;background:#fff;
+  display:flex;align-items:center;justify-content:center;flex:none;
+}
+.thumb img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+.thumb.none{
+  font-size:8.5px;line-height:1.2;text-align:center;color:#9AA8AC;
+  background:repeating-linear-gradient(45deg,var(--paper-2),var(--paper-2) 5px,#E2E7E5 5px,#E2E7E5 10px);
+}
+.name{min-width:0}
+.name .ja{font-size:14px;display:block}
+.name .en{font-size:11px;color:var(--ink-soft);display:block;line-height:1.35}
+.band{display:grid;grid-template-columns:repeat(12,1fr);gap:1px}
+.cell{height:20px;background:var(--paper-2);border-radius:1px}
+.cell.lv1{background:var(--soft)}
+.cell.lv2{background:var(--full)}
+.cell.now{box-shadow:inset 0 0 0 1.5px rgba(200,70,47,.5)}
+.row.sea{--full:var(--sea);--soft:var(--sea-soft)}
+.row.land{--full:var(--land);--soft:var(--land-soft)}
+.row.fruit{--full:var(--fruit);--soft:var(--fruit-soft)}
+
+/* ---------- tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;padding:18px 0}
+.tile{
+  font-family:inherit;color:inherit;text-align:left;padding:0;cursor:pointer;overflow:hidden;
+  background:#fff;border:1px solid var(--rule-strong);border-radius:2px;
+}
+.tile:hover{border-color:var(--ink)}
+.tile:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.tile .ph{aspect-ratio:4/3;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tile .ph img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+.tile .ph.none{
+  font-size:10px;color:#9AA8AC;
+  background:repeating-linear-gradient(45deg,var(--paper-2),var(--paper-2) 6px,#E2E7E5 6px,#E2E7E5 12px);
+}
+.tile .meta{padding:8px 9px 10px;border-top:1px solid var(--rule)}
+.tile .ja{font-size:13.5px;display:block}
+.tile .en{font-size:10.5px;color:var(--ink-soft);display:block;line-height:1.35}
+.tile .band{margin-top:8px}
+.tile .cell{height:9px}
+.tile.sea{--full:var(--sea);--soft:var(--sea-soft)}
+.tile.land{--full:var(--land);--soft:var(--land-soft)}
+.tile.fruit{--full:var(--fruit);--soft:var(--fruit-soft)}
+
+/* ---------- detail ---------- */
+.modal[hidden]{display:none}
+.modal{
+  position:fixed;inset:0;z-index:50;padding:20px;
+  background:rgba(40,61,72,.74);display:flex;align-items:center;justify-content:center;
+}
+.modal-box{
+  background:var(--paper);width:100%;max-width:560px;max-height:88vh;overflow:auto;border-radius:2px;
+}
+.modal-photo{aspect-ratio:4/3;background:var(--paper-2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.modal-photo img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+.modal-photo.none{
+  font-size:13px;color:#9AA8AC;letter-spacing:.1em;
+  background:repeating-linear-gradient(45deg,var(--paper-2),var(--paper-2) 8px,#E2E7E5 8px,#E2E7E5 16px);
+}
+.modal-body{padding:18px 20px 22px}
+.modal-body h2{font-family:var(--mincho);font-size:24px;font-weight:600;margin:0}
+.modal-body .en{font-size:13px;color:var(--ink-soft);margin:2px 0 0}
+.modal-body .peak{font-size:13px;margin:14px 0 0}
+.modal-months{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;margin-top:14px}
+.modal-months .cell{height:26px;border-radius:1px}
+.modal-mlabels{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;margin-top:4px;font-size:9.5px;color:var(--ink-soft);text-align:center}
+/* 詳細（調理法・選び方・保存・豆知識） */
+.sect{margin-top:24px;padding-top:18px;border-top:1px solid var(--rule)}
+.sect h3{
+  font-size:12px;font-weight:600;color:var(--ink-soft);margin:0 0 12px;
+  display:flex;align-items:center;gap:8px;
+}
+.sect h3::after{content:"";flex:1;height:1px;background:var(--rule)}
+.cooks{display:grid;gap:12px}
+.cook{display:grid;grid-template-columns:84px 1fr;gap:13px;align-items:start}
+.cook-ph{
+  width:84px;aspect-ratio:4/3;border:1px solid var(--rule-strong);border-radius:2px;
+  overflow:hidden;background:var(--paper-2);display:flex;align-items:center;justify-content:center;
+}
+.cook-ph img{width:100%;height:100%;object-fit:contain;display:block;background:#fff}
+.cook-ph.none{
+  font-size:8px;color:#9AA8AC;text-align:center;line-height:1.2;
+  background:repeating-linear-gradient(45deg,var(--paper-2),var(--paper-2) 5px,#E2E7E5 5px,#E2E7E5 10px);
+}
+.cook-txt .nm{font-size:14px;display:block;margin-bottom:2px}
+.cook-txt .ds{font-size:12.5px;color:var(--ink-soft);line-height:1.65;display:block}
+.notes{display:grid;gap:14px}
+.note-item .lb{font-size:11.5px;color:var(--ink-soft);display:block;margin-bottom:2px}
+.note-item .tx{font-size:13.5px;line-height:1.7;display:block}
+.origins{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.origin{font-size:12px;padding:2px 9px;border:1px solid var(--rule-strong);border-radius:2px;background:var(--paper-2)}
+.trivia{font-size:13px;line-height:1.75;padding:12px 15px;background:var(--paper-2);border-left:3px solid var(--gold);border-radius:2px}
+
+.modal-actions{display:flex;justify-content:flex-end;margin-top:24px}
+.modal-actions button{
+  font-family:inherit;font-size:13px;padding:6px 16px;cursor:pointer;
+  background:var(--ink);color:var(--paper);border:0;border-radius:2px;
+}
+.modal-box.sea{--full:var(--sea);--soft:var(--sea-soft)}
+.modal-box.land{--full:var(--land);--soft:var(--land-soft)}
+.modal-box.fruit{--full:var(--fruit);--soft:var(--fruit-soft)}
+
+.export{margin-left:auto;display:flex;gap:6px;align-items:center}
+.export span{font-size:12px;color:var(--ink-soft)}
+.export button{
+  font-family:inherit;font-size:12px;padding:5px 11px;cursor:pointer;
+  background:transparent;color:var(--ink);border:1px solid var(--rule-strong);border-radius:2px;
+}
+.export button:hover{border-color:var(--ink)}
+
+.empty{padding:40px 0;color:var(--ink-soft);font-size:14px}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--rule);font-size:12px;color:var(--ink-soft)}
+footer p{margin:0 0 6px}
+.site-info{
+  display:grid;grid-template-columns:auto 1fr;gap:2px 14px;
+  margin:16px 0 0;padding-top:14px;border-top:1px solid var(--rule);
+}
+.site-info dt{font-size:11px;color:var(--ink-soft)}
+.site-info dd{margin:0;font-size:12.5px;color:var(--ink)}
+.site-info a{color:var(--sea);text-decoration:none}
+.site-info a:hover{text-decoration:underline}
+.copyright{margin-top:14px;font-size:11px;color:var(--ink-soft)}
+
+@media (max-width:640px){
+  .wrap{padding:0 14px 56px}
+  .now-month{font-size:36px}
+  .logo img{height:52px}
+  .langbar{top:0}
+  .months{grid-template-columns:1fr;gap:4px;top:0;position:static;border-bottom:0}
+  .months .label{display:none}
+  .row{grid-template-columns:52px 1fr;gap:10px 12px;align-items:center;padding:10px 0}
+  .row .band{grid-column:1 / -1}
+  .cell{height:24px}
+  .tiles{grid-template-columns:repeat(2,1fr);gap:10px}
+  .tile .cell{height:8px}
+  .export{margin-left:0;width:100%}
+  .modal{padding:0;align-items:flex-end}
+  .cook{grid-template-columns:70px 1fr;gap:11px}
+  .cook-ph{width:70px}
+  .modal-box{max-width:none;max-height:92vh}
+  .controls{position:static}
+  input[type="search"]{width:100%}
+}
+@media (prefers-reduced-motion:no-preference){
+  .chip,.tabs button{transition:background-color .12s ease,border-color .12s ease}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="langbar">
+    <label class="visually-hidden" for="lang">Language</label>
+    <select id="lang" aria-label="Language"></select>
+  </div>
+  <h1 class="logo">
+    <!-- ロゴはこのファイルに埋め込んであります。別ファイルを用意しなくても表示されます。
+           差し替えるときは下の src の値を新しい画像のデータURIに置き換えてください。 -->
+      <img src="data:image/png;base64,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" alt="" id="logoImg">
+    <span id="siteTitle"></span>
+  </h1>
+  <p id="siteSub"></p>
+</header>
+
+<section class="now-panel">
+  <div class="now-head">
+    <span class="now-month" id="nowMonthJa"></span>
+    <span class="now-en" id="nowMonthEn"></span>
+    <span class="now-count" id="nowCount"></span>
+  </div>
+  <div class="chips" id="nowChips"></div>
+</section>
+
+<div class="controls">
+  <div class="tabs" id="tabs">
+    <button data-cat="all" aria-pressed="true"></button>
+    <button data-cat="sea" aria-pressed="false"></button>
+    <button data-cat="land" aria-pressed="false"></button>
+    <button data-cat="fruit" aria-pressed="false"></button>
+  </div>
+  <input type="search" id="q">
+  <div class="monthfilter" id="monthFilter" hidden>
+    <span id="monthFilterLabel"></span>
+    <button id="clearMonth"></button>
+  </div>
+  <div class="tabs" id="viewTabs">
+    <button data-view="list" aria-pressed="true"></button>
+    <button data-view="tiles" aria-pressed="false"></button>
+  </div>
+  <div class="export">
+    <button id="expPdf"></button>
+  </div>
+</div>
+
+<div class="legend" id="legend"></div>
+
+<div class="months" id="monthHead">
+  <div class="label" id="itemColLabel"></div>
+  <div class="mrow" id="monthRow"></div>
+</div>
+
+<main id="list"></main>
+<noscript>
+  <p style="padding:30px 0;font-size:14px">
+    このページはJavaScriptを使って表示しています。ブラウザの設定で有効にしてください。<br>
+    This page requires JavaScript. Please enable it in your browser settings.
+  </p>
+</noscript>
+
+<footer>
+  <p id="note1"></p>
+  <p id="note2"></p>
+  <dl class="site-info">
+    <dt id="lblOperator"></dt><dd>KAI</dd>
+    <dt id="lblContact"></dt><dd><span id="mailSlot"></span></dd>
+  </dl>
+  <p class="copyright">&copy; 2026 和食材カレンダー / Washokuzai Calendar</p>
+</footer>
+
+</div>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal-box" id="modalBox">
+    <div id="mPhotoWrap"></div>
+    <div class="modal-body">
+      <h2 id="mTitle"></h2>
+      <p class="en" id="mEn"></p>
+      <p class="peak" id="mPeak"></p>
+      <div class="modal-months" id="mMonths"></div>
+      <div class="modal-mlabels" id="mLabels"></div>
+      <div id="mDetail"></div>
+      <div class="modal-actions"><button id="mClose"></button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* 月データ: 12文字。0=なし / 1=出回り / 2=旬
+   Month data: 12 chars. 0 = none, 1 = available, 2 = peak season
+
+   写真は img:"images/ファイル名.jpg" を足すだけ。
+   img を書かない品目、または画像が見つからない品目は「NO PHOTO」と表示されます。
+   Add img:"images/filename.jpg" to show a photo. Missing photos fall back to "NO PHOTO". */
+const ITEMS = [
+/* --- 魚介 seafood --- */
+{ja:"マアジ",kana:"まあじ",en:"Japanese horse mackerel",cat:"sea",m:"111122211111",img:"images/maaji.jpg",
+ cooks:[
+   {name:"刺身・なめろう",desc:"鮮度が良ければ生が一番。薬味と叩いたなめろうは房総の郷土料理。",img:"images/cook/maaji-sashimi.jpg"},
+   {name:"塩焼き",desc:"振り塩をして少し置き、水気を拭いてから焼くと身が締まる。",img:"images/cook/maaji-shioyaki.jpg"},
+   {name:"フライ・南蛮漬け",desc:"開いて揚げる。南蛮漬けは冷めてもおいしく作り置きが利く。",img:"images/cook/maaji-fry.jpg"},
+   {name:"干物",desc:"背開きにして立て塩に漬け、一夜干しに。旨みが濃くなる。"}
+ ],
+ pick:"目が澄んで盛り上がり、えらが鮮やかな赤いもの。体に張りがあり、ぜんご（尾の近くのトゲ状のうろこ）がしっかりしているものが良い。",
+ keep:"買った日のうちが最良。保存するならわたとえらを取り、水気を拭いてラップで包み冷蔵庫のチルド室へ。翌日以降は加熱調理に回す。",
+ origins:["長崎","島根","愛媛","千葉"],
+ trivia:"通年出回るが、産卵前の初夏に脂がのる。回遊せず一定の海域に居着いた個体は「瀬付きアジ」と呼ばれ、黄色みが強く別格に扱われる。",
+ cooks_en:[
+   {name:"Sashimi / namero",desc:"Best raw when very fresh. Namero is a chopped preparation from the Boso region.",img:"images/cook/maaji-sashimi.jpg"},
+   {name:"Salt-grilled",desc:"Salt it, rest briefly, pat dry, then grill so the flesh firms up.",img:"images/cook/maaji-shioyaki.jpg"},
+   {name:"Fried / nanban-zuke",desc:"Butterfly and deep-fry. Nanban-zuke keeps well and is good cold.",img:"images/cook/maaji-fry.jpg"},
+   {name:"Dried overnight",desc:"Split, brine, then dry overnight to concentrate the flavour."}
+ ],
+ pick_en:"Look for clear, domed eyes and bright red gills. The body should feel firm, with well-formed scutes near the tail.",
+ keep_en:"Best eaten the day you buy it. To keep, remove gills and guts, pat dry, wrap and chill. Cook rather than eat raw from the next day.",
+ trivia_en:"Available year-round, but richest just before spawning in early summer. Fish that stay in one bay, called sedzuki-aji, are yellower and prized."},
+{ja:"マイワシ",kana:"まいわし",en:"Japanese sardine",cat:"sea",m:"000012221100"},
+{ja:"サンマ",kana:"さんま",en:"Pacific saury",cat:"sea",m:"000000012210",img:"images/sanma.jpg",
+ cooks:[
+   {name:"塩焼き",desc:"強火の遠火で。わたの苦みごと味わうのが通。",img:"images/cook/sanma-shioyaki.jpg"},
+   {name:"刺身",desc:"鮮度の良いものだけ。生姜やにんにく醤油が合う。"},
+   {name:"蒲焼き・つみれ",desc:"三枚におろして甘辛く。骨はつみれ汁に。"}
+ ],
+ pick:"口先がわずかに黄色く、背が青黒く光るもの。腹に張りがあり、持って頭が下がらないものが新しい。",
+ keep:"傷みが早いので当日中に。冷凍するなら内臓を取ってから。",
+ origins:["北海道","岩手","宮城"],
+ trivia:"かつては大衆魚の代表だったが、近年は不漁が続き価格が上がっている。回遊経路の変化と海水温の上昇が要因とされる。"},
+{ja:"マサバ",kana:"まさば",en:"Chub mackerel",cat:"sea",m:"210000001222"},
+{ja:"ブリ",kana:"ぶり",en:"Japanese amberjack",cat:"sea",m:"221000000012"},
+{ja:"カツオ",kana:"かつお",en:"Skipjack tuna",cat:"sea",m:"000121112200"},
+{ja:"クロマグロ",kana:"くろまぐろ",en:"Pacific bluefin tuna",cat:"sea",m:"221111111122"},
+{ja:"マダイ",kana:"まだい",en:"Red seabream",cat:"sea",m:"112221111111"},
+{ja:"ヒラメ",kana:"ひらめ",en:"Olive flounder",cat:"sea",m:"221100000122"},
+{ja:"マコガレイ",kana:"まこがれい",en:"Marbled flounder",cat:"sea",m:"000012221000"},
+{ja:"サケ",kana:"さけ",en:"Chum salmon",cat:"sea",m:"000000012221"},
+{ja:"サワラ",kana:"さわら",en:"Japanese Spanish mackerel",cat:"sea",m:"112221100011"},
+{ja:"タチウオ",kana:"たちうお",en:"Largehead hairtail",cat:"sea",m:"000001222100"},
+{ja:"アナゴ",kana:"あなご",en:"Whitespotted conger",cat:"sea",m:"000012221000"},
+{ja:"キンメダイ",kana:"きんめだい",en:"Splendid alfonsino",cat:"sea",m:"221100000012"},
+{ja:"アユ",kana:"あゆ",en:"Sweetfish",cat:"sea",m:"000002221000"},
+{ja:"イサキ",kana:"いさき",en:"Chicken grunt",cat:"sea",m:"000122211000"},
+{ja:"カマス",kana:"かます",en:"Japanese barracuda",cat:"sea",m:"000000012221"},
+{ja:"ホッケ",kana:"ほっけ",en:"Atka mackerel",cat:"sea",m:"001122211000"},
+{ja:"カワハギ",kana:"かわはぎ",en:"Threadsail filefish",cat:"sea",m:"221000001222"},
+{ja:"トラフグ",kana:"とらふぐ",en:"Tiger pufferfish",cat:"sea",m:"221000000122"},
+{ja:"アンコウ",kana:"あんこう",en:"Monkfish",cat:"sea",m:"221100000012"},
+{ja:"マダラ",kana:"まだら",en:"Pacific cod",cat:"sea",m:"221100000012"},
+{ja:"シラス",kana:"しらす",en:"Whitebait",cat:"sea",m:"001222111221"},
+{ja:"スルメイカ",kana:"するめいか",en:"Japanese common squid",cat:"sea",m:"000012222111"},
+{ja:"ヤリイカ",kana:"やりいか",en:"Spear squid",cat:"sea",m:"222100000012"},
+{ja:"マダコ",kana:"まだこ",en:"Common octopus",cat:"sea",m:"111112221111"},
+{ja:"クルマエビ",kana:"くるまえび",en:"Kuruma prawn",cat:"sea",m:"221000000122"},
+{ja:"ズワイガニ",kana:"ずわいがに",en:"Snow crab",cat:"sea",m:"222000000022"},
+{ja:"ケガニ",kana:"けがに",en:"Horsehair crab",cat:"sea",m:"222100000012"},
+{ja:"マガキ",kana:"まがき",en:"Pacific oyster",cat:"sea",m:"221000000122"},
+{ja:"アサリ",kana:"あさり",en:"Manila clam",cat:"sea",m:"122211001110"},
+{ja:"ハマグリ",kana:"はまぐり",en:"Hard clam",cat:"sea",m:"122210000001"},
+{ja:"ホタテ",kana:"ほたて",en:"Scallop",cat:"sea",m:"222111111112"},
+{ja:"サザエ",kana:"さざえ",en:"Turban shell",cat:"sea",m:"001222111000"},
+{ja:"アワビ",kana:"あわび",en:"Abalone",cat:"sea",m:"000012221000"},
+{ja:"シジミ",kana:"しじみ",en:"Freshwater clam",cat:"sea",m:"221111122111"},
+{ja:"ウニ",kana:"うに",en:"Sea urchin",cat:"sea",m:"000112221000"},
+{ja:"イクラ",kana:"いくら",en:"Salmon roe",cat:"sea",m:"000000002221"},
+{ja:"ホヤ",kana:"ほや",en:"Sea pineapple",cat:"sea",m:"000012221000"},
+{ja:"ワカメ",kana:"わかめ",en:"Wakame seaweed",cat:"sea",m:"012221000000"},
+{ja:"モズク",kana:"もずく",en:"Mozuku seaweed",cat:"sea",m:"001222100000"},
+{ja:"ノリ",kana:"のり",en:"Nori seaweed",cat:"sea",m:"221000000012"},
+
+/* --- 野菜 vegetables --- */
+{ja:"タケノコ",kana:"たけのこ",en:"Bamboo shoot",cat:"land",m:"002220000000",
+ cooks:[
+   {name:"若竹煮",desc:"わかめと炊き合わせる春の定番。出汁の香りを活かして薄味に。"},
+   {name:"たけのこご飯",desc:"穂先は薄切り、根元は角切りにして食感の違いを出す。"},
+   {name:"焼きたけのこ",desc:"掘りたてなら皮ごと焼いて木の芽味噌で。えぐみが少ない。"}
+ ],
+ pick:"皮が薄茶で湿り気があり、根元のイボが少なく低いもの。穂先が緑がかると育ちすぎでえぐみが強い。",
+ keep:"掘った瞬間からえぐみが増すので、その日のうちに米ぬかと唐辛子で下茹でを。茹でた後は水に浸して冷蔵で4〜5日。",
+ origins:["京都","福岡","鹿児島"],
+ trivia:"京都・乙訓の白子たけのこは、藁を敷いて土を盛る「土入れ」で育てられ、白く柔らかい。"},
+{ja:"アスパラガス",kana:"あすぱらがす",en:"Asparagus",cat:"land",m:"001222100000"},
+{ja:"新玉ねぎ",kana:"しんたまねぎ",en:"New-crop onion",cat:"land",m:"002220000000"},
+{ja:"キャベツ",kana:"きゃべつ",en:"Cabbage",cat:"land",m:"112221111221"},
+{ja:"ナス",kana:"なす",en:"Eggplant",cat:"land",m:"000001222100"},
+{ja:"キュウリ",kana:"きゅうり",en:"Cucumber",cat:"land",m:"000012221000"},
+{ja:"トマト",kana:"とまと",en:"Tomato",cat:"land",m:"111112221111"},
+{ja:"ピーマン",kana:"ぴーまん",en:"Green pepper",cat:"land",m:"000012222100"},
+{ja:"カボチャ",kana:"かぼちゃ",en:"Kabocha squash",cat:"land",m:"000000122210"},
+{ja:"ゴーヤ",kana:"ごーや",en:"Bitter melon",cat:"land",m:"000012221000"},
+{ja:"オクラ",kana:"おくら",en:"Okra",cat:"land",m:"000001222100"},
+{ja:"エダマメ",kana:"えだまめ",en:"Edamame",cat:"land",m:"000001222100"},
+{ja:"トウモロコシ",kana:"とうもろこし",en:"Sweet corn",cat:"land",m:"000002221000"},
+{ja:"サツマイモ",kana:"さつまいも",en:"Sweet potato",cat:"land",m:"221000001222"},
+{ja:"ジャガイモ",kana:"じゃがいも",en:"Potato",cat:"land",m:"111122111222"},
+{ja:"サトイモ",kana:"さといも",en:"Taro",cat:"land",m:"200000001222"},
+{ja:"ダイコン",kana:"だいこん",en:"Daikon radish",cat:"land",m:"221111111122"},
+{ja:"ニンジン",kana:"にんじん",en:"Carrot",cat:"land",m:"111111111222"},
+{ja:"ゴボウ",kana:"ごぼう",en:"Burdock root",cat:"land",m:"210000001122"},
+{ja:"レンコン",kana:"れんこん",en:"Lotus root",cat:"land",m:"221100001222"},
+{ja:"ハクサイ",kana:"はくさい",en:"Napa cabbage",cat:"land",m:"221000000122"},
+{ja:"ホウレンソウ",kana:"ほうれんそう",en:"Spinach",cat:"land",m:"221111111122"},
+{ja:"コマツナ",kana:"こまつな",en:"Komatsuna",cat:"land",m:"221111111112"},
+{ja:"シュンギク",kana:"しゅんぎく",en:"Shungiku",cat:"land",m:"221100000122"},
+{ja:"ネギ",kana:"ねぎ",en:"Naganegi leek",cat:"land",m:"221111111122"},
+{ja:"ミョウガ",kana:"みょうが",en:"Myoga ginger",cat:"land",m:"000001222100"},
+{ja:"シソ",kana:"しそ",en:"Shiso",cat:"land",m:"111112222111"},
+{ja:"ソラマメ",kana:"そらまめ",en:"Broad bean",cat:"land",m:"000222000000"},
+{ja:"サヤエンドウ",kana:"さやえんどう",en:"Snow pea",cat:"land",m:"002221000000"},
+{ja:"ウド",kana:"うど",en:"Udo",cat:"land",m:"012221000000"},
+{ja:"フキ",kana:"ふき",en:"Butterbur",cat:"land",m:"002221000000"},
+{ja:"ナノハナ",kana:"なのはな",en:"Rapeseed blossom",cat:"land",m:"122100000000"},
+{ja:"セリ",kana:"せり",en:"Japanese parsley",cat:"land",m:"222100000001"},
+{ja:"カブ",kana:"かぶ",en:"Turnip",cat:"land",m:"221000001222"},
+{ja:"マツタケ",kana:"まつたけ",en:"Matsutake mushroom",cat:"land",m:"000000002210"},
+{ja:"シイタケ",kana:"しいたけ",en:"Shiitake mushroom",cat:"land",m:"112221112221"},
+
+/* --- 果物 fruit --- */
+{ja:"イチゴ",kana:"いちご",en:"Strawberry",cat:"fruit",m:"222210000001"},
+{ja:"ミカン",kana:"みかん",en:"Satsuma mandarin",cat:"fruit",m:"210000000122"},
+{ja:"リンゴ",kana:"りんご",en:"Apple",cat:"fruit",m:"111000001222"},
+{ja:"ナシ",kana:"なし",en:"Japanese pear",cat:"fruit",m:"000000022210"},
+{ja:"カキ",kana:"かき",en:"Persimmon",cat:"fruit",m:"000000001221"},
+{ja:"ブドウ",kana:"ぶどう",en:"Grape",cat:"fruit",m:"000000122210"},
+{ja:"モモ",kana:"もも",en:"Peach",cat:"fruit",m:"000001221000"},
+{ja:"スイカ",kana:"すいか",en:"Watermelon",cat:"fruit",m:"000012221000"},
+{ja:"メロン",kana:"めろん",en:"Melon",cat:"fruit",m:"000122211000"},
+{ja:"サクランボ",kana:"さくらんぼ",en:"Cherry",cat:"fruit",m:"000012210000"},
+{ja:"ビワ",kana:"びわ",en:"Loquat",cat:"fruit",m:"000012200000"},
+{ja:"ウメ",kana:"うめ",en:"Ume plum",cat:"fruit",m:"000012100000"},
+{ja:"クリ",kana:"くり",en:"Chestnut",cat:"fruit",m:"000000002221"},
+{ja:"キウイ",kana:"きうい",en:"Kiwifruit",cat:"fruit",m:"222100000012"},
+{ja:"ユズ",kana:"ゆず",en:"Yuzu",cat:"fruit",m:"100000000122"},
+{ja:"スダチ",kana:"すだち",en:"Sudachi",cat:"fruit",m:"000000022200"},
+{ja:"イチジク",kana:"いちじく",en:"Fig",cat:"fruit",m:"000000122210"},
+{ja:"ギンナン",kana:"ぎんなん",en:"Ginkgo nut",cat:"fruit",m:"000000001221"}
+];
+
+/* ===================================================================
+   言語設定 / Language settings
+   言語を増やすときは、この LANGS に1行足し、UI に文言セットを1つ足します。
+   品目名は各データ行に code と同じキーを足すだけです（例 zh:"鰤魚"）。
+   訳がない品目は英語、英語もなければ日本語で表示されます。
+   =================================================================== */
+const LANGS = [
+  {code:"ja", label:"日本語"},
+  {code:"en", label:"English"}
+];
+
+const UI = {
+  ja:{
+    title:"和食材カレンダー",
+    sub:"日本の旬を、世界へ　―　魚介と青果の旬がひと目でわかるカレンダー",
+    all:"すべて", sea:"魚介", land:"野菜", fruit:"果物",
+    search:"品目を検索", clear:"解除", view_list:"一覧", view_tiles:"写真",
+    print:"印刷・PDF", item:"品目",
+    printTitle:"和食材カレンダー", printSub:"日本の旬を、世界へ",
+    printFilter:"表示条件", printAll:"すべての品目",
+    printCat:"分類", printMonth:"月", printSearch:"検索語",
+    printCount:n => `${n}品目`,
+    printLegend:"■ 旬　□ 出回り",
+    printNote:"日本国内の一般的な時期の目安です。産地・漁法・その年の気候によって前後します。",
+    printDate:d => `${d} 時点`,
+    peak:"旬", avail:"出回り",
+    inSeason:"いま旬のもの", count:n => `${n}品`,
+    monthOf:m => `${m}が旬のもの`,
+    peakLabel:list => `旬　${list.join("・")}`,
+    noPeak:"旬の登録がありません",
+    close:"閉じる",
+    secCook:"調理法", secPick:"選び方", secKeep:"保存方法", secOrigin:"主な産地", secTrivia:"豆知識",
+    empty:"該当する品目がありません。検索語や絞り込みを変えてみてください。",
+    note1:"日本国内の一般的な時期の目安です。産地・漁法・その年の気候によって前後します。掲載内容の正確性には努めていますが、これを保証するものではありません。ご利用による損害について責任を負いかねます。",
+    note2:"",
+    lblOperator:"運営", lblContact:"お問い合わせ",
+    months:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+    monthsLong:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+    monthsShort:["1","2","3","4","5","6","7","8","9","10","11","12"]
+  },
+  en:{
+    title:"Washokuzai Calendar",
+    sub:"Japanese ingredients at their best — bringing Japan's seasons to the world",
+    all:"All", sea:"Seafood", land:"Vegetables", fruit:"Fruit",
+    search:"Search items", clear:"Clear", view_list:"List", view_tiles:"Photos",
+    print:"Print / PDF", item:"Item",
+    printTitle:"Washokuzai Calendar", printSub:"Bringing Japan's seasons to the world",
+    printFilter:"Filter", printAll:"All items",
+    printCat:"Category", printMonth:"Month", printSearch:"Search",
+    printCount:n => `${n} items`,
+    printLegend:"■ In season　□ Available",
+    printNote:"A general guide for Japan. Actual timing varies by region, fishing method and year.",
+    printDate:d => `As of ${d}`,
+    peak:"In season", avail:"Available",
+    inSeason:"In season now", count:n => `${n} items`,
+    monthOf:m => `In season in ${m}`,
+    peakLabel:list => `In season: ${list.join(", ")}`,
+    noPeak:"No peak season recorded",
+    close:"Close",
+    secCook:"How to cook", secPick:"How to choose", secKeep:"Storage", secOrigin:"Main areas", secTrivia:"Good to know",
+    empty:"No items match. Try a different search or filter.",
+    note1:"A general guide for Japan. Actual timing varies by region, fishing method and year. We aim for accuracy but cannot guarantee it, and accept no liability for use of this information.",
+    note2:"",
+    lblOperator:"Operated by", lblContact:"Contact",
+    months:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    monthsLong:["January","February","March","April","May","June","July","August","September","October","November","December"],
+    monthsShort:["J","F","M","A","M","J","J","A","S","O","N","D"]
+  }
+};
+
+const NOW = new Date().getMonth(); // 0-11
+let visible = [];
+
+const $ = id => document.getElementById(id);
+const LANG_KEY = "shunCalendarLang";
+
+function pickLang(){
+  const saved = localStorage.getItem(LANG_KEY);
+  if (saved && UI[saved]) return saved;
+  const nav = (navigator.language || "ja").toLowerCase();
+  const hit = LANGS.find(l => nav.startsWith(l.code));
+  return hit ? hit.code : "ja";
+}
+const state = {cat:"all", q:"", month:null, view:"list", lang:pickLang()};
+const t = () => UI[state.lang];
+
+/* 品目名を選択中の言語で返します。訳がなければ英語、それもなければ日本語。 */
+function nameOf(it, lang){
+  const l = lang || state.lang;
+  return it[l] || it.en || it.ja;
+}
+/* 補助表示（選択中が日本語なら英語、それ以外なら日本語を添えます） */
+function subNameOf(it){
+  const sub = state.lang === "ja" ? (it.en || "") : (it.ja || "");
+  return sub === nameOf(it) ? "" : sub;
+}
+
+/* ---- 画面文言の反映 ---- */
+function applyLang(){
+  const T = t();
+  document.documentElement.lang = state.lang;
+  document.title = T.title;
+  $("siteTitle").textContent = T.title;
+  $("siteSub").textContent = T.sub;
+  $("itemColLabel").textContent = T.item;
+  $("expPdf").textContent = T.print;
+  $("clearMonth").textContent = T.clear;
+  $("mClose").textContent = T.close;
+  $("note1").textContent = T.note1;
+  $("lblOperator").textContent = T.lblOperator;
+  $("lblContact").textContent = T.lblContact;
+  $("note2").textContent = T.note2;
+  $("note2").hidden = !T.note2;
+
+  const q = $("q");
+  q.placeholder = T.search; q.setAttribute("aria-label", T.search);
+
+  [...$("tabs").children].forEach(b => { b.textContent = T[b.dataset.cat]; });
+  [...$("viewTabs").children].forEach(b => { b.textContent = T["view_" + b.dataset.view]; });
+
+  $("legend").innerHTML =
+    `<span><i class="sw" style="background:#2C5871"></i>${T.peak}</span>
+     <span><i class="sw" style="background:#C8D8E1"></i>${T.avail}</span>
+     <span><i class="sw" style="background:#556B33"></i>${T.land}</span>
+     <span><i class="sw" style="background:#B0543E"></i>${T.fruit}</span>`;
+}
+
+/* ロゴ画像が見つからない場合は文字のサイト名に切り替えます */
+(function(){
+  const img = document.getElementById("logoImg");
+  img.addEventListener("error", () => { img.closest(".logo").classList.add("fallback"); });
+  if (img.complete && img.naturalWidth === 0) img.closest(".logo").classList.add("fallback");
+})();
+
+/* 問い合わせ先は、収集プログラムに拾われにくいよう分割して組み立てます。
+   変更する場合は下の3つの値を書き換えてください。 */
+(function(){
+  const u = "tabegoro.calendar", dm = "gmail", tld = "com";
+  const addr = u + "@" + dm + "." + tld;
+  const a = document.createElement("a");
+  a.href = "ma" + "ilto:" + addr;
+  a.textContent = addr;
+  a.rel = "nofollow";
+  document.getElementById("mailSlot").appendChild(a);
+})();
+
+function buildLangSelect(){
+  const sel = $("lang");
+  sel.innerHTML = LANGS.map(l =>
+    `<option value="${l.code}"${l.code === state.lang ? " selected" : ""}>${l.label}</option>`).join("");
+  sel.addEventListener("change", e => {
+    state.lang = e.target.value;
+    localStorage.setItem(LANG_KEY, state.lang);
+    applyLang(); renderNow(); renderMonths(); render();
+  });
+}
+
+/* ---- hero ---- */
+function renderNow(){
+  const T = t();
+  $("nowMonthJa").textContent = T.monthsLong[NOW];
+  $("nowMonthEn").textContent = state.lang === "ja" ? UI.en.monthsLong[NOW] : "";
+  const peak = ITEMS.filter(it => it.m[NOW] === "2");
+  $("nowCount").textContent = `${T.inSeason} ${T.count(peak.length)}`;
+  const box = $("nowChips");
+  box.innerHTML = "";
+  peak.forEach(it => {
+    const b = document.createElement("button");
+    b.className = "chip " + it.cat;
+    const sub = subNameOf(it);
+    b.innerHTML = `${esc(nameOf(it))}${sub ? `<span class="en">${esc(sub)}</span>` : ""}`;
+    b.addEventListener("click", () => { const v = nameOf(it); $("q").value = v; state.q = v; render(); });
+    box.appendChild(b);
+  });
+}
+
+/* ---- month header ---- */
+function renderMonths(){
+  const T = t();
+  const row = $("monthRow");
+  row.innerHTML = "";
+  T.months.forEach((label, i) => {
+    const b = document.createElement("button");
+    b.textContent = window.innerWidth < 640 ? T.monthsShort[i] : label;
+    b.title = T.monthsLong[i];
+    if (i === NOW) b.classList.add("iscurrent");
+    b.addEventListener("click", () => {
+      state.month = (state.month === i) ? null : i;
+      render();
+    });
+    row.appendChild(b);
+  });
+}
+
+/* ---- list / tiles ---- */
+function esc(s){ return String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+function photoHTML(it, cls){
+  return it.img
+    ? `<div class="${cls}"><img src="${esc(it.img)}" alt="${esc(nameOf(it))}" loading="lazy"
+         onerror="this.parentNode.className='${cls} none';this.parentNode.textContent='NO PHOTO'"></div>`
+    : `<div class="${cls} none">NO PHOTO</div>`;
+}
+function bandHTML(it, mark){
+  const T = t();
+  return [...it.m].map((v,i) =>
+    `<div class="cell lv${v}${(mark && i===NOW)?" now":""}" title="${T.monthsLong[i]}"></div>`).join("");
+}
+
+function render(){
+  const T = t();
+  const q = state.q.trim().toLowerCase();
+  const rows = ITEMS.filter(it => {
+    if (state.cat !== "all" && it.cat !== state.cat) return false;
+    if (state.month !== null && it.m[state.month] !== "2") return false;
+    if (!q) return true;
+    // 検索はすべての言語の名前とよみがなを対象にします
+    return LANGS.some(l => (it[l.code] || "").toLowerCase().includes(q))
+        || (it.kana || "").includes(q)
+        || it.ja.toLowerCase().includes(q)
+        || it.en.toLowerCase().includes(q);
+  });
+  visible = rows;
+
+  const mf = $("monthFilter");
+  if (state.month === null) { mf.hidden = true; }
+  else {
+    mf.hidden = false;
+    $("monthFilterLabel").textContent = T.monthOf(T.months[state.month]);
+  }
+  $("monthHead").hidden = (state.view !== "list");
+
+  const list = $("list");
+  list.innerHTML = "";
+  if (!rows.length){
+    list.innerHTML = `<p class="empty">${esc(T.empty)}</p>`;
+    return;
+  }
+
+  if (state.view === "tiles"){
+    const grid = document.createElement("div");
+    grid.className = "tiles";
+    rows.forEach(it => {
+      const t2 = document.createElement("button");
+      t2.className = "tile " + it.cat;
+      t2.dataset.i = ITEMS.indexOf(it);
+      const sub = subNameOf(it);
+      t2.innerHTML =
+        `${photoHTML(it,"ph")}
+         <div class="meta">
+           <span class="ja">${esc(nameOf(it))}</span>
+           <span class="en">${esc(sub)}</span>
+           <div class="band">${bandHTML(it,false)}</div>
+         </div>`;
+      grid.appendChild(t2);
+    });
+    list.appendChild(grid);
+    return;
+  }
+
+  const frag = document.createDocumentFragment();
+  rows.forEach(it => {
+    const r = document.createElement("div");
+    r.className = "row " + it.cat;
+    r.dataset.i = ITEMS.indexOf(it);
+    r.tabIndex = 0;
+    r.setAttribute("role","button");
+    r.innerHTML =
+      `${photoHTML(it,"thumb")}
+       <div class="name"><span class="ja">${esc(nameOf(it))}</span><span class="en">${esc(subNameOf(it))}</span></div>
+       <div class="band">${bandHTML(it,true)}</div>`;
+    frag.appendChild(r);
+  });
+  list.appendChild(frag);
+}
+
+/* ---- detail ---- */
+/* 詳細（調理法・選び方・保存・産地・豆知識）
+   いずれも登録がなければ、その欄ごと表示されません。
+   多言語対応：cook_en / pick_en のように「_言語コード」を付けた項目があればそちらが使われます。 */
+function pickField(it, base){
+  if (state.lang !== "ja"){
+    const v = it[`${base}_${state.lang}`];
+    if (v) return v;
+    if (state.lang !== "en" && it[`${base}_en`]) return it[`${base}_en`];
+  }
+  return it[base] || "";
+}
+function cooksOf(it){
+  const key = state.lang === "ja" ? "cooks" : `cooks_${state.lang}`;
+  const list = it[key] || (state.lang !== "en" ? it.cooks_en : null) || it.cooks;
+  return Array.isArray(list) ? list : [];
+}
+function detailHTML(it){
+  const T = t();
+  const out = [];
+
+  const cooks = cooksOf(it);
+  if (cooks.length){
+    const items = cooks.map(c => {
+      const ph = c.img
+        ? `<div class="cook-ph"><img src="${esc(c.img)}" alt="${esc(c.name)}" loading="lazy"
+             onerror="this.parentNode.className='cook-ph none';this.parentNode.textContent='NO PHOTO'"></div>`
+        : `<div class="cook-ph none">NO PHOTO</div>`;
+      return `<div class="cook">${ph}<div class="cook-txt">
+        <span class="nm">${esc(c.name)}</span>
+        ${c.desc ? `<span class="ds">${esc(c.desc)}</span>` : ""}
+      </div></div>`;
+    }).join("");
+    out.push(`<section class="sect"><h3>${T.secCook}</h3><div class="cooks">${items}</div></section>`);
+  }
+
+  const pick = pickField(it, "pick");
+  const keep = pickField(it, "keep");
+  if (pick || keep){
+    const rows = [];
+    if (pick) rows.push(`<div class="note-item"><span class="lb">${T.secPick}</span><span class="tx">${esc(pick)}</span></div>`);
+    if (keep) rows.push(`<div class="note-item"><span class="lb">${T.secKeep}</span><span class="tx">${esc(keep)}</span></div>`);
+    out.push(`<section class="sect"><div class="notes">${rows.join("")}</div></section>`);
+  }
+
+  const origins = it.origins || [];
+  if (origins.length){
+    out.push(`<section class="sect"><h3>${T.secOrigin}</h3><div class="origins">`
+      + origins.map(o => `<span class="origin">${esc(o)}</span>`).join("") + `</div></section>`);
+  }
+
+  const trivia = pickField(it, "trivia");
+  if (trivia){
+    out.push(`<section class="sect"><h3>${T.secTrivia}</h3><p class="trivia">${esc(trivia)}</p></section>`);
+  }
+  return out.join("");
+}
+
+function openDetail(i){
+  const it = ITEMS[i];
+  if (!it) return;
+  const T = t();
+  $("modalBox").className = "modal-box " + it.cat;
+  $("mPhotoWrap").innerHTML = photoHTML(it,"modal-photo");
+  $("mTitle").textContent = nameOf(it);
+  $("mEn").textContent = subNameOf(it);
+  const peak = [...it.m].map((v,n) => v === "2" ? T.months[n] : null).filter(Boolean);
+  $("mPeak").textContent = peak.length ? T.peakLabel(peak) : T.noPeak;
+  $("mMonths").innerHTML = bandHTML(it,true);
+  $("mLabels").innerHTML = T.monthsShort.map(m => `<div>${m}</div>`).join("");
+  $("mDetail").innerHTML = detailHTML(it);
+  $("modal").hidden = false;
+  $("mClose").focus();
+}
+function closeDetail(){ $("modal").hidden = true; }
+
+/* ---- 印刷・PDF ----
+   いま表示している品目を、別ウィンドウで印刷用に組み直します。
+   印刷ダイアログで「PDFに保存」を選べば PDF になります。 */
+function exportPdf(){
+  const T = t();
+  if (!visible.length) return;
+
+  const cond = [];
+  if (state.cat !== "all") cond.push(`${T.printCat}：${T[state.cat]}`);
+  if (state.month !== null) cond.push(`${T.printMonth}：${T.months[state.month]}`);
+  if (state.q.trim()) cond.push(`${T.printSearch}：${state.q.trim()}`);
+  const condText = cond.length ? cond.join("　/　") : T.printAll;
+
+  const d = new Date().toLocaleDateString(state.lang === "ja" ? "ja-JP" : "en-GB",
+    {year:"numeric", month:"long", day:"numeric"});
+
+  const rows = visible.map(it => {
+    const sub = subNameOf(it);
+    const cells = [...it.m].map(v =>
+      `<td class="m lv${v}">${v === "2" ? "■" : (v === "1" ? "□" : "")}</td>`).join("");
+    return `<tr class="${it.cat}">
+      <td class="nm"><b>${esc(nameOf(it))}</b>${sub ? `<span>${esc(sub)}</span>` : ""}</td>
+      ${cells}</tr>`;
+  }).join("");
+
+  const head = T.months.map(m => `<th>${esc(m)}</th>`).join("");
+
+  const w = window.open("", "_blank");
+  if (!w){ alert(state.lang === "ja"
+    ? "印刷用の画面を開けませんでした。ブラウザのポップアップ設定をご確認ください。"
+    : "Could not open the print view. Please allow pop-ups for this site."); return; }
+
+  w.document.write(`<!DOCTYPE html><html lang="${state.lang}"><head><meta charset="utf-8">
+<title>${esc(T.printTitle)}</title>
+<style>
+  @page{size:A4 portrait;margin:14mm 12mm}
+  *{box-sizing:border-box}
+  body{margin:0;color:#283D48;font-size:9.5pt;line-height:1.5;
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Meiryo",sans-serif}
+  header{border-bottom:2px solid #283D48;padding-bottom:7px;margin-bottom:4px}
+  h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+    font-size:16pt;font-weight:600;margin:0;letter-spacing:.04em}
+  .sub{font-size:8pt;color:#5F7278;margin-top:2px}
+  .cond{display:flex;justify-content:space-between;gap:12px;font-size:8pt;color:#5F7278;
+    padding:5px 0 9px;flex-wrap:wrap}
+  table{border-collapse:collapse;width:100%}
+  thead{display:table-header-group}
+  th,td{border:.5pt solid #C2CCC9;padding:2.6pt 3pt}
+  th{background:#EDF0EF;font-size:7.5pt;font-weight:600;color:#5F7278;text-align:center}
+  th:first-child{text-align:left;width:31%}
+  td.nm b{font-weight:600;font-size:9.5pt}
+  td.nm span{display:block;font-size:7pt;color:#5F7278;line-height:1.25}
+  td.m{text-align:center;width:5.75%;font-size:7pt;line-height:1}
+  tr.sea td.m.lv2{background:#2C5871;color:#2C5871}
+  tr.sea td.m.lv1{background:#C8D8E1;color:#C8D8E1}
+  tr.land td.m.lv2{background:#556B33;color:#556B33}
+  tr.land td.m.lv1{background:#D9E1CB;color:#D9E1CB}
+  tr.fruit td.m.lv2{background:#B0543E;color:#B0543E}
+  tr.fruit td.m.lv1{background:#EFD8CF;color:#EFD8CF}
+  tr{break-inside:avoid}
+  footer{margin-top:9px;padding-top:6px;border-top:.5pt solid #DCE2E0;font-size:7.5pt;color:#5F7278}
+</style></head><body>
+<header>
+  <h1>${esc(T.printTitle)}</h1>
+  <div class="sub">${esc(T.printSub)}</div>
+</header>
+<div class="cond">
+  <span>${esc(T.printFilter)}：${esc(condText)}　/　${esc(T.printCount(visible.length))}</span>
+  <span>${esc(T.printLegend)}　/　${esc(T.printDate(d))}</span>
+</div>
+<table><thead><tr><th>${esc(T.item)}</th>${head}</tr></thead><tbody>${rows}</tbody></table>
+<footer>${esc(T.printNote)}<br>${esc(T.lblOperator)}：KAI　/　&copy; 2026 ${esc(T.printTitle)}</footer>
+</body></html>`);
+  w.document.close();
+  w.focus();
+  setTimeout(() => w.print(), 400);
+}
+
+/* ---- events ---- */
+$("tabs").addEventListener("click", e => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  state.cat = btn.dataset.cat;
+  [...$("tabs").children].forEach(b => b.setAttribute("aria-pressed", b === btn));
+  render();
+});
+$("q").addEventListener("input", e => { state.q = e.target.value; render(); });
+$("clearMonth").addEventListener("click", () => { state.month = null; render(); });
+
+$("viewTabs").addEventListener("click", e => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  state.view = btn.dataset.view;
+  [...$("viewTabs").children].forEach(b => b.setAttribute("aria-pressed", b === btn));
+  render();
+});
+
+$("list").addEventListener("click", e => {
+  const el = e.target.closest("[data-i]");
+  if (el) openDetail(Number(el.dataset.i));
+});
+$("list").addEventListener("keydown", e => {
+  if (e.key !== "Enter" && e.key !== " ") return;
+  const el = e.target.closest(".row[data-i]");
+  if (el){ e.preventDefault(); openDetail(Number(el.dataset.i)); }
+});
+$("mClose").addEventListener("click", closeDetail);
+$("modal").addEventListener("click", e => { if (e.target === $("modal")) closeDetail(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("modal").hidden) closeDetail(); });
+
+$("expPdf").addEventListener("click", exportPdf);
+
+window.addEventListener("resize", renderMonths);
+
+buildLangSelect();
+applyLang();
+renderNow();
+renderMonths();
+render();
+</script>
+</body>
+</html>

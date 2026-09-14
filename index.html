@@ -422,7 +422,7 @@ footer p{margin:0 0 6px}
    Add img:"images/filename.jpg" to show a photo. Missing photos fall back to "NO PHOTO". */
 const ITEMS = [
 /* --- 魚介 seafood --- */
-{ja:"マアジ",kana:"まあじ",en:"Japanese horse mackerel",cat:"sea",m:"111122211111",img:"images/maaji.jpg",
+{ja:"マアジ",kana:"まあじ",en:"Japanese horse mackerel",cat:"sea",m:"111122211111",cooks_en:[{"name": "Sashimi / namero", "desc": "Best raw when very fresh. Namero is a chopped preparation from the Boso region.", "img": "images/cook/maaji-5.jpg"}, {"name": "Salt-grilled", "desc": "Salt it, rest briefly, pat dry, then grill so the flesh firms up.", "img": "images/cook/maaji-6.jpg"}, {"name": "Fried / nanban-zuke", "desc": "Butterfly and deep-fry. Nanban-zuke keeps well and is good cold.", "img": "images/cook/maaji-7.jpg"}, {"name": "Dried overnight", "desc": "Split, brine, then dry overnight to concentrate the flavour.", "img": "images/cook/maaji-8.jpg"}],pick_en:"Look for clear, domed eyes and bright red gills. The body should feel firm, with well-formed scutes near the tail.",keep_en:"Best eaten the day you buy it. To keep, remove gills and guts, pat dry, wrap and chill. Cook rather than eat raw from the next day.",trivia_en:"Available year-round, but richest just before spawning in early summer. Fish that stay in one bay, called sedzuki-aji, are yellower and prized.",img:"images/maaji.jpg",
  cooks:[
    {"name": "刺身・なめろう", "desc": "鮮度が良ければ生が一番。薬味と叩いたなめろうは房総の郷土料理。", "img": "images/cook/maaji-1.jpg"},
    {"name": "塩焼き", "desc": "振り塩をして少し置き、水気を拭いてから焼くと身が締まる。", "img": "images/cook/maaji-2.jpg"},
@@ -431,17 +431,8 @@ const ITEMS = [
  ],
  pick:"目が澄んで盛り上がり、えらが鮮やかな赤いもの。体に張りがあり、ぜんご（尾の近くのトゲ状のうろこ）がしっかりしているものが良い。",
  keep:"買った日のうちが最良。保存するならわたとえらを取り、水気を拭いてラップで包み冷蔵庫のチルド室へ。翌日以降は加熱調理に回す。",
- origins:["長崎","島根","愛媛","千葉"],
  trivia:"通年出回るが、産卵前の初夏に脂がのる。回遊せず一定の海域に居着いた個体は「瀬付きアジ」と呼ばれ、黄色みが強く別格に扱われる。",
- cooks_en:[
-   {"name": "Sashimi / namero", "desc": "Best raw when very fresh. Namero is a chopped preparation from the Boso region.", "img": "images/cook/maaji-5.jpg"},
-   {"name": "Salt-grilled", "desc": "Salt it, rest briefly, pat dry, then grill so the flesh firms up.", "img": "images/cook/maaji-6.jpg"},
-   {"name": "Fried / nanban-zuke", "desc": "Butterfly and deep-fry. Nanban-zuke keeps well and is good cold.", "img": "images/cook/maaji-7.jpg"},
-   {"name": "Dried overnight", "desc": "Split, brine, then dry overnight to concentrate the flavour.", "img": "images/cook/maaji-8.jpg"}
- ],
- pick_en:"Look for clear, domed eyes and bright red gills. The body should feel firm, with well-formed scutes near the tail.",
- keep_en:"Best eaten the day you buy it. To keep, remove gills and guts, pat dry, wrap and chill. Cook rather than eat raw from the next day.",
- trivia_en:"Available year-round, but richest just before spawning in early summer. Fish that stay in one bay, called sedzuki-aji, are yellower and prized."},
+ origins:["長崎", "島根", "愛媛", "千葉"]},
 {ja:"マイワシ",kana:"まいわし",en:"Japanese sardine",cat:"sea",m:"000012221100",img:"images/maiwashi.jpg",
  cooks:[
    {"name": "刺身", "desc": "鮮度が良ければ手開きで。生姜醤油が合う。", "img": "images/cook/maiwashi-1.jpg"},
@@ -461,8 +452,8 @@ const ITEMS = [
  ],
  pick:"口先がわずかに黄色く、背が青黒く光るもの。腹に張りがあり、持って頭が下がらないものが新しい。",
  keep:"傷みが早いので当日中に。冷凍するなら内臓を取ってから。",
- origins:["北海道","岩手","宮城"],
- trivia:"かつては大衆魚の代表だったが、近年は不漁が続き価格が上がっている。回遊経路の変化と海水温の上昇が要因とされる。"},
+ trivia:"かつては大衆魚の代表だったが、近年は不漁が続き価格が上がっている。回遊経路の変化と海水温の上昇が要因とされる。",
+ origins:["北海道", "岩手", "宮城"]},
 {ja:"マサバ",kana:"まさば",en:"Chub mackerel",cat:"sea",m:"210000001222",img:"images/masaba.jpg",
  cooks:[
    {"name": "しめさば", "desc": "塩と酢で締める。生食する場合は一度冷凍するのが安全。", "img": "images/cook/masaba-1.jpg"},
@@ -903,7 +894,6 @@ const ITEMS = [
  keep:"湿気を嫌う。密閉容器に乾燥剤と一緒に。開封後は早めに。",
  trivia:"佐賀・有明海が最大の産地。冬の摘み始めのものは「一番摘み」と呼ばれ、柔らかく香りが良い。",
  origins:["佐賀", "兵庫", "福岡", "熊本"]},
-
 /* --- 野菜 vegetables --- */
 {ja:"タケノコ",kana:"たけのこ",en:"Bamboo shoot",cat:"land",m:"002220000000",img:"images/takenoko.jpg",
  cooks:[
@@ -913,8 +903,8 @@ const ITEMS = [
  ],
  pick:"皮が薄茶で湿り気があり、根元のイボが少なく低いもの。穂先が緑がかると育ちすぎでえぐみが強い。",
  keep:"掘った瞬間からえぐみが増すので、その日のうちに米ぬかと唐辛子で下茹でを。茹でた後は水に浸して冷蔵で4〜5日。",
- origins:["京都","福岡","鹿児島"],
- trivia:"京都・乙訓の白子たけのこは、藁を敷いて土を盛る「土入れ」で育てられ、白く柔らかい。"},
+ trivia:"京都・乙訓の白子たけのこは、藁を敷いて土を盛る「土入れ」で育てられ、白く柔らかい。",
+ origins:["京都", "福岡", "鹿児島"]},
 {ja:"アスパラガス",kana:"あすぱらがす",en:"Asparagus",cat:"land",m:"001222100000",img:"images/asuparagas.jpg",
  cooks:[
    {"name": "塩茹で", "desc": "太いものは根元の皮を剥いてから。マヨネーズや卵と。", "img": "images/cook/asuparagas-1.jpg"},
@@ -1300,7 +1290,17 @@ const ITEMS = [
  keep:"洗わない。軸を上にして紙袋やペーパーに包んで冷蔵。冷凍すると旨みが増す。",
  trivia:"原木栽培と菌床栽培がある。干すとビタミンDと旨み成分が増える。",
  origins:["徳島", "北海道", "岩手", "群馬"]},
-
+{ja:"ギンナン",kana:"ぎんなん",en:"Ginkgo nut",cat:"land",m:"000000001221",img:"images/ginnan.jpg",
+ cooks:[
+   {"name": "炒り銀杏", "desc": "封筒に入れて電子レンジでも作れる。", "img": "images/cook/ginnan-1.jpg"},
+   {"name": "茶碗蒸し", "desc": "具として。", "img": "images/cook/ginnan-2.jpg"},
+   {"name": "素揚げ", "desc": "塩を振って。", "img": "images/cook/ginnan-3.jpg"},
+   {"name": "炊き込みご飯", "desc": "彩りに。", "img": "images/cook/ginnan-4.jpg"}
+ ],
+ pick:"殻が白くきれいで、振っても音がしないもの。持って重みがあるもの。",
+ keep:"殻付きのまま冷蔵。乾燥すると実が縮む。むいたものは冷凍も可能。",
+ trivia:"食べ過ぎると中毒を起こすことがあり、特に子どもは注意が必要とされる。大人でも一度に多量に食べるのは避ける。",
+ origins:["愛知", "福岡", "大分", "新潟"]},
 /* --- 果物 fruit --- */
 {ja:"イチゴ",kana:"いちご",en:"Strawberry",cat:"fruit",m:"222210000001",img:"images/ichigo.jpg",
  cooks:[
@@ -1488,18 +1488,7 @@ const ITEMS = [
  pick:"おしりの部分が少し割れかけているもの。全体が色づき、軸がしおれていないもの。",
  keep:"傷みが早い。冷蔵で2〜3日。追熟しないので購入時が食べ頃。",
  trivia:"花を咲かせずに実を付けるように見えることから「無花果」と書く。実は内側に花が咲いている。",
- origins:["愛知", "和歌山", "兵庫", "福岡"]},
-{ja:"ギンナン",kana:"ぎんなん",en:"Ginkgo nut",cat:"land",m:"000000001221",img:"images/ginnan.jpg",
- cooks:[
-   {"name": "炒り銀杏", "desc": "封筒に入れて電子レンジでも作れる。", "img": "images/cook/ginnan-1.jpg"},
-   {"name": "茶碗蒸し", "desc": "具として。", "img": "images/cook/ginnan-2.jpg"},
-   {"name": "素揚げ", "desc": "塩を振って。", "img": "images/cook/ginnan-3.jpg"},
-   {"name": "炊き込みご飯", "desc": "彩りに。", "img": "images/cook/ginnan-4.jpg"}
- ],
- pick:"殻が白くきれいで、振っても音がしないもの。持って重みがあるもの。",
- keep:"殻付きのまま冷蔵。乾燥すると実が縮む。むいたものは冷凍も可能。",
- trivia:"食べ過ぎると中毒を起こすことがあり、特に子どもは注意が必要とされる。大人でも一度に多量に食べるのは避ける。",
- origins:["愛知", "福岡", "大分", "新潟"]}
+ origins:["愛知", "和歌山", "兵庫", "福岡"]}
 ];
 
 /* ===================================================================

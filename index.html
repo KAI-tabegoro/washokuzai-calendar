@@ -32,8 +32,8 @@
   --sea:#2C5871;      --sea-soft:#C8D8E1;
   --land:#556B33;     --land-soft:#D9E1CB;
   --fruit:#B0543E;    --fruit-soft:#EFD8CF;
-  --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Noto Sans Thai","Leelawadee UI","Thonburi","Meiryo",system-ui,sans-serif;
-  --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif Thai","Thonburi",serif;
+  --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Noto Sans Thai","Leelawadee UI","Thonburi","PingFang TC","PingFang SC","Microsoft JhengHei","Microsoft YaHei","Noto Sans TC","Noto Sans SC","Meiryo",system-ui,sans-serif;
+  --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif Thai","Thonburi","Noto Serif TC",serif;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -418,7 +418,9 @@ footer p{margin:0 0 6px}
 <script>const LANGS = [
   {code:"ja", label:"日本語"},
   {code:"en", label:"English"},
-  {code:"th", label:"ไทย"}
+  {code:"th", label:"ไทย"},
+  {code:"zh", label:"繁體中文"},
+  {code:"zh-CN", label:"简体中文"}
 ];
 
 const UI = {
@@ -522,6 +524,98 @@ const UI = {
     printDate:d => `ข้อมูล ณ ${d}`,
     months:["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."],
     monthsLong:["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"],
+    monthsShort:["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+  },
+  zh:{
+    title:"和食材月曆",
+    sub:"把日本的時令送向世界 — 一眼看懂海鮮與蔬果的最佳賞味期",
+    all:"全部",
+    sea:"海鮮",
+    land:"蔬菜",
+    fruit:"水果",
+    search:"搜尋食材",
+    clear:"清除",
+    view_list:"清單",
+    view_tiles:"圖片",
+    print:"列印 / PDF",
+    item:"食材",
+    peak:"當令",
+    avail:"有供應",
+    inSeason:"現在當令",
+    noPeak:"尚未登記當令時期",
+    close:"關閉",
+    empty:"找不到符合的食材，請更換搜尋字詞或篩選條件。",
+    note1:"此為日本國內的一般時期參考。會因產地、漁法及當年氣候而提前或延後。我們力求正確，但不保證內容無誤，亦不對使用本資訊所生之損害負責。",
+    note2:"",
+    lblOperator:"營運",
+    lblContact:"聯絡",
+    secCook:"料理方式",
+    secPick:"挑選方式",
+    secKeep:"保存方式",
+    secOrigin:"主要產地",
+    secTrivia:"小知識",
+    printTitle:"和食材月曆",
+    printSub:"把日本的時令送向世界",
+    printFilter:"篩選條件",
+    printAll:"全部食材",
+    printCat:"分類",
+    printMonth:"月份",
+    printSearch:"搜尋",
+    printLegend:"■ 當令　□ 有供應",
+    printNote:"此為日本國內的一般時期參考。會因產地、漁法及當年氣候而提前或延後。",
+    count:n => `${n} 項`,
+    monthOf:m => `${m}當令的食材`,
+    peakLabel:list => `當令　${list.join("、")}`,
+    printCount:n => `${n} 項`,
+    printDate:d => `資料為 ${d} 時點`,
+    months:["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+    monthsLong:["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+    monthsShort:["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+  },
+  "zh-CN":{
+    title:"和食材日历",
+    sub:"把日本的时令送向世界 — 一眼看懂海鲜与蔬果的最佳赏味期",
+    all:"全部",
+    sea:"海鲜",
+    land:"蔬菜",
+    fruit:"水果",
+    search:"搜索食材",
+    clear:"清除",
+    view_list:"列表",
+    view_tiles:"图片",
+    print:"打印 / PDF",
+    item:"食材",
+    peak:"应季",
+    avail:"有供应",
+    inSeason:"现在应季",
+    noPeak:"尚未登记应季时期",
+    close:"关闭",
+    empty:"找不到符合的食材，请更换搜索词或筛选条件。",
+    note1:"此为日本国内的一般时期参考。会因产地、捕捞方式及当年气候而提前或推迟。我们力求正确，但不保证内容无误，亦不对使用本信息所生之损害负责。",
+    note2:"",
+    lblOperator:"运营",
+    lblContact:"联系",
+    secCook:"烹饪方法",
+    secPick:"挑选方法",
+    secKeep:"保存方法",
+    secOrigin:"主要产地",
+    secTrivia:"小知识",
+    printTitle:"和食材日历",
+    printSub:"把日本的时令送向世界",
+    printFilter:"筛选条件",
+    printAll:"全部食材",
+    printCat:"分类",
+    printMonth:"月份",
+    printSearch:"搜索",
+    printLegend:"■ 应季　□ 有供应",
+    printNote:"此为日本国内的一般时期参考。会因产地、捕捞方式及当年气候而提前或推迟。",
+    count:n => `${n} 项`,
+    monthOf:m => `${m}应季的食材`,
+    peakLabel:list => `应季　${list.join("、")}`,
+    printCount:n => `${n} 项`,
+    printDate:d => `数据为 ${d} 时点`,
+    months:["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+    monthsLong:["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
     monthsShort:["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
   }
 };

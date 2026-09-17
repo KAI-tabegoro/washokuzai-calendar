@@ -65,6 +65,54 @@ body{
 }
 .langbar select:focus{outline:2px solid var(--ink);outline-offset:1px}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CONSENT-CSS-START */
+.consent[hidden]{display:none}
+.consent{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;
+  background:var(--paper);border-top:1px solid var(--rule-strong);
+  box-shadow:0 -6px 24px rgba(20,28,33,.07);
+}
+.consent-in{
+  max-width:1080px;margin:0 auto;padding:16px 22px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.consent-t{margin:0;flex:1;min-width:260px;font-size:12.5px;line-height:1.75;color:var(--ink-soft)}
+.consent-b{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.consent-link{font-size:12.5px;color:var(--ink);text-decoration:none;
+  border-bottom:1px solid var(--rule-strong);padding-bottom:1px}
+.consent-link:hover{border-color:var(--ink)}
+.cbtn{
+  font-family:inherit;font-size:12.5px;padding:8px 18px;cursor:pointer;white-space:nowrap;
+  background:transparent;color:var(--ink);border:1px solid var(--rule-strong);border-radius:2px;
+}
+.cbtn:hover{border-color:var(--ink)}
+.cbtn.main{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.privacy-link{margin:10px 0 0;font-size:12.5px}
+.privacy-link a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+.privacy-link a:hover{color:var(--ink);border-color:var(--ink)}
+@media (max-width:600px){
+  .consent-in{padding:14px 16px;gap:12px}
+  .consent-b{width:100%}
+  .cbtn{flex:1;text-align:center}
+}
+@media print{.consent{display:none}}
+/* CONSENT-CSS-END */
+
 /* 検索エンジン向けの本文。読み上げと表示から外す。 */
 .seo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;padding:0;margin:-1px}
 
@@ -431,6 +479,26 @@ footer p{margin:0 0 6px}
     This page requires JavaScript. Please enable it in your browser settings.
   </p>
 </noscript>
+
+<!-- CONSENT-START 同意バナー。選択はブラウザに保存され、次回からは出ません。 -->
+<div class="consent" id="consent" hidden role="dialog" aria-live="polite">
+  <div class="consent-in">
+    <p class="consent-t" id="consentText"></p>
+    <div class="consent-b">
+      <a class="consent-link" id="consentLink" href="privacy.html"></a>
+      <button class="cbtn" id="consentMin"></button>
+      <button class="cbtn main" id="consentOk"></button>
+    </div>
+  </div>
+</div>
+<!-- CONSENT-END -->
+
+
+
+
+
+
+
 
 <!-- SEO-START 検索エンジン向けの本文。画面には表示されません。
      内容は data/ と同じで、更新のたびに作り直しています。 -->
@@ -2379,6 +2447,7 @@ footer p{margin:0 0 6px}
     <dt id="lblOperator"></dt><dd>KAN</dd>
     <dt id="lblContact"></dt><dd><span id="mailSlot"></span></dd>
   </dl>
+  <p class="privacy-link"><a href="privacy.html" id="privacyLink"></a></p>
   <p class="copyright">&copy; 2026 和食材カレンダー / Washokuzai Calendar</p>
 </footer>
 
@@ -2713,6 +2782,62 @@ function subNameOf(it){
 }
 
 /* ---- 画面文言の反映 ---- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* CONSENT-JS-START
+   同意バナー。
+   言語の記憶は必須なので同意の対象外。分析と広告だけを尋ねる。
+   選択は consentChoice に保存し、次回からは表示しない。 */
+const CONSENT_KEY = "washokuzaiConsent";
+const CONSENT_TEXT = {"ja": {"text": "当サイトは、表示言語の記憶に必要な保存領域のほか、アクセス状況の把握と広告配信のために保存領域を使用することがあります。", "link": "プライバシーポリシー", "ok": "すべて同意", "min": "必須のみ", "settings": "設定"}, "en": {"text": "Besides the storage needed to remember your language, this site may use storage to understand how it is used and to serve advertising.", "link": "Privacy Policy", "ok": "Accept all", "min": "Essential only", "settings": "Settings"}, "th": {"text": "นอกจากพื้นที่จัดเก็บที่จำเป็นสำหรับจดจำภาษา เว็บไซต์นี้อาจใช้พื้นที่จัดเก็บเพื่อวิเคราะห์การใช้งานและแสดงโฆษณา", "link": "นโยบายความเป็นส่วนตัว", "ok": "ยอมรับทั้งหมด", "min": "เฉพาะที่จำเป็น", "settings": "ตั้งค่า"}, "zh": {"text": "除了記住語言所需的儲存空間外，本站可能使用儲存空間以了解使用情形並投放廣告。", "link": "隱私權政策", "ok": "全部接受", "min": "僅必要項目", "settings": "設定"}, "zh-CN": {"text": "除了记住语言所需的存储空间外，本站可能使用存储空间以了解使用情况并投放广告。", "link": "隐私权政策", "ok": "全部接受", "min": "仅必要项目", "settings": "设置"}};
+const PRIVACY_LABEL = {"ja": "プライバシーポリシー", "en": "Privacy Policy", "th": "นโยบายความเป็นส่วนตัว", "zh": "隱私權政策", "zh-CN": "隐私权政策"};
+
+function consentOf(){
+  try { return JSON.parse(localStorage.getItem(CONSENT_KEY) || "null"); }
+  catch(e){ return null; }
+}
+function setConsent(analytics){
+  const v = {analytics: analytics, ads: analytics, at: new Date().toISOString()};
+  try { localStorage.setItem(CONSENT_KEY, JSON.stringify(v)); } catch(e){}
+  $("consent").hidden = true;
+  applyConsent(v);
+}
+function applyConsent(v){
+  /* 分析や広告を入れるときは、ここで読み込む。
+     同意がない状態では何も読み込まない。 */
+  if (!v || !v.analytics) return;
+  // 例：Google Analytics を使う場合はここに追加する
+}
+function fillConsentText(){
+  const L = CONSENT_TEXT[state.lang] || CONSENT_TEXT.en;
+  $("consentText").textContent = L.text;
+  $("consentLink").textContent = L.link;
+  $("consentLink").href = "privacy.html?lang=" + state.lang;
+  $("consentMin").textContent = L.min;
+  $("consentOk").textContent = L.ok;
+  const pl = $("privacyLink");
+  if (pl){
+    pl.textContent = PRIVACY_LABEL[state.lang] || PRIVACY_LABEL.en;
+    pl.href = "privacy.html?lang=" + state.lang;
+  }
+}
+$("consentOk").addEventListener("click", () => setConsent(true));
+$("consentMin").addEventListener("click", () => setConsent(false));
+/* CONSENT-JS-END */
+
 function applyLang(){
   const T = t();
   document.documentElement.lang = state.lang;
@@ -2760,6 +2885,13 @@ function applyLang(){
   a.rel = "nofollow";
   document.getElementById("mailSlot").appendChild(a);
 })();
+
+function showConsent(){
+  const v = consentOf();
+  fillConsentText();
+  if (!v) $("consent").hidden = false;
+  else applyConsent(v);
+}
 
 function buildLangSelect(){
   const sel = $("lang");
@@ -3158,6 +3290,7 @@ async function boot(){
   renderNow();
   renderMonths();
   render();
+  showConsent();
 }
 
 /* 言語を切り替えたら、その言語のデータを読み直します */
@@ -3165,7 +3298,7 @@ async function switchLang(code){
   state.lang = code;
   localStorage.setItem(LANG_KEY, code);
   await loadData(code);
-  applyLang(); renderNow(); renderMonths(); render();
+  applyLang(); renderNow(); renderMonths(); render(); fillConsentText();
 }
 
 boot();

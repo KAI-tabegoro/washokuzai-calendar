@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー｜和食材カレンダー / Privacy Policy</title>
+<meta name="description" content="和食材カレンダーのプライバシーポリシー。Privacy policy of Washokuzai Calendar.">
+<link rel="canonical" href="https://washokuzai-calendar.vercel.app/privacy.html">
+<link rel="icon" href="favicon.png">
+<style>
+:root{
+  --paper:#F2F4F3;
+  --paper-2:#E9EDEB;
+  --gold:#B08D53;
+  --ink:#283D48;
+  --ink-soft:#5F7278;
+  --rule:#DCE2E0;
+  --rule-strong:#C2CCC9;
+  --now:#C8462F;
+  --sea:#2C5871;      --sea-soft:#C8D8E1;
+  --land:#556B33;     --land-soft:#D9E1CB;
+  --fruit:#B0543E;    --fruit-soft:#EFD8CF;
+  --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Noto Sans Thai","Leelawadee UI","Thonburi","PingFang TC","PingFang SC","Microsoft JhengHei","Microsoft YaHei","Noto Sans TC","Noto Sans SC","Meiryo",system-ui,sans-serif;
+  --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif Thai","Thonburi","Noto Serif TC",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--gothic);
+  font-size:15px;line-height:1.9;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:32px 22px 80px}
+header{border-bottom:1px solid var(--rule-strong);padding-bottom:18px;margin-bottom:26px}
+.home{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.home img{height:30px;display:block}
+.home span{font-family:var(--mincho);font-size:17px;font-weight:600}
+.ptabs{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0 26px}
+.ptab{font-family:inherit;font-size:13px;padding:7px 14px;cursor:pointer;
+  background:transparent;color:var(--ink-soft);border:1px solid var(--rule-strong);border-radius:2px}
+.ptab:hover{border-color:var(--ink)}
+.ptab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pbody{display:none}
+.pbody.on{display:block}
+h2{font-family:var(--mincho);font-size:24px;font-weight:600;margin:0 0 4px}
+h3{font-family:var(--mincho);font-size:16px;font-weight:600;margin:32px 0 8px;
+  padding-bottom:6px;border-bottom:1px solid var(--rule)}
+p{margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:1.3em}
+li{margin-bottom:5px}
+.upd{font-size:12.5px;color:var(--ink-soft);margin-bottom:26px}
+.mail{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:14px}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--rule);
+  font-size:12.5px;color:var(--ink-soft)}
+footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+html[lang="th"] body{line-height:2}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="home" href="./">
+      <img src="data:image/png;base64,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" alt="">
+      <span>和食材カレンダー</span>
+    </a>
+  </header>
+
+  <nav class="ptabs"><button class="ptab on" data-lang="ja">日本語</button>
+<button class="ptab" data-lang="en">English</button>
+<button class="ptab" data-lang="th">ไทย</button>
+<button class="ptab" data-lang="zh">繁體中文</button>
+<button class="ptab" data-lang="zh-CN">简体中文</button></nav>
+  <div class="pbody on" data-lang="ja" lang="ja">
+<h2>プライバシーポリシー</h2>
+<p class="upd">最終更新日：2026年9月16日</p>
+
+<h3>1. はじめに</h3>
+<p>和食材カレンダー（以下「当サイト」）は、日本の魚介・野菜・果物の旬を紹介する情報サイトです。運営者は KAN です。当サイトは、利用者のプライバシーを尊重し、個人情報の保護に努めます。</p>
+
+<h3>2. 収集する情報</h3>
+<p>当サイトは、利用者に氏名・住所・電話番号などの個人情報の入力を求めることはありません。</p>
+<p>ただし、以下の情報が自動的に記録される場合があります。</p>
+<ul>
+  <li>アクセス日時、閲覧したページ</li>
+  <li>ブラウザの種類と言語設定</li>
+  <li>IPアドレス（おおよその地域の推定に用いられます）</li>
+</ul>
+
+<h3>3. ブラウザへの保存（Cookie等）</h3>
+<p>当サイトは、次の目的でブラウザの保存領域を使用します。</p>
+<ul>
+  <li><strong>必須</strong>：選択した表示言語の記憶。これがないとサイトが正しく動作しません。</li>
+  <li><strong>分析</strong>：アクセス状況の把握。利用者の同意がある場合にのみ使用します。</li>
+  <li><strong>広告</strong>：広告の配信。将来的に導入する場合があり、利用者の同意がある場合にのみ使用します。</li>
+</ul>
+<p>分析および広告の利用は、画面下部のバナーで選択できます。設定はいつでも変更できます。</p>
+
+<h3>4. 第三者サービス</h3>
+<p>当サイトは、以下のサービスを利用する場合があります。これらはそれぞれのプライバシーポリシーに従って情報を取り扱います。</p>
+<ul>
+  <li>Google Analytics（アクセス解析）</li>
+  <li>Google AdSense（広告配信）</li>
+  <li>Vercel（サイトの配信基盤）</li>
+</ul>
+<p>Google による情報の取り扱いについては、Google のポリシーをご確認ください。</p>
+
+<h3>5. 利用者の権利</h3>
+<p>利用者は、自身に関する情報について、開示・訂正・削除を求めることができます。また、ブラウザの設定から Cookie を削除することもできます。</p>
+<p>欧州経済領域および英国の利用者は、GDPR および英国 GDPR に基づく権利を有します。</p>
+
+<h3>6. 免責事項</h3>
+<p>当サイトに掲載する旬の時期は、日本国内における一般的な目安です。産地・漁法・その年の気候により前後します。掲載内容の正確性には努めていますが、これを保証するものではなく、利用によって生じた損害について責任を負いません。</p>
+
+<h3>7. 写真について</h3>
+<p>当サイトに掲載している食材および料理の写真の一部は、生成AIによって作成されたものです。実物と細部が異なる場合があります。</p>
+
+<h3>8. 改定</h3>
+<p>本ポリシーは、必要に応じて改定することがあります。改定した場合は、このページに掲載します。</p>
+
+<h3>9. お問い合わせ</h3>
+<p>本ポリシーに関するお問い合わせは、<span class="mail"></span> までご連絡ください。</p>
+</div>
+<div class="pbody" data-lang="en" lang="en">
+<h2>Privacy Policy</h2>
+<p class="upd">Last updated: 16 September 2026</p>
+
+<h3>1. Introduction</h3>
+<p>Washokuzai Calendar (the Site) is an information site about the seasons of Japanese seafood, vegetables and fruit. It is operated by KAN. We respect the privacy of visitors and take care in handling personal data.</p>
+
+<h3>2. Information we collect</h3>
+<p>The Site does not ask visitors to enter personal data such as names, addresses or telephone numbers.</p>
+<p>The following may, however, be recorded automatically:</p>
+<ul>
+  <li>Date and time of access, and pages viewed</li>
+  <li>Browser type and language setting</li>
+  <li>IP address, used to estimate approximate location</li>
+</ul>
+
+<h3>3. Browser storage and cookies</h3>
+<p>The Site uses browser storage for the following purposes:</p>
+<ul>
+  <li><strong>Essential</strong>: remembering the display language you choose. The Site cannot work correctly without this.</li>
+  <li><strong>Analytics</strong>: understanding how the Site is used. Only with your consent.</li>
+  <li><strong>Advertising</strong>: serving advertisements. This may be introduced in future, and only with your consent.</li>
+</ul>
+<p>You can choose analytics and advertising through the banner at the foot of the page, and change your choice at any time.</p>
+
+<h3>4. Third-party services</h3>
+<p>The Site may use the following services, each of which handles data under its own privacy policy:</p>
+<ul>
+  <li>Google Analytics (usage analysis)</li>
+  <li>Google AdSense (advertising)</li>
+  <li>Vercel (hosting)</li>
+</ul>
+<p>For how Google handles data, please refer to Google's own policies.</p>
+
+<h3>5. Your rights</h3>
+<p>You may request access to, correction of, or deletion of information relating to you. You can also delete cookies from your browser settings.</p>
+<p>Visitors in the European Economic Area and the United Kingdom have rights under the GDPR and the UK GDPR.</p>
+
+<h3>6. Disclaimer</h3>
+<p>The seasons shown are general guidance for Japan. They shift with the growing or fishing area, the method used, and the weather of a given year. We aim for accuracy but do not guarantee it, and accept no liability for loss arising from use of the Site.</p>
+
+<h3>7. About the photographs</h3>
+<p>Some photographs of ingredients and dishes on the Site were produced with generative AI. Details may differ from the real thing.</p>
+
+<h3>8. Changes</h3>
+<p>This policy may be revised as necessary. Any revision will be published on this page.</p>
+
+<h3>9. Contact</h3>
+<p>For questions about this policy, please contact <span class="mail"></span>.</p>
+</div>
+<div class="pbody" data-lang="th" lang="th">
+<h2>นโยบายความเป็นส่วนตัว</h2>
+<p class="upd">ปรับปรุงล่าสุด: 16 กันยายน 2026</p>
+
+<h3>1. บทนำ</h3>
+<p>ปฏิทินวัตถุดิบญี่ปุ่น (ต่อไปนี้เรียกว่า เว็บไซต์นี้) เป็นเว็บไซต์ให้ข้อมูลเกี่ยวกับฤดูกาลของอาหารทะเล ผัก และผลไม้ของญี่ปุ่น ดำเนินการโดย KAN เราเคารพความเป็นส่วนตัวของผู้ใช้และดูแลข้อมูลส่วนบุคคลด้วยความระมัดระวัง</p>
+
+<h3>2. ข้อมูลที่เก็บรวบรวม</h3>
+<p>เว็บไซต์นี้ไม่ขอให้ผู้ใช้กรอกข้อมูลส่วนบุคคล เช่น ชื่อ ที่อยู่ หรือหมายเลขโทรศัพท์</p>
+<p>อย่างไรก็ตาม ข้อมูลต่อไปนี้อาจถูกบันทึกโดยอัตโนมัติ</p>
+<ul>
+  <li>วันเวลาที่เข้าชม และหน้าที่เปิดดู</li>
+  <li>ชนิดของเบราว์เซอร์และการตั้งค่าภาษา</li>
+  <li>หมายเลข IP ซึ่งใช้ประมาณพื้นที่โดยคร่าว</li>
+</ul>
+
+<h3>3. การจัดเก็บในเบราว์เซอร์และคุกกี้</h3>
+<p>เว็บไซต์นี้ใช้พื้นที่จัดเก็บของเบราว์เซอร์เพื่อวัตถุประสงค์ดังนี้</p>
+<ul>
+  <li><strong>จำเป็น</strong>: จดจำภาษาที่ท่านเลือก หากไม่มีส่วนนี้เว็บไซต์จะทำงานไม่ถูกต้อง</li>
+  <li><strong>การวิเคราะห์</strong>: เพื่อเข้าใจการใช้งานเว็บไซต์ ใช้เมื่อได้รับความยินยอมเท่านั้น</li>
+  <li><strong>โฆษณา</strong>: เพื่อแสดงโฆษณา อาจนำมาใช้ในอนาคตและเมื่อได้รับความยินยอมเท่านั้น</li>
+</ul>
+<p>ท่านเลือกการวิเคราะห์และโฆษณาได้จากแถบด้านล่างของหน้าจอ และเปลี่ยนแปลงได้ตลอดเวลา</p>
+
+<h3>4. บริการของบุคคลที่สาม</h3>
+<p>เว็บไซต์นี้อาจใช้บริการต่อไปนี้ ซึ่งแต่ละรายจัดการข้อมูลตามนโยบายของตนเอง</p>
+<ul>
+  <li>Google Analytics (การวิเคราะห์การเข้าชม)</li>
+  <li>Google AdSense (การแสดงโฆษณา)</li>
+  <li>Vercel (ระบบให้บริการเว็บไซต์)</li>
+</ul>
+
+<h3>5. สิทธิของผู้ใช้</h3>
+<p>ท่านสามารถขอเข้าถึง แก้ไข หรือลบข้อมูลที่เกี่ยวกับท่านได้ และสามารถลบคุกกี้จากการตั้งค่าเบราว์เซอร์ได้</p>
+
+<h3>6. ข้อจำกัดความรับผิด</h3>
+<p>ช่วงเวลาที่แสดงเป็นเกณฑ์ทั่วไปภายในประเทศญี่ปุ่น อาจเร็วหรือช้ากว่านี้ตามแหล่งผลิต วิธีจับ และสภาพอากาศของแต่ละปี เราพยายามให้ข้อมูลถูกต้องแต่ไม่รับประกัน และไม่รับผิดชอบต่อความเสียหายที่เกิดจากการใช้งาน</p>
+
+<h3>7. เกี่ยวกับภาพถ่าย</h3>
+<p>ภาพวัตถุดิบและอาหารบางส่วนบนเว็บไซต์นี้สร้างขึ้นด้วยปัญญาประดิษฐ์ รายละเอียดอาจต่างจากของจริง</p>
+
+<h3>8. การแก้ไข</h3>
+<p>นโยบายนี้อาจมีการแก้ไขตามความจำเป็น และจะประกาศไว้ในหน้านี้</p>
+
+<h3>9. ติดต่อ</h3>
+<p>หากมีคำถามเกี่ยวกับนโยบายนี้ กรุณาติดต่อ <span class="mail"></span></p>
+</div>
+<div class="pbody" data-lang="zh" lang="zh">
+<h2>隱私權政策</h2>
+<p class="upd">最後更新：2026年9月16日</p>
+
+<h3>1. 前言</h3>
+<p>和食材月曆（以下稱「本站」）是介紹日本海鮮、蔬菜與水果時令的資訊網站，由 KAN 營運。本站尊重使用者的隱私，並謹慎處理個人資料。</p>
+
+<h3>2. 收集的資訊</h3>
+<p>本站不會要求使用者輸入姓名、地址、電話號碼等個人資料。</p>
+<p>但以下資訊可能會被自動記錄：</p>
+<ul>
+  <li>造訪日期時間與瀏覽的頁面</li>
+  <li>瀏覽器種類與語言設定</li>
+  <li>IP 位址，用於推估大致地區</li>
+</ul>
+
+<h3>3. 瀏覽器儲存與 Cookie</h3>
+<p>本站基於下列目的使用瀏覽器的儲存空間：</p>
+<ul>
+  <li><strong>必要</strong>：記住您選擇的顯示語言。缺少此項本站將無法正常運作。</li>
+  <li><strong>分析</strong>：了解本站的使用情形。僅在取得您同意時使用。</li>
+  <li><strong>廣告</strong>：投放廣告。未來可能導入，且僅在取得您同意時使用。</li>
+</ul>
+<p>您可透過畫面下方的橫幅選擇分析與廣告，並隨時變更設定。</p>
+
+<h3>4. 第三方服務</h3>
+<p>本站可能使用下列服務，各服務依其own政策處理資料：</p>
+<ul>
+  <li>Google Analytics（流量分析）</li>
+  <li>Google AdSense（廣告投放）</li>
+  <li>Vercel（網站代管）</li>
+</ul>
+
+<h3>5. 使用者權利</h3>
+<p>您可要求查閱、更正或刪除與您相關的資訊，也可從瀏覽器設定刪除 Cookie。</p>
+
+<h3>6. 免責聲明</h3>
+<p>本站所載的時令為日本國內的一般參考，會因產地、漁法及當年氣候而提前或延後。我們力求正確但不予保證，亦不對使用本站所生之損害負責。</p>
+
+<h3>7. 關於照片</h3>
+<p>本站刊載的部分食材與料理照片由生成式 AI 製作，細節可能與實物有所不同。</p>
+
+<h3>8. 修訂</h3>
+<p>本政策得視需要修訂，修訂後將公布於本頁。</p>
+
+<h3>9. 聯絡方式</h3>
+<p>如對本政策有任何疑問，請聯絡 <span class="mail"></span>。</p>
+</div>
+<div class="pbody" data-lang="zh-CN" lang="zh-CN">
+<h2>隐私权政策</h2>
+<p class="upd">最后更新：2026年9月16日</p>
+
+<h3>1. 前言</h3>
+<p>和食材日历（以下称「本站」）是介绍日本海鲜、蔬菜与水果时令的信息网站，由 KAN 运营。本站尊重用户的隐私，并谨慎处理个人信息。</p>
+
+<h3>2. 收集的信息</h3>
+<p>本站不会要求用户输入姓名、地址、电话号码等个人信息。</p>
+<p>但以下信息可能会被自动记录：</p>
+<ul>
+  <li>访问日期时间与浏览的页面</li>
+  <li>浏览器种类与语言设置</li>
+  <li>IP 地址，用于推估大致地区</li>
+</ul>
+
+<h3>3. 浏览器存储与 Cookie</h3>
+<p>本站基于下列目的使用浏览器的存储空间：</p>
+<ul>
+  <li><strong>必要</strong>：记住您选择的显示语言。缺少此项本站将无法正常运作。</li>
+  <li><strong>分析</strong>：了解本站的使用情况。仅在取得您同意时使用。</li>
+  <li><strong>广告</strong>：投放广告。未来可能引入，且仅在取得您同意时使用。</li>
+</ul>
+<p>您可通过屏幕下方的横幅选择分析与广告，并随时更改设置。</p>
+
+<h3>4. 第三方服务</h3>
+<p>本站可能使用下列服务，各服务依其自身政策处理数据：</p>
+<ul>
+  <li>Google Analytics（流量分析）</li>
+  <li>Google AdSense（广告投放）</li>
+  <li>Vercel（网站托管）</li>
+</ul>
+
+<h3>5. 用户权利</h3>
+<p>您可要求查阅、更正或删除与您相关的信息，也可从浏览器设置删除 Cookie。</p>
+
+<h3>6. 免责声明</h3>
+<p>本站所载的时令为日本国内的一般参考，会因产地、捕捞方式及当年气候而提前或推迟。我们力求正确但不予保证，亦不对使用本站所生之损害负责。</p>
+
+<h3>7. 关于照片</h3>
+<p>本站刊载的部分食材与料理照片由生成式 AI 制作，细节可能与实物有所不同。</p>
+
+<h3>8. 修订</h3>
+<p>本政策可视需要修订，修订后将公布于本页。</p>
+
+<h3>9. 联系方式</h3>
+<p>如对本政策有任何疑问，请联系 <span class="mail"></span>。</p>
+</div>
+
+  <footer>
+    <p><a href="./">&larr; サイトへ戻る / Back to the site</a></p>
+    <p>&copy; 2026 和食材カレンダー / Washokuzai Calendar</p>
+  </footer>
+</div>
+
+<script>
+/* 言語の切り替え */
+document.querySelector(".ptabs").addEventListener("click", e => {
+  const b = e.target.closest(".ptab");
+  if (!b) return;
+  const L = b.dataset.lang;
+  document.querySelectorAll(".ptab").forEach(x => x.classList.toggle("on", x === b));
+  document.querySelectorAll(".pbody").forEach(x => x.classList.toggle("on", x.dataset.lang === L));
+  document.documentElement.lang = L;
+});
+
+/* 連絡先はまとめて組み立てる（そのまま書くと収集されやすいため） */
+const u="tabegoro.calendar", dm="gmail", tld="com";
+document.querySelectorAll(".mail").forEach(el => {
+  const a = document.createElement("a");
+  a.href = "mailto:" + u + "@" + dm + "." + tld;
+  a.textContent = u + "@" + dm + "." + tld;
+  a.style.color = "inherit";
+  el.appendChild(a);
+});
+
+/* 本体から ?lang= で来た場合はその言語を開く */
+const q = new URLSearchParams(location.search).get("lang");
+if (q) {
+  const b = document.querySelector(`.ptab[data-lang="${q}"]`);
+  if (b) b.click();
+}
+</script>
+</body>
+</html>

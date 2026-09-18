@@ -17,7 +17,7 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary">
-<meta name="google-site-verification" content="0-EU1FP8VpiusyDbRVx9FFmu8KAHBk1itm5g2Re8zPU">
+<meta name="google-site-verification" content="phOvQEba1dBEer9JZHMkZxn-IoFQRTeOpb0EMdtv4FY">
 <link rel="alternate" hreflang="ja" href="https://washokuzai-calendar.com/?lang=ja">
 <link rel="alternate" hreflang="en" href="https://washokuzai-calendar.com/?lang=en">
 <link rel="alternate" hreflang="th" href="https://washokuzai-calendar.com/?lang=th">
@@ -92,6 +92,8 @@ body{
 
 
 
+
+
 /* CONSENT-CSS-START */
 .consent[hidden]{display:none}
 .consent{
@@ -124,6 +126,9 @@ body{
 }
 @media print{.consent{display:none}}
 /* CONSENT-CSS-END */
+
+/* 検索エンジン向けの本文。読み上げと表示から外す。 */
+.seo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;padding:0;margin:-1px}
 
 /* 検索エンジン向けの本文。読み上げと表示から外す。 */
 .seo{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;padding:0;margin:-1px}
@@ -2842,6 +2847,8 @@ footer p{margin:0 0 6px}
 
 
 
+
+
 <footer>
   <p id="note1"></p>
   <p id="note2"></p>
@@ -3184,6 +3191,8 @@ function subNameOf(it){
 }
 
 /* ---- 画面文言の反映 ---- */
+
+
 
 
 

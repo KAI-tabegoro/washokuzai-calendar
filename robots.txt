@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://washokuzai-calendar.vercel.app/sitemap.xml
+Sitemap: https://washokuzai-calendar.com/sitemap.xml

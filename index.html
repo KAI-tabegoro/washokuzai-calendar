@@ -222,6 +222,11 @@ body{
 }
 .cbtn:hover{border-color:var(--ink)}
 .cbtn.main{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+/* BANNERLINK-CSS-START */
+.banner-link{margin:4px 0 0;font-size:12.5px}
+.banner-link a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
+.banner-link a:hover{color:var(--ink);border-color:var(--ink)}
+/* BANNERLINK-CSS-END */
 .privacy-link{margin:10px 0 0;font-size:12.5px}
 .privacy-link a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule)}
 .privacy-link a:hover{color:var(--ink);border-color:var(--ink)}
@@ -4248,6 +4253,7 @@ footer p{margin:0 0 6px}
 
 
 
+
 <!-- CONSENT-START 同意バナー。選択はブラウザに保存され、次回からは出ません。 -->
 <div class="consent" id="consent" hidden role="dialog" aria-live="polite">
   <div class="consent-in">
@@ -4299,6 +4305,7 @@ footer p{margin:0 0 6px}
     <dt id="lblContact"></dt><dd><span id="mailSlot"></span></dd>
   </dl>
   <p class="privacy-link"><a href="privacy.html" id="privacyLink"></a></p>
+  <p class="banner-link"><a href="banner.html" id="bannerLink"></a></p>
   <p class="copyright">&copy; 2026 和食材カレンダー / Washokuzai Calendar</p>
 </footer>
 
@@ -4696,6 +4703,7 @@ function fillConsentText(){
   $("consentMin").textContent = L.min;
   $("consentOk").textContent = L.ok;
   fillAddHome();
+  fillBannerLink();
   const pl = $("privacyLink");
   if (pl){
     pl.textContent = PRIVACY_LABEL[state.lang] || PRIVACY_LABEL.en;
@@ -4827,6 +4835,14 @@ function renderSeason(){
 
 
 
+
+
+
+
+
+
+
+
 /* ADDHOME-JS-START ホーム画面に追加のリンク */
 const ADDHOME_LABEL = {"ja": "ホーム画面に追加", "en": "Add to home screen", "th": "เพิ่มลงหน้าจอโฮม", "zh": "加入主畫面", "zh-CN": "添加到主屏幕"};
 
@@ -4837,6 +4853,18 @@ function fillAddHome(){
   a.href = "add-to-home.html?lang=" + state.lang;
 }
 /* ADDHOME-JS-END */
+
+
+/* BANNERLINK-JS-START バナー配布ページへのリンク */
+const BANNER_LABEL = {"ja": "バナー", "en": "Banners", "th": "แบนเนอร์", "zh": "橫幅", "zh-CN": "横幅"};
+
+function fillBannerLink(){
+  const a = $("bannerLink");
+  if (!a) return;
+  a.textContent = BANNER_LABEL[state.lang] || BANNER_LABEL.en;
+  a.href = "banner.html?lang=" + state.lang;
+}
+/* BANNERLINK-JS-END */
 
 function applyLang(){
   const T = t();

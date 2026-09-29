@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>バナー｜和食材カレンダー / Banners</title>
+<meta name="description" content="和食材カレンダーへのリンク用バナー。Banners for linking to Washokuzai Calendar.">
+<link rel="canonical" href="https://washokuzai-calendar.com/banner.html">
+<link rel="icon" href="favicon.png">
+<style>
+:root{
+  --paper:#F2F4F3;
+  --paper-2:#E9EDEB;
+  --gold:#B08D53;
+  --ink:#283D48;
+  --ink-soft:#5F7278;
+  --rule:#DCE2E0;
+  --rule-strong:#C2CCC9;
+  --now:#C8462F;
+  --sea:#2C5871;      --sea-soft:#C8D8E1;
+  --land:#556B33;     --land-soft:#D9E1CB;
+  --fruit:#B0543E;    --fruit-soft:#EFD8CF;
+  --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Noto Sans Thai","Leelawadee UI","Thonburi","PingFang TC","PingFang SC","Microsoft JhengHei","Microsoft YaHei","Noto Sans TC","Noto Sans SC","Meiryo",system-ui,sans-serif;
+  --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif Thai","Thonburi","Noto Serif TC",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--gothic);
+  font-size:15px;line-height:1.9;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:32px 22px 80px}
+header{border-bottom:1px solid var(--rule-strong);padding-bottom:18px;margin-bottom:26px}
+.home{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.home img{height:30px;display:block}
+.home span{font-family:var(--mincho);font-size:17px;font-weight:600}
+
+.ptabs{display:flex;gap:6px;margin:22px 0 26px}
+.ptab{font-family:inherit;font-size:13px;padding:7px 14px;cursor:pointer;
+  background:transparent;color:var(--ink-soft);border:1px solid var(--rule-strong);border-radius:2px}
+.ptab:hover{border-color:var(--ink)}
+.ptab.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.pbody{display:none} .pbody.on{display:block}
+
+h2{font-family:var(--mincho);font-size:24px;font-weight:600;margin:0 0 10px}
+h3{font-family:var(--mincho);font-size:17px;font-weight:600;margin:38px 0 16px;
+  padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.lead{color:var(--ink-soft);margin:0 0 10px}
+
+.size{margin:0 0 26px}
+.size h4{font-size:13px;font-weight:600;margin:0 0 10px;color:var(--ink)}
+.size h4 span{font-weight:400;color:var(--ink-soft);margin-left:10px;font-size:12px}
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.shot{border:1px solid var(--rule);border-radius:3px;padding:12px;background:#fff;
+  position:relative}
+.tone{font-size:11px;color:var(--ink-soft);margin-bottom:8px}
+.pic{background:var(--paper);padding:10px;border-radius:2px;text-align:center;
+  border:1px solid var(--rule)}
+.pic.ondark{background:#e9e5dc}
+.pic img{max-width:100%;height:auto;vertical-align:middle}
+.dl{position:absolute;top:10px;right:10px;width:22px;height:22px;line-height:20px;
+  text-align:center;border:1px solid var(--rule-strong);border-radius:2px;
+  color:var(--ink-soft);text-decoration:none;font-size:12px}
+.dl:hover{color:var(--ink);border-color:var(--ink)}
+.code{margin:10px 0 8px;padding:9px 10px;background:var(--paper);border:1px solid var(--rule);
+  border-radius:2px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;
+  line-height:1.6;white-space:pre-wrap;word-break:break-all;color:var(--ink-soft);
+  max-height:88px;overflow:auto}
+.copy{font-family:inherit;font-size:11.5px;padding:5px 12px;cursor:pointer;width:100%;
+  background:transparent;color:var(--ink-soft);border:1px solid var(--rule-strong);border-radius:2px}
+.copy:hover{border-color:var(--ink);color:var(--ink)}
+.copy.done{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+.box{border:1px solid var(--rule);border-radius:3px;padding:20px 22px;margin:22px 0;background:#fff}
+.box h3{margin:0 0 10px;border:0;padding:0;font-size:16px}
+.box p{margin:0 0 8px} .box p:last-child{margin:0}
+.box ul{margin:0;padding-left:1.3em} .box li{margin-bottom:6px}
+.mail{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;margin-top:10px}
+
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+  font-size:12.5px;color:var(--ink-soft)}
+footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+
+@media (max-width:560px){
+  .shots{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="home" href="./">
+      <img src="data:image/png;base64,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" alt="">
+      <span>和食材カレンダー</span>
+    </a>
+  </header>
+
+  <nav class="ptabs"><button class="ptab on" data-lang="ja">日本語</button>
+<button class="ptab" data-lang="en">English</button></nav>
+  <div class="pbody on" data-lang="ja" lang="ja">
+<h2>バナー</h2>
+<p class="lead">和食材カレンダーを紹介してくださる方へ、リンク用のバナーをご用意しました。どなたでも自由にお使いいただけます。</p>
+
+<h3>日本語版</h3>
+
+    <div class="size">
+      <h4>320 × 50<span>横長。記事の上下や欄外に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_320x50_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_320x50_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_320x50_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_320x50_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_320x50_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_320x50_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>234 × 60<span>標準的な小バナー</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_234x60_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_234x60_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_234x60_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_234x60_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_234x60_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_234x60_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>200 × 40<span>最も小さい。狭い場所に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_200x40_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_200x40_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_200x40_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_200x40_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_200x40_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_200x40_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>180 × 150<span>四角。側面の欄に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_180x150_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_180x150_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_180x150_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_180x150_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_180x150_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_180x150_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>125 × 125<span>正方形。並べて置くときに</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_125x125_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_125x125_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_125x125_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_125x125_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_125x125_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_125x125_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+<h3>英語版</h3>
+
+    <div class="size">
+      <h4>320 × 50<span>横長。記事の上下や欄外に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_320x50.png" alt=""></div>
+        <a class="dl" href="banners/banner_320x50.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_320x50.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_320x50_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_320x50_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_320x50_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>234 × 60<span>標準的な小バナー</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_234x60.png" alt=""></div>
+        <a class="dl" href="banners/banner_234x60.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_234x60.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_234x60_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_234x60_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_234x60_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>200 × 40<span>最も小さい。狭い場所に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_200x40.png" alt=""></div>
+        <a class="dl" href="banners/banner_200x40.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_200x40.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_200x40_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_200x40_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_200x40_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>180 × 150<span>四角。側面の欄に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_180x150.png" alt=""></div>
+        <a class="dl" href="banners/banner_180x150.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_180x150.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_180x150_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_180x150_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_180x150_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>125 × 125<span>正方形。並べて置くときに</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">白地</div>
+        <div class="pic"><img src="banners/banner_125x125.png" alt=""></div>
+        <a class="dl" href="banners/banner_125x125.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_125x125.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div>
+      <div class="shot">
+        <div class="tone">紺地</div>
+        <div class="pic ondark"><img src="banners/banner_125x125_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_125x125_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_125x125_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">コードを写す</button>
+      </div></div>
+    </div>
+
+<section class="box">
+  <h3>使い方</h3>
+  <p>画像を保存してご自身のサーバーに置き、下のコードを貼り付けてください。画像を直接読み込む形でも構いません。</p>
+</section>
+
+<section class="box">
+  <h3>お願い</h3>
+  <ul><li>画像の加工（色や文字の変更、切り抜き）はご遠慮ください。</li><li>リンク先は washokuzai-calendar.com のままでお願いします。</li><li>公序良俗に反するサイトでのご使用はお断りします。</li><li>ご連絡は不要です。そのままお使いください。</li></ul>
+</section>
+
+<section class="box">
+  <h3>別のサイズが必要なとき</h3>
+  <p>ご希望の寸法をお知らせいただければお作りします。繁体字・簡体字・タイ語版も用意できます。</p>
+  <p class="mail"></p>
+</section>
+</div>
+<div class="pbody" data-lang="en" lang="en">
+<h2>Banners</h2>
+<p class="lead">Banners for anyone who would like to link to Washokuzai Calendar. You are free to use them.</p>
+
+<h3>Japanese</h3>
+
+    <div class="size">
+      <h4>320 × 50<span>横長。記事の上下や欄外に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_320x50_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_320x50_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_320x50_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_320x50_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_320x50_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_320x50_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>234 × 60<span>標準的な小バナー</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_234x60_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_234x60_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_234x60_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_234x60_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_234x60_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_234x60_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>200 × 40<span>最も小さい。狭い場所に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_200x40_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_200x40_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_200x40_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_200x40_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_200x40_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_200x40_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>180 × 150<span>四角。側面の欄に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_180x150_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_180x150_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_180x150_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_180x150_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_180x150_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_180x150_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>125 × 125<span>正方形。並べて置くときに</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_125x125_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_125x125_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_125x125_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_125x125_dark_ja.png" alt=""></div>
+        <a class="dl" href="banners/banner_125x125_dark_ja.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_125x125_dark_ja.png" alt="和食材カレンダー"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+<h3>English</h3>
+
+    <div class="size">
+      <h4>320 × 50<span>横長。記事の上下や欄外に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_320x50.png" alt=""></div>
+        <a class="dl" href="banners/banner_320x50.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_320x50.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_320x50_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_320x50_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_320x50_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>234 × 60<span>標準的な小バナー</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_234x60.png" alt=""></div>
+        <a class="dl" href="banners/banner_234x60.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_234x60.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_234x60_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_234x60_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_234x60_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>200 × 40<span>最も小さい。狭い場所に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_200x40.png" alt=""></div>
+        <a class="dl" href="banners/banner_200x40.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_200x40.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_200x40_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_200x40_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_200x40_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>180 × 150<span>四角。側面の欄に</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_180x150.png" alt=""></div>
+        <a class="dl" href="banners/banner_180x150.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_180x150.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_180x150_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_180x150_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_180x150_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+    <div class="size">
+      <h4>125 × 125<span>正方形。並べて置くときに</span></h4>
+      <div class="shots">
+      <div class="shot">
+        <div class="tone">Light</div>
+        <div class="pic"><img src="banners/banner_125x125.png" alt=""></div>
+        <a class="dl" href="banners/banner_125x125.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_125x125.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div>
+      <div class="shot">
+        <div class="tone">Dark</div>
+        <div class="pic ondark"><img src="banners/banner_125x125_dark.png" alt=""></div>
+        <a class="dl" href="banners/banner_125x125_dark.png" download>↓</a>
+        <pre class="code">&lt;a href="https://washokuzai-calendar.com/" target="_blank" rel="noopener"&gt;
+  &lt;img src="banner_125x125_dark.png" alt="Washokuzai Calendar"&gt;
+&lt;/a&gt;</pre>
+        <button class="copy" type="button">Copy code</button>
+      </div></div>
+    </div>
+
+<section class="box">
+  <h3>How to use</h3>
+  <p>Save the image to your own server and paste the code below. Linking directly to the image is fine too.</p>
+</section>
+
+<section class="box">
+  <h3>A few requests</h3>
+  <ul><li>Please do not alter the images (colours, text or cropping).</li><li>Please keep the link pointing to washokuzai-calendar.com.</li><li>Please do not use them on sites contrary to public decency.</li><li>No need to contact us. Just go ahead and use them.</li></ul>
+</section>
+
+<section class="box">
+  <h3>If you need another size</h3>
+  <p>Tell us the dimensions and we will make it. Traditional Chinese, Simplified Chinese and Thai versions are also available.</p>
+  <p class="mail"></p>
+</section>
+</div>
+
+  <footer>
+    <p><a href="./" id="backLink">&larr; サイトへ戻る</a></p>
+    <p>&copy; 2026 和食材カレンダー / Washokuzai Calendar</p>
+  </footer>
+</div>
+
+<script>
+const BACK = {"ja": "サイトへ戻る", "en": "Back to the site"};
+const COPIED = {"ja": "写しました", "en": "Copied"};
+const COPYLBL = {"ja": "コードを写す", "en": "Copy code"};
+let lang = "ja";
+
+/* 連絡先は組み立てて表示する */
+const u = "support", dm = "washokuzai-calendar", tld = "com";
+document.querySelectorAll(".mail").forEach(el => {
+  const a = document.createElement("a");
+  a.href = "mailto:" + u + "@" + dm + "." + tld;
+  a.textContent = u + "@" + dm + "." + tld;
+  a.style.color = "inherit";
+  el.appendChild(a);
+});
+
+function pick(L){
+  lang = L;
+  document.querySelectorAll(".ptab").forEach(x => x.classList.toggle("on", x.dataset.lang === L));
+  document.querySelectorAll(".pbody").forEach(x => x.classList.toggle("on", x.dataset.lang === L));
+  document.documentElement.lang = L;
+  const b = document.getElementById("backLink");
+  if (b) b.textContent = "\u2190 " + BACK[L];
+}
+
+document.querySelector(".ptabs").addEventListener("click", e => {
+  const b = e.target.closest(".ptab");
+  if (b) pick(b.dataset.lang);
+});
+
+/* コードを写す */
+document.addEventListener("click", e => {
+  const btn = e.target.closest(".copy");
+  if (!btn) return;
+  const pre = btn.parentElement.querySelector(".code");
+  if (!pre) return;
+  const text = pre.textContent;
+  const done = () => {
+    btn.textContent = COPIED[lang];
+    btn.classList.add("done");
+    setTimeout(() => { btn.textContent = COPYLBL[lang]; btn.classList.remove("done"); }, 1600);
+  };
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(done, () => {});
+  } else {
+    const ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); done(); } catch (err) {}
+    document.body.removeChild(ta);
+  }
+});
+
+/* 本体から ?lang= で来たら合わせる。日本語以外は英語を出す。 */
+const q = new URLSearchParams(location.search).get("lang");
+if (q) pick(q === "ja" ? "ja" : "en");
+</script>
+</body>
+</html>

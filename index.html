@@ -96,6 +96,94 @@ body{
 
 
 
+
+
+
+
+
+
+
+/* SEASON-CSS-START 季節の帯 */
+.season{
+  margin: 0 0 22px;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--paper-2, #f3efe7);
+}
+.season[hidden]{display:none}
+
+/* 上段：風景 */
+.season-scene{
+  position: relative;
+  height: 190px;
+  background: #e8e3d9;
+}
+.season-scene img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+.season-scene img.on{opacity: 1}
+
+/* 上段の下辺をわずかに沈ませ、下段との境を柔らかくする */
+.season-scene::after{
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40%;
+  background: linear-gradient(to bottom, rgba(20,28,33,0) 0%, rgba(20,28,33,.28) 100%);
+  pointer-events: none;
+}
+
+/* 下段：旬の品目が流れる */
+.season-strip{
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+  padding: 8px 0;
+}
+.season-rail{
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  will-change: transform;
+}
+.season-rail.run{animation: seasonFlow linear infinite}
+.season-cell{
+  position: relative;
+  width: 104px; height: 68px;
+  flex: 0 0 auto;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #e8e3d9;
+}
+.season-cell img{width:100%; height:100%; object-fit:cover; display:block}
+.season-cell span{
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 10px 6px 4px;
+  font-size: 10.5px; line-height: 1.3; color: #fff;
+  background: linear-gradient(to bottom, rgba(20,28,33,0), rgba(20,28,33,.72));
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+@keyframes seasonFlow{
+  from{transform: translateX(0)}
+  to  {transform: translateX(var(--half))}
+}
+.season-strip:hover .season-rail.run{animation-play-state: paused}
+
+@media (max-width: 680px){
+  .season-scene{height: 132px}
+  .season-cell{width: 84px; height: 56px}
+  .season-cell span{font-size: 9.5px}
+}
+@media (prefers-reduced-motion: reduce){
+  .season-rail.run{animation: none}
+  .season-scene img{transition: none}
+}
+@media print{.season{display:none}}
+/* SEASON-CSS-END */
+
 /* CONSENT-CSS-START */
 .consent[hidden]{display:none}
 .consent{
@@ -474,6 +562,22 @@ footer p{margin:0 0 6px}
   </h1>
   <p id="siteSub"></p>
 </header>
+
+
+
+
+
+
+
+
+<!-- SEASON-START 季節の帯。上段が風景、下段が旬の品目。 -->
+<section class="season" id="season" aria-hidden="true">
+  <div class="season-scene" id="seasonScene"></div>
+  <div class="season-strip">
+    <div class="season-rail" id="seasonRail"></div>
+  </div>
+</section>
+<!-- SEASON-END -->
 
 <section class="now-panel">
   <div class="now-head">
@@ -4124,6 +4228,8 @@ footer p{margin:0 0 6px}
 
 
 
+
+
 <!-- CONSENT-START 同意バナー。選択はブラウザに保存され、次回からは出ません。 -->
 <div class="consent" id="consent" hidden role="dialog" aria-live="polite">
   <div class="consent-in">
@@ -4581,6 +4687,112 @@ $("consentOk").addEventListener("click", () => setConsent(true));
 $("consentMin").addEventListener("click", () => setConsent(false));
 /* CONSENT-JS-END */
 
+
+
+
+
+
+
+
+/* SEASON-JS-START
+   季節の帯。
+   風景は images/season/ に 01a.jpg のように月と枝番で置く。
+   画像がまだ無い月は、帯ごと隠して何も出さない。 */
+const SEASON_SHOTS = 3;          // 1か月あたりの風景の枚数
+const SEASON_HOLD  = 6200;       // 風景を1枚見せておく時間（ミリ秒）
+const SEASON_SPEED = 34;         // 品目が流れる速さ（1秒あたりのピクセル）
+let seasonTimer = null;
+
+const SEASON_EXT = ["jpg", "jpeg", "png", "JPG", "PNG", "webp"];
+
+/* 1枚ぶんの候補。拡張子が違っても拾えるようにする。 */
+function seasonCandidates(m, i){
+  const mm = String(m).padStart(2, "0");
+  const tail = ["a", "b", "c", "d", "e"][i];
+  return SEASON_EXT.map(e => `images/season/${mm}${tail}.${e}`);
+}
+
+/* 候補を順に試し、最初に読めたものを返す。どれも無ければ null。 */
+function seasonPick(cands){
+  return new Promise(done => {
+    let at = 0;
+    const tryNext = () => {
+      if (at >= cands.length) { done(null); return; }
+      const src = cands[at++];
+      const im = new Image();
+      im.onload  = () => done(src);
+      im.onerror = tryNext;
+      im.src = src;
+    };
+    tryNext();
+  });
+}
+
+/* その月に使える画像をそろえる */
+function seasonUsable(m){
+  const jobs = Array.from({length: SEASON_SHOTS}, (_, i) => seasonPick(seasonCandidates(m, i)));
+  return Promise.all(jobs).then(r => r.filter(Boolean));
+}
+
+function renderSeason(){
+  const box = $("season"), scene = $("seasonScene"), rail = $("seasonRail");
+  if (!box || !scene || !rail) return;
+  if (seasonTimer){ clearInterval(seasonTimer); seasonTimer = null; }
+
+  /* 月が未選択のときは今月を見せる。state.month は 0 から始まる。 */
+  const idx = (state.month === null) ? NOW : state.month;
+  const m = idx + 1;
+
+  seasonUsable(m).then(shots => {
+    if (!shots.length){ box.hidden = true; return; }
+    box.hidden = false;
+
+    /* 上段：風景を重ねて置き、順に浮かび上がらせる */
+    scene.innerHTML = "";
+    shots.forEach((src, i) => {
+      const im = document.createElement("img");
+      im.src = src; im.alt = "";
+      if (i === 0) im.className = "on";
+      scene.appendChild(im);
+    });
+    if (shots.length > 1){
+      let at = 0;
+      seasonTimer = setInterval(() => {
+        const imgs = scene.querySelectorAll("img");
+        imgs[at].classList.remove("on");
+        at = (at + 1) % imgs.length;
+        imgs[at].classList.add("on");
+      }, SEASON_HOLD);
+    }
+
+    /* 下段：その月が旬の品目を流す */
+    const inSeason = ITEMS.filter(it => it.m && it.m[idx] === "2" && it.img);
+    rail.className = "season-rail";
+    rail.innerHTML = "";
+    if (!inSeason.length) return;
+
+    /* 隙間なく回すため、同じ並びを二度置く */
+    const cell = it => {
+      const d = document.createElement("div");
+      d.className = "season-cell";
+      const im = document.createElement("img");
+      im.src = it.img; im.alt = ""; im.loading = "lazy";
+      const sp = document.createElement("span");
+      sp.textContent = nameOf(it);
+      d.append(im, sp);
+      return d;
+    };
+    inSeason.forEach(it => rail.appendChild(cell(it)));
+    const half = rail.scrollWidth;
+    inSeason.forEach(it => rail.appendChild(cell(it)));
+
+    rail.style.setProperty("--half", `-${half}px`);
+    rail.style.animationDuration = `${Math.round(half / SEASON_SPEED)}s`;
+    rail.classList.add("run");
+  });
+}
+/* SEASON-JS-END */
+
 function applyLang(){
   const T = t();
   document.documentElement.lang = state.lang;
@@ -4675,7 +4887,8 @@ function renderMonths(){
     b.addEventListener("click", () => {
       state.month = (state.month === i) ? null : i;
       render();
-    });
+      renderSeason();
+                });
     row.appendChild(b);
   });
 }
@@ -4954,7 +5167,7 @@ $("tabs").addEventListener("click", e => {
   render();
 });
 $("q").addEventListener("input", e => { state.q = e.target.value; render(); });
-$("clearMonth").addEventListener("click", () => { state.month = null; render(); });
+$("clearMonth").addEventListener("click", () => { state.month = null; render(); renderSeason(); });
 
 $("viewTabs").addEventListener("click", e => {
   const btn = e.target.closest("button");
@@ -5033,6 +5246,7 @@ async function boot(){
   renderNow();
   renderMonths();
   render();
+  renderSeason();
   showConsent();
 }
 
@@ -5041,7 +5255,7 @@ async function switchLang(code){
   state.lang = code;
   localStorage.setItem(LANG_KEY, code);
   await loadData(code);
-  applyLang(); renderNow(); renderMonths(); render(); fillConsentText();
+  applyLang(); renderNow(); renderMonths(); render(); renderSeason(); fillConsentText();
 }
 
 boot();

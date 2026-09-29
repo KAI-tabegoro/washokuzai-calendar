@@ -58,6 +58,22 @@ body{
 
 /* ---------- hero ---------- */
 .masthead{padding:36px 0 0;position:relative}
+/* ADDHOME-CSS-START ホーム画面に追加 */
+.langbar{display:flex;align-items:center;gap:12px}
+.addhome-top{
+  font-size:12px;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+  border-bottom:1px solid var(--rule);padding-bottom:1px;
+}
+.addhome-top:hover{color:var(--ink);border-color:var(--ink)}
+.addhome-top::before{
+  content:"";display:inline-block;width:9px;height:9px;margin-right:5px;
+  border:1px solid currentColor;border-radius:2px;vertical-align:-1px;
+}
+@media (max-width:560px){
+  .addhome-top{font-size:11px}
+  .addhome-top::before{display:none}
+}
+/* ADDHOME-CSS-END */
 .langbar{position:absolute;top:34px;right:0}
 .langbar select{
   font-family:inherit;font-size:12.5px;padding:5px 9px;cursor:pointer;
@@ -551,6 +567,7 @@ footer p{margin:0 0 6px}
 
 <header class="masthead">
   <div class="langbar">
+    <a class="addhome-top" href="add-to-home.html" id="addHomeLink"></a>
     <label class="visually-hidden" for="lang">Language</label>
     <select id="lang" aria-label="Language"></select>
   </div>
@@ -4230,6 +4247,7 @@ footer p{margin:0 0 6px}
 
 
 
+
 <!-- CONSENT-START 同意バナー。選択はブラウザに保存され、次回からは出ません。 -->
 <div class="consent" id="consent" hidden role="dialog" aria-live="polite">
   <div class="consent-in">
@@ -4677,6 +4695,7 @@ function fillConsentText(){
   $("consentLink").href = "privacy.html?lang=" + state.lang;
   $("consentMin").textContent = L.min;
   $("consentOk").textContent = L.ok;
+  fillAddHome();
   const pl = $("privacyLink");
   if (pl){
     pl.textContent = PRIVACY_LABEL[state.lang] || PRIVACY_LABEL.en;
@@ -4792,6 +4811,32 @@ function renderSeason(){
   });
 }
 /* SEASON-JS-END */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ADDHOME-JS-START ホーム画面に追加のリンク */
+const ADDHOME_LABEL = {"ja": "ホーム画面に追加", "en": "Add to home screen", "th": "เพิ่มลงหน้าจอโฮม", "zh": "加入主畫面", "zh-CN": "添加到主屏幕"};
+
+function fillAddHome(){
+  const a = $("addHomeLink");
+  if (!a) return;
+  a.textContent = ADDHOME_LABEL[state.lang] || ADDHOME_LABEL.en;
+  a.href = "add-to-home.html?lang=" + state.lang;
+}
+/* ADDHOME-JS-END */
 
 function applyLang(){
   const T = t();

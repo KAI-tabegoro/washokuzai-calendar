@@ -58,6 +58,14 @@ body{
 
 /* ---------- hero ---------- */
 .masthead{padding:36px 0 0;position:relative}
+/* REGIONLINK-CSS-START 産地から探す */
+.region-top{
+  font-size:12px;color:var(--ink-soft);text-decoration:none;white-space:nowrap;
+  border-bottom:1px solid var(--rule);padding-bottom:1px;
+}
+.region-top:hover{color:var(--ink);border-color:var(--ink)}
+@media (max-width:560px){ .region-top{font-size:11px} }
+/* REGIONLINK-CSS-END */
 /* ADDHOME-CSS-START ホーム画面に追加 */
 .langbar{display:flex;align-items:center;gap:12px}
 .addhome-top{
@@ -80,6 +88,12 @@ body{
   border:1px solid var(--rule-strong);border-radius:2px;background:#fff;color:var(--ink);
 }
 .langbar select:focus{outline:2px solid var(--ink);outline-offset:1px}
+
+
+
+
+
+
 
 
 
@@ -573,6 +587,7 @@ footer p{margin:0 0 6px}
 <header class="masthead">
   <div class="langbar">
     <a class="addhome-top" href="add-to-home.html" id="addHomeLink"></a>
+    <a class="region-top" href="region.html" id="regionLink"></a>
     <label class="visually-hidden" for="lang">Language</label>
     <select id="lang" aria-label="Language"></select>
   </div>
@@ -584,6 +599,12 @@ footer p{margin:0 0 6px}
   </h1>
   <p id="siteSub"></p>
 </header>
+
+
+
+
+
+
 
 
 
@@ -1015,7 +1036,7 @@ footer p{margin:0 0 6px}
 <p>選び方: 体色が黒く艶があり、目が澄んでいるもの。腹に張りがあるもの。</p>
 <p>保存方法: 脂が多く酸化しやすい。内臓を取って冷蔵し、2日以内に使い切る。</p>
 <p>豆知識: ノドグロ（アカムツ）とは別の魚で、こちらは体色が黒い。深海性で、口の中も黒い。脂が多く「白身のトロ」と呼ばれることもある。</p>
-<p>主な産地: 千葉、静岡、東京(伊豆諸島)、神奈川</p>
+<p>主な産地: 千葉、静岡、東京、神奈川</p>
 </article>
 <article>
 <h3>キンキ</h3>
@@ -1033,7 +1054,7 @@ footer p{margin:0 0 6px}
 <p>選び方: 体色が鮮やかな朱色で、目が大きく澄んでいるもの。うろこが揃っているもの。</p>
 <p>保存方法: 内臓を取って冷蔵。2〜3日はもつ。</p>
 <p>豆知識: 静岡・下田や千葉・銚子が主産地。水深200〜800mの深海に棲み、大きな目は暗い海に適応したもの。</p>
-<p>主な産地: 静岡、千葉、高知、東京(伊豆諸島)</p>
+<p>主な産地: 静岡、千葉、高知、東京</p>
 </article>
 <article>
 <h3>サワラ</h3>
@@ -1546,7 +1567,7 @@ footer p{margin:0 0 6px}
 <p>選び方: 葉が濃い緑で厚みがあり、茎が太くしっかりしたもの。切り口から黄色い汁が出るものが新鮮。</p>
 <p>保存方法: 湿らせた紙で包み立てて冷蔵。2〜3日以内に使い切る。</p>
 <p>豆知識: 今日摘んでも明日には新芽が出るという旺盛な生命力が名の由来。伊豆諸島や房総半島の海岸に自生し、八丈島の特産として知られる。茎を切ると出る黄色い汁にポリフェノールが含まれる。</p>
-<p>主な産地: 東京(伊豆諸島)、千葉、静岡、鹿児島</p>
+<p>主な産地: 東京、千葉、静岡、鹿児島</p>
 </article>
 <article>
 <h3>キャベツ</h3>
@@ -2383,7 +2404,7 @@ footer p{margin:0 0 6px}
 <p>選び方: 皮に張りがあるもの。しわが出始めた頃が食べ頃。</p>
 <p>保存方法: 常温でしわが出るまで追熟させてから冷蔵する。</p>
 <p>豆知識: 和名はクダモノトケイソウ。花の形が時計の文字盤に似ることに由来する。パッションは情熱ではなく「キリストの受難」の意味で、花の形が十字架を思わせることから名付けられた。</p>
-<p>主な産地: 鹿児島、沖縄、東京(伊豆諸島)、和歌山</p>
+<p>主な産地: 鹿児島、沖縄、東京、和歌山</p>
 </article>
 <article>
 <h3>ウメ</h3>
@@ -2808,7 +2829,7 @@ footer p{margin:0 0 6px}
 <p>How to choose: A black, glossy body with clear eyes and a firm belly.</p>
 <p>Storage: The high fat content oxidises easily. Gut and refrigerate, using within two days.</p>
 <p>Good to know: A different fish from nodoguro, the blackthroat seaperch; this one is black on the outside. A deep-water fish, its mouth is black inside as well. So rich in fat that it too is sometimes called the toro of white fish.</p>
-<p>Main areas: Chiba、Shizuoka、Tokyo (Izu Islands)、Kanagawa</p>
+<p>Main areas: Chiba、Shizuoka、Tokyo、Kanagawa</p>
 </article>
 <article>
 <h3>Kichiji rockfish</h3>
@@ -2826,7 +2847,7 @@ footer p{margin:0 0 6px}
 <p>How to choose: A vivid orange-red body, large clear eyes and intact scales.</p>
 <p>Storage: Gut and refrigerate; keeps two to three days.</p>
 <p>Good to know: Shimoda in Shizuoka and Choshi in Chiba are the main ports. It lives at 200 to 800 metres; the large eyes are an adaptation to the dark.</p>
-<p>Main areas: Shizuoka、Chiba、Kochi、Tokyo (Izu Islands)</p>
+<p>Main areas: Shizuoka、Chiba、Kochi、Tokyo</p>
 </article>
 <article>
 <h3>Japanese Spanish mackerel</h3>
@@ -3339,7 +3360,7 @@ footer p{margin:0 0 6px}
 <p>How to choose: Thick, deep green leaves on sturdy stems. Yellow sap at the cut end means it is fresh.</p>
 <p>Storage: Wrap in damp paper and refrigerate standing upright. Use within two or three days.</p>
 <p>Good to know: The name comes from its vigour: pick it today and a new shoot appears tomorrow. It grows wild on the coasts of the Izu Islands and the Boso Peninsula, and is known as a speciality of Hachijojima. The yellow sap from a cut stem contains polyphenols.</p>
-<p>Main areas: Tokyo (Izu Islands)、Chiba、Shizuoka、Kagoshima</p>
+<p>Main areas: Tokyo、Chiba、Shizuoka、Kagoshima</p>
 </article>
 <article>
 <h3>Cabbage</h3>
@@ -4176,7 +4197,7 @@ footer p{margin:0 0 6px}
 <p>How to choose: Taut skin. It is ready to eat once wrinkles begin to appear.</p>
 <p>Storage: Ripen at room temperature until wrinkled, then refrigerate.</p>
 <p>Good to know: Its Japanese name means clock-face fruit, because the flower resembles a clock dial. Passion here refers not to ardour but to the Passion of Christ, the flower having been seen as suggesting the cross.</p>
-<p>Main areas: Kagoshima、Okinawa、Tokyo (Izu Islands)、Wakayama</p>
+<p>Main areas: Kagoshima、Okinawa、Tokyo、Wakayama</p>
 </article>
 <article>
 <h3>Ume plum</h3>
@@ -4234,6 +4255,11 @@ footer p{margin:0 0 6px}
 </article>
 </section>
 <!-- SEO-END -->
+
+
+
+
+
 
 
 
@@ -4702,6 +4728,7 @@ function fillConsentText(){
   $("consentLink").href = "privacy.html?lang=" + state.lang;
   $("consentMin").textContent = L.min;
   $("consentOk").textContent = L.ok;
+  fillRegionLink();
   fillAddHome();
   fillBannerLink();
   const pl = $("privacyLink");
@@ -4713,6 +4740,62 @@ function fillConsentText(){
 $("consentOk").addEventListener("click", () => setConsent(true));
 $("consentMin").addEventListener("click", () => setConsent(false));
 /* CONSENT-JS-END */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4821,28 +4904,6 @@ function renderSeason(){
 /* SEASON-JS-END */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ADDHOME-JS-START ホーム画面に追加のリンク */
 const ADDHOME_LABEL = {"ja": "ホーム画面に追加", "en": "Add to home screen", "th": "เพิ่มลงหน้าจอโฮม", "zh": "加入主畫面", "zh-CN": "添加到主屏幕"};
 
@@ -4853,6 +4914,18 @@ function fillAddHome(){
   a.href = "add-to-home.html?lang=" + state.lang;
 }
 /* ADDHOME-JS-END */
+
+
+/* REGIONLINK-JS-START 産地から探すへのリンク */
+const REGION_LABEL = {"ja": "産地から探す", "en": "Find by region", "th": "ค้นหาจากแหล่งผลิต", "zh": "從產地尋找", "zh-CN": "从产地寻找"};
+
+function fillRegionLink(){
+  const a = $("regionLink");
+  if (!a) return;
+  a.textContent = REGION_LABEL[state.lang] || REGION_LABEL.en;
+  a.href = "region.html?lang=" + state.lang;
+}
+/* REGIONLINK-JS-END */
 
 
 /* BANNERLINK-JS-START バナー配布ページへのリンク */
@@ -4961,7 +5034,7 @@ function renderMonths(){
       state.month = (state.month === i) ? null : i;
       render();
       renderSeason();
-                });
+                            });
     row.appendChild(b);
   });
 }

@@ -156,6 +156,106 @@ body{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* FAV-CSS-START お気に入り */
 .star{
   position:absolute; top:6px; right:6px; z-index:2;
@@ -169,15 +269,21 @@ body{
 .star.on{color:#c8962a; border-color:#d9bd7e; background:rgba(255,252,244,.95)}
 .star svg{width:14px;height:14px;display:block;fill:currentColor}
 .tile{position:relative}
-.row{position:relative}
-.row .star{top:50%; transform:translateY(-50%); right:8px;
-  background:transparent; border-color:transparent}
+
+/* 一覧の星は格子の中に収める（列の定義は元の .row を書き換えている） */
+.row .star{
+  position:static; width:26px; height:26px;
+  background:transparent; border-color:transparent; justify-self:center;
+}
 .row .star:hover{border-color:var(--rule)}
 .row .star.on{background:transparent; border-color:transparent}
 
-/* 一覧では帯に重ならないよう右に余白を取る */
-.row{padding-right:42px}
-
+#favBtn{
+  font-family:inherit; font-size:13px; padding:7px 14px; cursor:pointer;
+  background:transparent; color:var(--ink-soft);
+  border:1px solid var(--rule-strong); border-radius:2px; white-space:nowrap;
+}
+#favBtn:hover{border-color:var(--ink); color:var(--ink)}
 #favBtn.fav-on{background:var(--ink); color:var(--paper); border-color:var(--ink)}
 .fav-count{font-size:11px; opacity:.7; margin-left:4px}
 /* FAV-CSS-END */
@@ -414,7 +520,7 @@ input[type="search"]:focus{outline:2px solid var(--ink);outline-offset:1px}
 .sw{width:16px;height:11px;display:inline-block;border:1px solid var(--rule-strong)}
 
 .months{
-  display:grid;grid-template-columns:236px 1fr;gap:14px;align-items:end;
+  display:grid;grid-template-columns:278px 1fr;gap:14px;align-items:end;
   position:sticky;top:63px;background:var(--paper);z-index:4;padding:8px 0 6px;
   border-bottom:1px solid var(--rule-strong);
 }
@@ -428,7 +534,7 @@ input[type="search"]:focus{outline:2px solid var(--ink);outline-offset:1px}
 .months .label{font-size:11.5px;color:var(--ink-soft)}
 
 .row{
-  display:grid;grid-template-columns:52px 170px 1fr;gap:14px;align-items:center;
+  display:grid;grid-template-columns:28px 52px 170px 1fr;gap:14px;align-items:center;
   padding:6px 0;border-bottom:1px solid var(--rule);cursor:pointer;
 }
 .row:hover .name .ja{text-decoration:underline;text-underline-offset:2px}
@@ -588,7 +694,7 @@ footer p{margin:0 0 6px}
   .langbar{top:0}
   .months{grid-template-columns:1fr;gap:4px;top:0;position:static;border-bottom:0}
   .months .label{display:none}
-  .row{grid-template-columns:52px 1fr;gap:10px 12px;align-items:center;padding:10px 0}
+  .row{grid-template-columns:28px 52px 1fr;gap:10px 12px;align-items:center;padding:10px 0}
   .row .band{grid-column:1 / -1}
   .cell{height:24px}
   .tiles{grid-template-columns:repeat(2,1fr);gap:10px}
@@ -668,6 +774,56 @@ footer p{margin:0 0 6px}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- SEASON-START 季節の帯。上段が風景、下段が旬の品目。 -->
 <section class="season" id="season" aria-hidden="true">
   <div class="season-scene" id="seasonScene"></div>
@@ -692,8 +848,8 @@ footer p{margin:0 0 6px}
     <button data-cat="sea" aria-pressed="false"></button>
     <button data-cat="land" aria-pressed="false"></button>
     <button data-cat="fruit" aria-pressed="false"></button>
-    <button id="favBtn" type="button" aria-pressed="false"></button>
   </div>
+  <button id="favBtn" type="button" aria-pressed="false"></button>
   <input type="search" id="q">
   <div class="monthfilter" id="monthFilter" hidden>
     <span id="monthFilterLabel"></span>
@@ -4339,6 +4495,31 @@ footer p{margin:0 0 6px}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- CONSENT-START 同意バナー。選択はブラウザに保存され、次回からは出ません。 -->
 <div class="consent" id="consent" hidden role="dialog" aria-live="polite">
   <div class="consent-in">
@@ -4889,6 +5070,206 @@ $("consentMin").addEventListener("click", () => setConsent(false));
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* SEASON-JS-START
    季節の帯。
    風景は images/season/ に 01a.jpg のように月と枝番で置く。
@@ -5119,7 +5500,7 @@ function renderMonths(){
       state.month = (state.month === i) ? null : i;
       render();
       renderSeason();
-                                        });
+                                                                                                                                            });
     row.appendChild(b);
   });
 }
@@ -5138,6 +5519,56 @@ function bandHTML(it, mark){
   return [...it.m].map((v,i) =>
     `<div class="cell lv${v}${(mark && i===NOW)?" now":""}" title="${T.monthsLong[i]}"></div>`).join("");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5229,7 +5660,22 @@ function render(){
   const T = t();
   const q = state.q.trim().toLowerCase();
   const rows = ITEMS.filter(it => {
-                    if (state.fav && !isFav(it)) return false;
+                                        if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
     if (state.cat !== "all" && it.cat !== state.cat) return false;
     if (state.month !== null && it.m[state.month] !== "2") return false;
     if (!q) return true;
@@ -5266,7 +5712,7 @@ function render(){
       t2.dataset.i = ITEMS.indexOf(it);
       const sub = subNameOf(it);
       t2.innerHTML =
-        `
+        `${favStarHTML(it)}
          ${photoHTML(it,"ph")}
          <div class="meta">
            <span class="ja">${esc(nameOf(it))}</span>
@@ -5287,7 +5733,7 @@ function render(){
     r.tabIndex = 0;
     r.setAttribute("role","button");
     r.innerHTML =
-      `
+      `${favStarHTML(it)}
        ${photoHTML(it,"thumb")}
        <div class="name"><span class="ja">${esc(nameOf(it))}</span><span class="en">${esc(subNameOf(it))}</span></div>
        <div class="band">${bandHTML(it,true)}</div>`;
@@ -5484,6 +5930,8 @@ $("tabs").addEventListener("click", e => {
   const btn = e.target.closest("button");
   if (!btn) return;
   state.cat = btn.dataset.cat;
+  state.fav = false;
+  updateFavBtn();
   [...$("tabs").children].forEach(b => b.setAttribute("aria-pressed", b === btn));
   render();
 });
@@ -5567,6 +6015,8 @@ async function boot(){
   renderNow();
   renderMonths();
   render();
+  renderSeason();
+  updateFavBtn();
   showConsent();
 }
 

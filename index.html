@@ -152,6 +152,10 @@ body{
 
 
 
+
+
+
+
 /* FAV-CSS-START お気に入り */
 .star{
   position:absolute; top:6px; right:6px; z-index:2;
@@ -644,6 +648,8 @@ footer p{margin:0 0 6px}
   </h1>
   <p id="siteSub"></p>
 </header>
+
+
 
 
 
@@ -4332,6 +4338,7 @@ footer p{margin:0 0 6px}
 
 
 
+
 <!-- CONSENT-START 同意バナー。選択はブラウザに保存され、次回からは出ません。 -->
 <div class="consent" id="consent" hidden role="dialog" aria-live="polite">
   <div class="consent-in">
@@ -4873,6 +4880,15 @@ $("consentMin").addEventListener("click", () => setConsent(false));
 
 
 
+
+
+
+
+
+
+
+
+
 /* SEASON-JS-START
    季節の帯。
    風景は images/season/ に 01a.jpg のように月と枝番で置く。
@@ -5008,8 +5024,6 @@ function fillBannerLink(){
 }
 /* BANNERLINK-JS-END */
 
-loadFav();
-
 function applyLang(){
   const T = t();
   document.documentElement.lang = state.lang;
@@ -5105,7 +5119,7 @@ function renderMonths(){
       state.month = (state.month === i) ? null : i;
       render();
       renderSeason();
-                                    });
+                                        });
     row.appendChild(b);
   });
 }
@@ -5124,6 +5138,8 @@ function bandHTML(it, mark){
   return [...it.m].map((v,i) =>
     `<div class="cell lv${v}${(mark && i===NOW)?" now":""}" title="${T.monthsLong[i]}"></div>`).join("");
 }
+
+
 
 
 
@@ -5206,13 +5222,14 @@ $("favBtn").addEventListener("click", () => {
   updateFavBtn();
   render();
 });
+loadFav();
 /* FAV-JS-END */
 
 function render(){
   const T = t();
   const q = state.q.trim().toLowerCase();
   const rows = ITEMS.filter(it => {
-                  if (state.fav && !isFav(it)) return false;
+                    if (state.fav && !isFav(it)) return false;
     if (state.cat !== "all" && it.cat !== state.cat) return false;
     if (state.month !== null && it.m[state.month] !== "2") return false;
     if (!q) return true;
@@ -5550,8 +5567,6 @@ async function boot(){
   renderNow();
   renderMonths();
   render();
-  renderSeason();
-  updateFavBtn();
   showConsent();
 }
 

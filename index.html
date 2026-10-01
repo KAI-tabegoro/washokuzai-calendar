@@ -320,6 +320,22 @@ body{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* FAV-CSS-START お気に入り */
 .star{
   position:absolute; top:6px; right:6px; z-index:2;
@@ -366,7 +382,7 @@ body{
 /* 上段：風景 */
 .season-scene{
   position: relative;
-  height: 190px;
+  height: 230px;
   background: #e8e3d9;
 }
 .season-scene img{
@@ -422,8 +438,26 @@ body{
 }
 .season-strip:hover .season-rail.run{animation-play-state: paused}
 
+/* 新着のお知らせ */
+.season-new{
+  display: flex; align-items: baseline; gap: 10px;
+  padding: 7px 14px;
+  border-top: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 12.5px; line-height: 1.7;
+}
+.season-new[hidden]{display:none}
+.sn-label{
+  flex: 0 0 auto; color: var(--ink); font-weight: 600;
+  padding: 1px 8px; border: 1px solid var(--rule-strong); border-radius: 2px;
+  font-size: 11px;
+}
+.sn-list{color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap}
+.sn-list b{color: var(--ink); font-weight: 400}
+
 @media (max-width: 680px){
-  .season-scene{height: 132px}
+  .season-scene{height: 160px}
+  .season-new{font-size: 11.5px; padding: 6px 10px; gap: 8px}
   .season-cell{width: 84px; height: 56px}
   .season-cell span{font-size: 9.5px}
 }
@@ -921,11 +955,23 @@ footer p{margin:0 0 6px}
 
 
 
+
+
+
+
+
+
+
+
 <!-- SEASON-START 季節の帯。上段が風景、下段が旬の品目。 -->
 <section class="season" id="season" aria-hidden="true">
   <div class="season-scene" id="seasonScene"></div>
   <div class="season-strip">
     <div class="season-rail" id="seasonRail"></div>
+  </div>
+  <div class="season-new" id="seasonNew" hidden>
+    <span class="sn-label" id="seasonNewLabel"></span>
+    <span class="sn-list" id="seasonNewList"></span>
   </div>
 </section>
 <!-- SEASON-END -->
@@ -1348,6 +1394,15 @@ footer p{margin:0 0 6px}
 <p>主な産地: 千葉、静岡、東京、神奈川</p>
 </article>
 <article>
+<h3>メヒカリ</h3>
+<p>魚介　旬: 1月、2月、11月、12月</p>
+<p>調理法</p><ul><li>唐揚げ　丸ごと揚げる。骨まで食べられ、脂の甘みが立つ。</li><li>刺身　鮮度が良ければ。白身だが脂が濃く、とろりとする。</li><li>干物　一夜干しにして焼く。旨みが凝縮する。</li><li>天ぷら　衣をつけて揚げる。身がふっくらする。</li></ul>
+<p>選び方: 目が大きく青く澄んでいるもの。体に張りがあり銀色に輝くもの。</p>
+<p>保存方法: 脂が多く傷みやすい。内臓を取って冷蔵し、当日から翌日には使い切る。</p>
+<p>豆知識: 標準和名はアオメエソ。目が大きく青緑色に光ることが名の由来で、水深200から600メートルの深海に生息する。かつては雑魚とされたが、脂の乗りと食べやすさから福島のいわきや宮崎の延岡で特産として売り出された。</p>
+<p>主な産地: 福島、宮崎、高知、静岡</p>
+</article>
+<article>
 <h3>キンキ</h3>
 <p>魚介　旬: 1月、2月、12月</p>
 <p>調理法</p><ul><li>煮付け　甘辛く煮る。脂が多いので少し濃いめの味付けが合う。</li><li>塩焼き　脂が滴るほど。皮目を香ばしく焼く。</li><li>湯引き　皮を湯にくぐらせて刺身に。皮の甘みが出る。</li><li>一夜干し　塩水に漬けて干す。脂の旨みが凝縮する。</li></ul>
@@ -1391,6 +1446,15 @@ footer p{margin:0 0 6px}
 <p>保存方法: 水分が多く傷みやすい。塩をして冷蔵、または干物に。</p>
 <p>豆知識: 「カマスの焼き食い一升飯」という言い回しがあるほど、焼くと飯が進むとされる。</p>
 <p>主な産地: 神奈川、静岡、福岡、長崎</p>
+</article>
+<article>
+<h3>ハタハタ</h3>
+<p>魚介　旬: 1月、2月、11月、12月</p>
+<p>調理法</p><ul><li>しょっつる鍋　魚醤で仕立てる秋田の郷土料理。野菜と共に煮る。</li><li>塩焼き　丸ごと焼く。うろこがなく食べやすい。</li><li>干物　一夜干しにする。旨みが凝縮する。</li><li>田楽　焼いて味噌を塗る。</li></ul>
+<p>選び方: 体に張りがあり、腹が膨らんだ卵持ちが珍重される。目が澄んでいるもの。</p>
+<p>保存方法: うろこがないので下処理が楽。内臓を取って冷蔵し、2日以内に。</p>
+<p>豆知識: 秋田県の県魚。雷の鳴る頃に産卵のため接岸することから「鰰」と書く。卵は「ブリコ」と呼ばれ、独特の粘りと歯ごたえで珍重される。魚醤「しょっつる」の原料としても知られる。</p>
+<p>主な産地: 秋田、鳥取、兵庫、石川</p>
 </article>
 <article>
 <h3>ホッケ</h3>
@@ -1969,6 +2033,15 @@ footer p{margin:0 0 6px}
 <p>主な産地: 千葉、埼玉、茨城、群馬</p>
 </article>
 <article>
+<h3>芽ねぎ</h3>
+<p>野菜　旬: </p>
+<p>調理法</p><ul><li>寿司　軍艦や細巻きの種に。しゃきしゃきとした食感と強い香り。</li><li>吸い口　椀に浮かべる。香りが立ち、彩りにもなる。</li><li>あしらい　刺身や前菜に添える。細く繊細な姿が映える。</li></ul>
+<p>選び方: 緑が濃く、まっすぐ伸びているもの。根元の白い部分が締まっているもの。</p>
+<p>保存方法: 乾燥に弱い。湿らせた紙で包み密閉して冷蔵。2日以内に使い切る。</p>
+<p>豆知識: 発芽して数センチの若いネギ。種を密に播き、遮光して軟白栽培する。江戸前寿司では種として珍重され、香りの強さに対して辛味は穏やか。成長したネギとは別の食材として扱われる。</p>
+<p>主な産地: 福岡、静岡、愛知、千葉</p>
+</article>
+<article>
 <h3>ミョウガ</h3>
 <p>野菜　旬: 7月、8月、9月</p>
 <p>調理法</p><ul><li>薬味　刻んで冷奴やそうめんに。</li><li>甘酢漬け　色鮮やかに仕上がる。</li><li>天ぷら　丸ごと揚げる。</li><li>味噌汁　香りを楽しむ。</li></ul>
@@ -2147,6 +2220,24 @@ footer p{margin:0 0 6px}
 <p>保存方法: 完熟前は常温で追熟。熟したら冷蔵。冷やしすぎると味が落ちる。</p>
 <p>豆知識: 加熱すると旨み成分のグルタミン酸が働きやすくなる。生食と加熱で役割が変わる野菜。</p>
 <p>主な産地: 熊本、北海道、茨城、愛知</p>
+</article>
+<article>
+<h3>ミニトマト</h3>
+<p>野菜　旬: 5月、6月、7月</p>
+<p>調理法</p><ul><li>そのまま　洗ってそのまま。弁当や付け合わせに。</li><li>サラダ　半分に切って加える。彩りと甘みを添える。</li><li>マリネ　皮を湯むきして漬ける。味が染みやすくなる。</li><li>焼き　オーブンで焼く。甘みが凝縮する。</li></ul>
+<p>選び方: 色が濃く均一で、へたが緑で張りのあるもの。ひび割れのないもの。</p>
+<p>保存方法: 常温で追熟させてから冷蔵。冷やしすぎると味が落ちる。</p>
+<p>豆知識: 大玉より糖度が高く、栄養も濃い。アイコ、キャロルなど品種が多く、赤だけでなく黄・橙・緑・黒など色の幅も広い。房のまま出荷されるものは鮮度が保ちやすい。</p>
+<p>主な産地: 熊本、愛知、北海道、茨城</p>
+</article>
+<article>
+<h3>フルーツトマト</h3>
+<p>野菜　旬: 1月、2月、3月、4月、5月、12月</p>
+<p>調理法</p><ul><li>そのまま　冷やして丸かじり、または櫛形に切る。果物のような甘さ。</li><li>サラダ　塩とオリーブオイルだけで。甘みが際立つ。</li><li>冷製スープ　裏ごしして冷やす。濃厚な甘みと酸味。</li><li>デザート　蜜漬けにする。果物として扱える。</li></ul>
+<p>選び方: 小ぶりでずっしり重いもの。濃い赤色で、へたが生き生きしているもの。</p>
+<p>保存方法: 常温または冷蔵。食べる直前に冷やすと甘みが引き立つ。</p>
+<p>豆知識: 品種ではなく栽培方法による呼び名。水を極端に抑えて育てることで糖度が8度以上に高まる。静岡・長野の「アメーラ」、高知の「徳谷トマト」などのブランドがある。一般的なトマトが夏に旬を迎えるのに対し、フルーツトマトは冬から春が最も甘くなる。</p>
+<p>主な産地: 静岡、高知、熊本、長野</p>
 </article>
 <article>
 <h3>ピーマン</h3>
@@ -3141,6 +3232,15 @@ footer p{margin:0 0 6px}
 <p>Main areas: Chiba、Shizuoka、Tokyo、Kanagawa</p>
 </article>
 <article>
+<h3>Greeneye</h3>
+<p>Seafood　In season: Jan、Feb、Nov、Dec</p>
+<p>How to cook</p><ul><li>Karaage (deep-fried)　Fried whole; the bones are edible and the sweetness of the fat comes through.</li><li>Sashimi　Good raw when fresh. A white fish, yet rich enough to melt.</li><li>Dried overnight　Dried overnight and grilled, which concentrates the flavour.</li><li>Tempura　Fried in batter, which leaves the flesh light.</li></ul>
+<p>How to choose: Large, clear blue-green eyes. A firm body with a silver sheen.</p>
+<p>Storage: The high fat content spoils quickly. Gut and refrigerate, using the same or the next day.</p>
+<p>Good to know: Its formal name is aomeeso. Named for its large eyes that glow blue-green, it lives at depths of two to six hundred metres. Once dismissed as a trash fish, its fattiness and ease of eating made it a speciality of Iwaki in Fukushima and Nobeoka in Miyazaki.</p>
+<p>Main areas: Fukushima、Miyazaki、Kochi、Shizuoka</p>
+</article>
+<article>
 <h3>Kichiji rockfish</h3>
 <p>Seafood　In season: Jan、Feb、Dec</p>
 <p>How to cook</p><ul><li>Nitsuke (simmered in sweet soy)　Simmered in sweet soy. The rich fat suits a slightly stronger seasoning.</li><li>Shioyaki (salt-grilled)　Grilled until the fat drips. The skin side turns fragrant.</li><li>Yubiki (skin briefly scalded)　The skin is dipped in hot water and served as sashimi, bringing out its sweetness.</li><li>Dried overnight　Brined and dried. The rich flavour concentrates.</li></ul>
@@ -3184,6 +3284,15 @@ footer p{margin:0 0 6px}
 <p>Storage: High water content makes it spoil easily. Salt and refrigerate, or dry it.</p>
 <p>Good to know: A saying holds that grilled kamasu makes you eat a whole measure of rice.</p>
 <p>Main areas: Kanagawa、Shizuoka、Fukuoka、Nagasaki</p>
+</article>
+<article>
+<h3>Sailfin sandfish</h3>
+<p>Seafood　In season: Jan、Feb、Nov、Dec</p>
+<p>How to cook</p><ul><li>Shottsuru nabe　A hot pot of Akita made with fish sauce, simmered with vegetables.</li><li>Shioyaki (salt-grilled)　Grilled whole; it has no scales, which makes it easy to eat.</li><li>Dried overnight　Dried overnight, which concentrates the flavour.</li><li>Dengaku　Grilled and spread with miso.</li></ul>
+<p>How to choose: A firm body. Fish with a swollen belly full of roe are especially prized. Clear eyes.</p>
+<p>Storage: Having no scales makes preparation easy. Gut and refrigerate, using within two days.</p>
+<p>Good to know: The prefectural fish of Akita. It comes inshore to spawn around the season of thunder, which is why its Japanese character combines fish and god. The roe, called buriko, is prized for its distinctive stickiness and bite. It is also the base of the fish sauce shottsuru.</p>
+<p>Main areas: Akita、Tottori、Hyogo、Ishikawa</p>
 </article>
 <article>
 <h3>Atka mackerel</h3>
@@ -3762,6 +3871,15 @@ footer p{margin:0 0 6px}
 <p>Main areas: Chiba、Saitama、Ibaraki、Gunma</p>
 </article>
 <article>
+<h3>Negi sprouts</h3>
+<p>Vegetables　In season: </p>
+<p>How to cook</p><ul><li>Sushi　As a topping for gunkan or thin rolls; crisp, with a strong scent.</li><li>Floated in soup　Laid in the bowl, where the scent rises and the colour shows.</li><li>As a garnish　Beside sashimi or an appetiser, where its fine form stands out.</li></ul>
+<p>How to choose: Deep green and growing straight, with a firm white base.</p>
+<p>Storage: Sensitive to drying. Wrap in damp paper, seal and refrigerate. Use within two days.</p>
+<p>Good to know: Young spring onions a few centimetres tall. Sown densely and blanched under cover. Prized as a sushi topping in Edomae cooking, it is strongly aromatic but mild in pungency, and is treated as a quite separate ingredient from the mature plant.</p>
+<p>Main areas: Fukuoka、Shizuoka、Aichi、Chiba</p>
+</article>
+<article>
 <h3>Myoga ginger</h3>
 <p>Vegetables　In season: Jul、Aug、Sep</p>
 <p>How to cook</p><ul><li>As a garnish　Chopped over chilled tofu or somen.</li><li>Pickled in sweet vinegar　Turns a vivid pink.</li><li>Tempura　Fried whole.</li><li>Miso soup　Added for its aroma.</li></ul>
@@ -3940,6 +4058,24 @@ footer p{margin:0 0 6px}
 <p>Storage: Ripen at room temperature before it is fully red, then refrigerate. Over-chilling dulls the flavour.</p>
 <p>Good to know: Heat makes the umami compound glutamate more available. Its role changes between raw and cooked dishes.</p>
 <p>Main areas: Kumamoto、Hokkaido、Ibaraki、Aichi</p>
+</article>
+<article>
+<h3>Cherry tomato</h3>
+<p>Vegetables　In season: May、Jun、Jul</p>
+<p>How to cook</p><ul><li>Eaten fresh　Rinsed and eaten as they are, in a lunchbox or alongside a dish.</li><li>Salad　Halved and folded in, for colour and sweetness.</li><li>Marinated　Peeled after blanching and steeped, which lets the flavour soak in.</li><li>Roasted　Roasted in the oven, which concentrates the sweetness.</li></ul>
+<p>How to choose: Deep, even colour with a green taut calyx, and no splits in the skin.</p>
+<p>Storage: Ripen at room temperature, then refrigerate. Over-chilling dulls the taste.</p>
+<p>Good to know: Higher in sugar and denser in nutrients than large tomatoes. Varieties such as Aiko and Carol are numerous, and the colours run beyond red to yellow, orange, green and near-black. Fruit shipped on the truss keeps its freshness longer.</p>
+<p>Main areas: Kumamoto、Aichi、Hokkaido、Ibaraki</p>
+</article>
+<article>
+<h3>High-sugar tomato</h3>
+<p>Vegetables　In season: Jan、Feb、Mar、Apr、May、Dec</p>
+<p>How to cook</p><ul><li>Eaten fresh　Chilled and eaten whole, or cut into wedges. As sweet as fruit.</li><li>Salad　With salt and olive oil alone, which brings the sweetness forward.</li><li>Chilled soup　Sieved and chilled, for a deep sweetness against the acidity.</li><li>Dessert　Steeped in syrup, and treated as fruit.</li></ul>
+<p>How to choose: Small but heavy in the hand, deep red, with a lively calyx.</p>
+<p>Storage: Room temperature or refrigerated. Chilling just before eating lifts the sweetness.</p>
+<p>Good to know: Not a variety but a method. Water is held back severely, which raises the sugar content above eight degrees. Brands include Amela from Shizuoka and Nagano and Tokutani from Kochi. Where ordinary tomatoes peak in summer, these are at their sweetest from winter into spring.</p>
+<p>Main areas: Shizuoka、Kochi、Kumamoto、Nagano</p>
 </article>
 <article>
 <h3>Green pepper</h3>
@@ -4564,6 +4700,10 @@ footer p{margin:0 0 6px}
 </article>
 </section>
 <!-- SEO-END -->
+
+
+
+
 
 
 
@@ -5511,10 +5651,48 @@ $("consentMin").addEventListener("click", () => setConsent(false));
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* SEASON-JS-START
    季節の帯。
    風景は images/season/ に 01a.jpg のように月と枝番で置く。
    画像がまだ無い月は、帯ごと隠して何も出さない。 */
+/* 直近に追加した品目。品目を足すたびにここを書き換える。 */
+const SEASON_NEW = ["芽ねぎ", "メヒカリ", "ハタハタ", "ミニトマト", "フルーツトマト"];
+const SEASON_NEW_LABEL = {
+  "ja": "新着", "en": "New", "th": "ใหม่", "zh": "新增", "zh-CN": "新增"
+};
+
 const SEASON_SHOTS = 3;          // 1か月あたりの風景の枚数
 const SEASON_HOLD  = 6200;       // 風景を1枚見せておく時間（ミリ秒）
 const SEASON_SPEED = 34;         // 品目が流れる速さ（1秒あたりのピクセル）
@@ -5551,9 +5729,23 @@ function seasonUsable(m){
   return Promise.all(jobs).then(r => r.filter(Boolean));
 }
 
+/* 新着のお知らせ。品目名はその言語で出す。 */
+function renderSeasonNew(){
+  const box = $("seasonNew"), lab = $("seasonNewLabel"), list = $("seasonNewList");
+  if (!box || !lab || !list) return;
+  const found = SEASON_NEW
+    .map(id => ITEMS.find(it => it.ja === id))
+    .filter(Boolean);
+  if (!found.length){ box.hidden = true; return; }
+  box.hidden = false;
+  lab.textContent = SEASON_NEW_LABEL[state.lang] || SEASON_NEW_LABEL.en;
+  list.innerHTML = found.map(it => `<b>${esc(nameOf(it))}</b>`).join("　");
+}
+
 function renderSeason(){
   const box = $("season"), scene = $("seasonScene"), rail = $("seasonRail");
   if (!box || !scene || !rail) return;
+  renderSeasonNew();
   if (seasonTimer){ clearInterval(seasonTimer); seasonTimer = null; }
 
   /* 月が未選択のときは今月を見せる。state.month は 0 から始まる。 */
@@ -5741,7 +5933,7 @@ function renderMonths(){
       state.month = (state.month === i) ? null : i;
       render();
       renderSeason();
-                                                                                                                                                                                                            });
+                                                                                                                                                                                                                            });
     row.appendChild(b);
   });
 }
@@ -5760,6 +5952,14 @@ function bandHTML(it, mark){
   return [...it.m].map((v,i) =>
     `<div class="cell lv${v}${(mark && i===NOW)?" now":""}" title="${T.monthsLong[i]}"></div>`).join("");
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -5934,6 +6134,10 @@ function render(){
   const q = state.q.trim().toLowerCase();
   const rows = ITEMS.filter(it => {
                                         if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
+    if (state.fav && !isFav(it)) return false;
     if (state.fav && !isFav(it)) return false;
     if (state.fav && !isFav(it)) return false;
     if (state.fav && !isFav(it)) return false;

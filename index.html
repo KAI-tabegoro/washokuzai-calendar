@@ -411,6 +411,60 @@ body{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* SEARCH-CSS-START 検索窓と候補 */
 .searchbox{position:relative; display:flex; align-items:center}
 .sicon{
@@ -966,6 +1020,24 @@ footer p{margin:0 0 6px}
   </h1>
   <p id="siteSub"></p>
 </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5315,6 +5387,15 @@ footer p{margin:0 0 6px}
 
 
 
+
+
+
+
+
+
+
+
+
 <!-- CONSENT-START 同意バナー。選択はブラウザに保存され、次回からは出ません。 -->
 <div class="consent" id="consent" hidden role="dialog" aria-live="polite">
   <div class="consent-in">
@@ -6346,6 +6427,78 @@ $("consentMin").addEventListener("click", () => setConsent(false));
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* SEASON-JS-START
    季節の帯。
    風景は images/season/ に 01a.jpg のように月と枝番で置く。
@@ -6615,6 +6768,42 @@ function bandHTML(it, mark){
   return [...it.m].map((v,i) =>
     `<div class="cell lv${v}${(mark && i===NOW)?" now":""}" title="${T.monthsLong[i]}"></div>`).join("");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -7284,6 +7473,8 @@ async function boot(){
   renderNow();
   renderMonths();
   render();
+  renderSeason();
+  updateFavBtn();
   showConsent();
 }
 

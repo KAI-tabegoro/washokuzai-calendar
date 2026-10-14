@@ -31,8 +31,10 @@ h1{font-family:var(--mincho);font-size:30px;font-weight:600;margin:0 0 4px;lette
 .kana{font-size:13px;color:var(--ink-soft);margin:0 0 6px}
 .lead{font-size:14px;color:var(--ink-soft);margin:0 0 20px}
 
-.hero-fig{margin:0 0 30px}
-.hero{width:100%;aspect-ratio:3/2;max-height:400px;object-fit:cover;border-radius:3px;
+/* 写真はすべて4:3。height属性がCSSより強いので height:auto で打ち消す。
+   切り抜くと左上のQRとロゴが欠けるため、比率は4:3のままにして幅で抑える。 */
+.hero-fig{margin:0 0 30px;max-width:520px}
+.hero{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
       background:var(--paper-2);display:block}
 .hero-fig figcaption{font-size:12px;color:var(--ink-soft);margin-top:7px}
 
@@ -56,7 +58,7 @@ h2{font-family:var(--mincho);font-size:17px;font-weight:600;margin:34px 0 12px;
 .cooks{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0}
 .cook{min-width:0;overflow-wrap:anywhere;margin:0}
 .cook figcaption{margin:0}
-.cook img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+.cook img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
           background:var(--paper-2);display:block;margin-bottom:7px}
 .cook h3{font-size:14px;font-weight:600;margin:0 0 3px}
 .cook p{font-size:13px;color:var(--ink-soft);margin:0}
@@ -75,7 +77,7 @@ h2{font-family:var(--mincho);font-size:17px;font-weight:600;margin:34px 0 12px;
 .rel{list-style:none;padding:0;margin:0;display:grid;
      grid-template-columns:repeat(4,1fr);gap:12px}
 .rel a{text-decoration:none;display:block}
-.rel img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px;
+.rel img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
          background:var(--paper-2);display:block;margin-bottom:5px}
 .rel span{font-size:12px;color:var(--ink)}
 .rel a:hover span{color:var(--gold)}

@@ -1,0 +1,98 @@
+/* 品目ページ（和食材カレンダー） */
+:root{
+  --paper:#F2F4F3; --paper-2:#E9EDEB; --gold:#B08D53;
+  --ink:#283D48; --ink-soft:#5F7278; --rule:#DCE2E0; --rule-strong:#C2CCC9;
+  --sea:#2C5871; --sea-soft:#C8D8E1;
+  --land:#556B33; --land-soft:#D9E1CB;
+  --fruit:#B0543E; --fruit-soft:#EFD8CF;
+  --gothic:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic","Noto Sans JP","Noto Sans Thai","Leelawadee UI","Thonburi","PingFang TC","PingFang SC","Microsoft JhengHei","Microsoft YaHei","Noto Sans TC","Noto Sans SC","Meiryo",system-ui,sans-serif;
+  --mincho:"Hiragino Mincho ProN","Yu Mincho","YuMincho","Noto Serif JP","Noto Serif Thai","Thonburi","Noto Serif TC",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--gothic);
+     font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+html[lang="th"] body{line-height:1.9}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 72px}
+a{color:var(--ink)}
+
+.crumb{font-size:12px;color:var(--ink-soft);padding:18px 0 0}
+.crumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+.crumb a:hover{color:var(--gold)}
+.crumb span{margin:0 6px;color:var(--rule-strong)}
+
+.head{padding:22px 0 0;border-bottom:1px solid var(--rule);margin-bottom:26px}
+.tag{display:inline-block;font-size:11px;letter-spacing:.08em;padding:3px 9px;
+     border-radius:2px;margin-bottom:10px}
+.tag.sea{background:var(--sea-soft);color:var(--sea)}
+.tag.land{background:var(--land-soft);color:var(--land)}
+.tag.fruit{background:var(--fruit-soft);color:var(--fruit)}
+h1{font-family:var(--mincho);font-size:30px;font-weight:600;margin:0 0 4px;letter-spacing:.02em}
+.kana{font-size:13px;color:var(--ink-soft);margin:0 0 6px}
+.lead{font-size:14px;color:var(--ink-soft);margin:0 0 20px}
+
+.hero-fig{margin:0 0 30px}
+.hero{width:100%;aspect-ratio:3/2;max-height:400px;object-fit:cover;border-radius:3px;
+      background:var(--paper-2);display:block}
+.hero-fig figcaption{font-size:12px;color:var(--ink-soft);margin-top:7px}
+
+h2{font-family:var(--mincho);font-size:17px;font-weight:600;margin:34px 0 12px;
+   padding-bottom:7px;border-bottom:1px solid var(--rule);letter-spacing:.03em}
+
+/* 旬の帯 */
+.cal{display:grid;grid-template-columns:repeat(12,1fr);gap:2px;margin:0 0 8px}
+.cal div{text-align:center;font-size:11px;padding:7px 0 6px;background:#fff;
+         border:1px solid var(--rule);border-radius:2px;color:var(--ink-soft)}
+.cal div.a{background:var(--paper-2);color:var(--ink)}
+.cal div.p{background:var(--gold);border-color:var(--gold);color:#fff;font-weight:600}
+.legend{font-size:11px;color:var(--ink-soft)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:1px;
+          margin:0 4px 0 12px;vertical-align:baseline}
+.legend i:first-child{margin-left:0}
+.legend i.p{background:var(--gold)}
+.legend i.a{background:var(--paper-2);border:1px solid var(--rule)}
+
+/* 調理法 */
+.cooks{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0}
+.cook{min-width:0;overflow-wrap:anywhere;margin:0}
+.cook figcaption{margin:0}
+.cook img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+          background:var(--paper-2);display:block;margin-bottom:7px}
+.cook h3{font-size:14px;font-weight:600;margin:0 0 3px}
+.cook p{font-size:13px;color:var(--ink-soft);margin:0}
+
+.body p{margin:0 0 10px}
+.origins{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:7px}
+.origins li a{display:inline-block;font-size:13px;padding:4px 11px;background:#fff;
+   border:1px solid var(--rule);border-radius:2px;text-decoration:none;color:var(--ink)}
+.origins li a:hover{border-color:var(--gold);color:var(--gold)}
+
+.cta{display:block;text-align:center;margin:36px 0 0;padding:15px;
+     background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;
+     font-size:15px;letter-spacing:.03em}
+.cta:hover{background:var(--gold);color:#fff}
+
+.rel{list-style:none;padding:0;margin:0;display:grid;
+     grid-template-columns:repeat(4,1fr);gap:12px}
+.rel a{text-decoration:none;display:block}
+.rel img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:3px;
+         background:var(--paper-2);display:block;margin-bottom:5px}
+.rel span{font-size:12px;color:var(--ink)}
+.rel a:hover span{color:var(--gold)}
+
+.langs{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:14px;font-size:13px}
+.langs a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+.langs a:hover{color:var(--gold)}
+.langs li.on{color:var(--gold)}
+
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
+       font-size:11px;color:var(--ink-soft);line-height:1.8}
+footer a{color:var(--ink-soft)}
+
+@media (max-width:560px){
+  .wrap{padding:0 16px 56px}
+  h1{font-size:25px}
+  .cal div{font-size:9px;padding:6px 0 5px}
+  .cooks{grid-template-columns:1fr;gap:16px}
+  .rel{grid-template-columns:repeat(3,1fr)}
+}

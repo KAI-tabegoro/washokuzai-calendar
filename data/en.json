@@ -6808,5 +6808,160 @@
    "Wakayama",
    "Kumamoto"
   ]
+ },
+ {
+  "name": "Akebi",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "The pulp is spooned out. Sweet, with many seeds."
+   },
+   {
+    "name": "Stuffed skin",
+    "desc": "The skin is filled with minced meat and miso, then grilled. A Yamagata speciality."
+   },
+   {
+    "name": "Stir-fried skin",
+    "desc": "The skin is sliced and stir-fried. The faint bitterness is the point."
+   },
+   {
+    "name": "Tempura",
+    "desc": "The skin is battered and fried, which softens the bitterness."
+   }
+  ],
+  "pick": "Skin that has turned purple and is beginning to split, with white, glossy pulp.",
+  "keep": "Keeps a few days at room temperature. Eat split fruit soon. Refrigerate the skin.",
+  "trivia": "Yamagata grows most of Japan's crop. The pulp is sweet and full of seeds; the skin is faintly bitter and is treated there as a vegetable, stuffed or stir-fried. The name is said to come from the way the fruit splits open when ripe.",
+  "origins": [
+   "Yamagata",
+   "Akita",
+   "Niigata",
+   "Nagano"
+  ],
+  "id": "アケビ"
+ },
+ {
+  "name": "Japanese wild garlic",
+  "cooks": [
+   {
+    "name": "Raw with miso",
+    "desc": "The bulb is eaten raw, dipped in miso. The usual way."
+   },
+   {
+    "name": "Dressed with vinegared miso",
+    "desc": "Blanched briefly, then dressed with sweet vinegared miso."
+   },
+   {
+    "name": "Tempura",
+    "desc": "Fried leaves and all, which brings out the scent."
+   },
+   {
+    "name": "Steeped in soy sauce",
+    "desc": "The bulbs are steeped in soy sauce and keep well."
+   }
+  ],
+  "pick": "Plump white bulbs with firm, upright leaves.",
+  "keep": "Wrap in damp paper and refrigerate. The scent fades fast, so use it soon.",
+  "trivia": "A wild relative of onion and garlic. Both the bulb and the leaves are eaten. It has a sharp bite and a strong scent, and is most often eaten raw with miso. Its leaves resemble those of the daffodil, which is poisonous, so care is needed when foraging.",
+  "origins": [
+   "Chiba",
+   "Nagano",
+   "Tokushima",
+   "Oita"
+  ],
+  "id": "ノビル"
+ },
+ {
+  "name": "Royal fern",
+  "cooks": [
+   {
+    "name": "Simmered",
+    "desc": "Simmered gently in dashi and soy sauce."
+   },
+   {
+    "name": "Namul (Korean seasoned vegetables)",
+    "desc": "Dressed with sesame oil and salt, usually from the dried form."
+   },
+   {
+    "name": "Shira-ae (dressed with mashed tofu)",
+    "desc": "Dressed with mashed tofu."
+   },
+   {
+    "name": "Stir-fried and simmered",
+    "desc": "Cooked down with fried tofu."
+   }
+  ],
+  "pick": "Thick, firm stems covered in down, with the tips still curled.",
+  "keep": "Fresh shoots must be de-bittered before refrigerating. Dried ones keep a long time at room temperature.",
+  "trivia": "It cannot be eaten raw; the bitterness has to be drawn out with baking soda. Dried zenmai keeps well and is rehydrated for simmered dishes and namul. Thicker stems and a covering of down tell it apart from warabi.",
+  "origins": [
+   "Yamagata",
+   "Akita",
+   "Niigata",
+   "Fukushima"
+  ],
+  "id": "ゼンマイ"
+ },
+ {
+  "name": "Wood ear mushroom",
+  "cooks": [
+   {
+    "name": "Chinese-style stir-fry",
+    "desc": "Stir-fried with pork and egg. The texture is the point."
+   },
+   {
+    "name": "Sunomono (vinegared dish)",
+    "desc": "Cut into strips and dressed with seasoned vinegar."
+   },
+   {
+    "name": "Soup",
+    "desc": "Added to a Chinese-style soup. The rehydrated dried kind suits this."
+   },
+   {
+    "name": "Sashimi",
+    "desc": "Fresh wood ear is blanched briefly and served with ponzu."
+   }
+  ],
+  "pick": "Thick and springy, not dried out, with a pale underside.",
+  "keep": "Fresh: refrigerate and use within a few days. Dried: keeps a long time at room temperature.",
+  "trivia": "A mushroom. Its Japanese name is written with characters meaning 'tree ear', after the ear-like shape in which it grows on wood. Japanese fresh wood ear is thick and markedly crunchy, and is treated as a different ingredient from the dried kind.",
+  "origins": [
+   "Kagoshima",
+   "Kumamoto",
+   "Oita",
+   "Fukuoka"
+  ],
+  "id": "キクラゲ"
+ },
+ {
+  "name": "Rakkyo",
+  "cooks": [
+   {
+    "name": "Pickled in sweet vinegar",
+    "desc": "The usual preparation. Ready to eat after about a month."
+   },
+   {
+    "name": "Salt-pickled",
+    "desc": "Lactic fermentation gives it a sourness."
+   },
+   {
+    "name": "Tempura",
+    "desc": "Battered and fried, which turns the sharpness to sweetness."
+   },
+   {
+    "name": "Deep-fried plain",
+    "desc": "Fried as they are and salted."
+   }
+  ],
+  "pick": "Evenly sized bulbs, hard and tight, with no sprouting.",
+  "keep": "Raw bulbs spoil quickly; pickle them the day they arrive. Pickled, they keep a long time somewhere cool and dark.",
+  "trivia": "Once dug, the bulbs sprout and toughen, so raw rakkyo is pickled as soon as it arrives. Tottori's sand-dune rakkyo and Fukui's hana-rakkyo are the best known. The small bulbs sold as 'echalote' in Japan are rakkyo harvested young.",
+  "origins": [
+   "Tottori",
+   "Kagoshima",
+   "Miyazaki",
+   "Fukui"
+  ],
+  "id": "らっきょう"
  }
 ]

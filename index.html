@@ -993,6 +993,11 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 }
 .itempage-link:hover{background:var(--ink);color:#fff}
 /* ITEMLINK-LINK-CSS-END */
+/* ABOUTLINK-CSS-START */
+.ai-about{font-size:12.5px;margin:0 0 20px}
+.ai-about a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
+.ai-about a:hover{border-color:var(--gold)}
+/* ABOUTLINK-CSS-END */
 </style>
 <script type="application/ld+json">
 {
@@ -1257,7 +1262,8 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <section class="allitems">
 <div class="ai-set" data-ilang="ja">
 <h2>品目をすべて見る</h2>
-<p class="ai-lead">品目ごとのページに、旬の時期・調理法・選び方・保存方法・産地をまとめています。</p>
+<p class="ai-lead">日本の魚介・野菜・果物230品目について、いつが旬か、いつ出回るかを月ごとにまとめています。品目ごとのページに、調理法・選び方・保存方法・主な産地を掲載しています。</p>
+<p class="ai-about"><a href="about.html?lang=ja">和食材カレンダーとは &rarr;</a></p>
 <h3>魚介（100）</h3>
 <ul>
 <li><a href="ja/item/maaji.html">マアジ</a></li>
@@ -1366,11 +1372,13 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="ja/item/fukinoto.html">ふきのとう</a></li>
 <li><a href="ja/item/takenoko.html">タケノコ</a></li>
 <li><a href="ja/item/warabi.html">わらび</a></li>
+<li><a href="ja/item/zenmai.html">ゼンマイ</a></li>
 <li><a href="ja/item/kogomi.html">こごみ</a></li>
 <li><a href="ja/item/udo.html">ウド</a></li>
 <li><a href="ja/item/fuki.html">フキ</a></li>
 <li><a href="ja/item/nanohana.html">ナノハナ</a></li>
 <li><a href="ja/item/seri.html">セリ</a></li>
+<li><a href="ja/item/nobiru.html">ノビル</a></li>
 <li><a href="ja/item/asuparagas.html">アスパラガス</a></li>
 <li><a href="ja/item/ashitaba.html">明日葉</a></li>
 <li><a href="ja/item/kyabetsu.html">キャベツ</a></li>
@@ -1433,6 +1441,7 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="ja/item/moyashi.html">もやし</a></li>
 <li><a href="ja/item/shintamanegi.html">新玉ねぎ</a></li>
 <li><a href="ja/item/pecoros.html">ペコロス</a></li>
+<li><a href="ja/item/rakkyo.html">らっきょう</a></li>
 <li><a href="ja/item/daikon.html">ダイコン</a></li>
 <li><a href="ja/item/kabu.html">カブ</a></li>
 <li><a href="ja/item/ninjin.html">ニンジン</a></li>
@@ -1453,11 +1462,8 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="ja/item/enoki.html">えのき</a></li>
 <li><a href="ja/item/eringi.html">エリンギ</a></li>
 <li><a href="ja/item/maitake.html">舞茸</a></li>
-<li><a href="ja/item/ginnan.html">ギンナン</a></li>
-<li><a href="ja/item/nobiru.html">ノビル</a></li>
-<li><a href="ja/item/zenmai.html">ゼンマイ</a></li>
 <li><a href="ja/item/kikurage.html">キクラゲ</a></li>
-<li><a href="ja/item/rakkyo.html">らっきょう</a></li>
+<li><a href="ja/item/ginnan.html">ギンナン</a></li>
 </ul>
 <h3>果物（35）</h3>
 <ul>
@@ -1491,16 +1497,17 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="ja/item/passionfruit.html">パッションフルーツ</a></li>
 <li><a href="ja/item/ume.html">ウメ</a></li>
 <li><a href="ja/item/kuri.html">クリ</a></li>
+<li><a href="ja/item/akebi.html">アケビ</a></li>
 <li><a href="ja/item/yuzu.html">ユズ</a></li>
 <li><a href="ja/item/sudachi.html">スダチ</a></li>
 <li><a href="ja/item/kabosu.html">かぼす</a></li>
 <li><a href="ja/item/lemon.html">レモン</a></li>
-<li><a href="ja/item/akebi.html">アケビ</a></li>
 </ul>
 </div>
 <div class="ai-set" data-ilang="en">
 <h2>All items</h2>
-<p class="ai-lead">Each item has its own page: when it is at its best, how to cook it, how to choose it, how to store it, and where it comes from.</p>
+<p class="ai-lead">When 230 Japanese ingredients — seafood, vegetables and fruit — are at their best, and when they are in the market. Each item has its own page with how to cook it, how to choose it, how to store it, and where it comes from.</p>
+<p class="ai-about"><a href="about.html?lang=en">About this calendar &rarr;</a></p>
 <h3>Seafood（100）</h3>
 <ul>
 <li><a href="en/item/maaji.html">Japanese horse mackerel</a></li>
@@ -1609,11 +1616,13 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="en/item/fukinoto.html">Butterbur sprout</a></li>
 <li><a href="en/item/takenoko.html">Bamboo shoot</a></li>
 <li><a href="en/item/warabi.html">Bracken shoot</a></li>
+<li><a href="en/item/zenmai.html">Royal fern</a></li>
 <li><a href="en/item/kogomi.html">Fiddlehead fern</a></li>
 <li><a href="en/item/udo.html">Udo</a></li>
 <li><a href="en/item/fuki.html">Butterbur</a></li>
 <li><a href="en/item/nanohana.html">Rapeseed blossom</a></li>
 <li><a href="en/item/seri.html">Japanese parsley</a></li>
+<li><a href="en/item/nobiru.html">Japanese wild garlic</a></li>
 <li><a href="en/item/asuparagas.html">Asparagus</a></li>
 <li><a href="en/item/ashitaba.html">Ashitaba</a></li>
 <li><a href="en/item/kyabetsu.html">Cabbage</a></li>
@@ -1676,6 +1685,7 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="en/item/moyashi.html">Bean sprouts</a></li>
 <li><a href="en/item/shintamanegi.html">New-crop onion</a></li>
 <li><a href="en/item/pecoros.html">Pearl onion</a></li>
+<li><a href="en/item/rakkyo.html">Rakkyo</a></li>
 <li><a href="en/item/daikon.html">Daikon radish</a></li>
 <li><a href="en/item/kabu.html">Turnip</a></li>
 <li><a href="en/item/ninjin.html">Carrot</a></li>
@@ -1696,11 +1706,8 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="en/item/enoki.html">Enoki mushroom</a></li>
 <li><a href="en/item/eringi.html">King oyster mushroom</a></li>
 <li><a href="en/item/maitake.html">Maitake mushroom</a></li>
-<li><a href="en/item/ginnan.html">Ginkgo nut</a></li>
-<li><a href="en/item/nobiru.html">Japanese wild garlic</a></li>
-<li><a href="en/item/zenmai.html">Royal fern</a></li>
 <li><a href="en/item/kikurage.html">Wood ear mushroom</a></li>
-<li><a href="en/item/rakkyo.html">Rakkyo</a></li>
+<li><a href="en/item/ginnan.html">Ginkgo nut</a></li>
 </ul>
 <h3>Fruit（35）</h3>
 <ul>
@@ -1734,16 +1741,17 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="en/item/passionfruit.html">Passion fruit</a></li>
 <li><a href="en/item/ume.html">Ume plum</a></li>
 <li><a href="en/item/kuri.html">Chestnut</a></li>
+<li><a href="en/item/akebi.html">Akebi</a></li>
 <li><a href="en/item/yuzu.html">Yuzu</a></li>
 <li><a href="en/item/sudachi.html">Sudachi</a></li>
 <li><a href="en/item/kabosu.html">Kabosu</a></li>
 <li><a href="en/item/lemon.html">Lemon</a></li>
-<li><a href="en/item/akebi.html">Akebi</a></li>
 </ul>
 </div>
 <div class="ai-set" data-ilang="th">
 <h2>ดูวัตถุดิบทั้งหมด</h2>
-<p class="ai-lead">แต่ละวัตถุดิบมีหน้าของตัวเอง รวมช่วงที่อร่อยที่สุด วิธีปรุง วิธีเลือก วิธีเก็บรักษา และแหล่งผลิต</p>
+<p class="ai-lead">รวมวัตถุดิบญี่ปุ่น 230 ชนิด ทั้งอาหารทะเล ผัก และผลไม้ ดูได้ว่าช่วงไหนอร่อยที่สุดและช่วงไหนมีจำหน่าย แต่ละชนิดมีหน้าของตัวเองพร้อมวิธีปรุง วิธีเลือก วิธีเก็บรักษา และแหล่งผลิต</p>
+<p class="ai-about"><a href="about.html?lang=th">เกี่ยวกับปฏิทินนี้ &rarr;</a></p>
 <h3>อาหารทะเล（100）</h3>
 <ul>
 <li><a href="th/item/maaji.html">ปลาอาจิ (ปลาทูแขกญี่ปุ่น)</a></li>
@@ -1852,11 +1860,13 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="th/item/fukinoto.html">ดอกตูมฟุกิ</a></li>
 <li><a href="th/item/takenoko.html">หน่อไม้ญี่ปุ่น</a></li>
 <li><a href="th/item/warabi.html">ยอดเฟิร์นวาราบิ</a></li>
+<li><a href="th/item/zenmai.html">ยอดเฟิร์นเซนไม</a></li>
 <li><a href="th/item/kogomi.html">ยอดเฟิร์นโคโกมิ</a></li>
 <li><a href="th/item/udo.html">อุโดะ (หน่อไม้ภูเขา)</a></li>
 <li><a href="th/item/fuki.html">ฟุกิ (ก้านบัตเตอร์เบอร์)</a></li>
 <li><a href="th/item/nanohana.html">ดอกผักกาดก้านอ่อน</a></li>
 <li><a href="th/item/seri.html">เซริ (ผักชีล้อมญี่ปุ่น)</a></li>
+<li><a href="th/item/nobiru.html">กระเทียมป่าญี่ปุ่น</a></li>
 <li><a href="th/item/asuparagas.html">หน่อไม้ฝรั่ง</a></li>
 <li><a href="th/item/ashitaba.html">อาชิตะบะ</a></li>
 <li><a href="th/item/kyabetsu.html">กะหล่ำปลี</a></li>
@@ -1919,6 +1929,7 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="th/item/moyashi.html">ถั่วงอก</a></li>
 <li><a href="th/item/shintamanegi.html">หอมหัวใหญ่ใหม่</a></li>
 <li><a href="th/item/pecoros.html">หอมหัวเล็ก (เพิร์ลออเนียน)</a></li>
+<li><a href="th/item/rakkyo.html">รักเกียว</a></li>
 <li><a href="th/item/daikon.html">หัวไชเท้า</a></li>
 <li><a href="th/item/kabu.html">หัวผักกาดคาบุ</a></li>
 <li><a href="th/item/ninjin.html">แครอท</a></li>
@@ -1939,11 +1950,8 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="th/item/enoki.html">เห็ดเข็มทอง</a></li>
 <li><a href="th/item/eringi.html">เห็ดออรินจิ</a></li>
 <li><a href="th/item/maitake.html">เห็ดไมตาเกะ</a></li>
-<li><a href="th/item/ginnan.html">เมล็ดแปะก๊วย</a></li>
-<li><a href="th/item/nobiru.html">กระเทียมป่าญี่ปุ่น</a></li>
-<li><a href="th/item/zenmai.html">ยอดเฟิร์นเซนไม</a></li>
 <li><a href="th/item/kikurage.html">เห็ดหูหนู</a></li>
-<li><a href="th/item/rakkyo.html">รักเกียว</a></li>
+<li><a href="th/item/ginnan.html">เมล็ดแปะก๊วย</a></li>
 </ul>
 <h3>ผลไม้（35）</h3>
 <ul>
@@ -1977,16 +1985,17 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="th/item/passionfruit.html">เสาวรส</a></li>
 <li><a href="th/item/ume.html">บ๊วย</a></li>
 <li><a href="th/item/kuri.html">เกาลัดญี่ปุ่น</a></li>
+<li><a href="th/item/akebi.html">อาเกบิ</a></li>
 <li><a href="th/item/yuzu.html">ยูซุ</a></li>
 <li><a href="th/item/sudachi.html">ซูดาจิ</a></li>
 <li><a href="th/item/kabosu.html">ส้มคาโบสุ</a></li>
 <li><a href="th/item/lemon.html">เลมอนญี่ปุ่น</a></li>
-<li><a href="th/item/akebi.html">อาเกบิ</a></li>
 </ul>
 </div>
 <div class="ai-set" data-ilang="zh">
 <h2>瀏覽所有食材</h2>
-<p class="ai-lead">每項食材都有專屬頁面，收錄當令時期、料理方式、挑選方式、保存方式與產地。</p>
+<p class="ai-lead">收錄日本海鮮、蔬菜與水果共230項，依月份整理當令時期與供應時期。每項食材都有專屬頁面，收錄料理方式、挑選方式、保存方式與產地。</p>
+<p class="ai-about"><a href="about.html?lang=zh">關於和食材月曆 &rarr;</a></p>
 <h3>海鮮（100）</h3>
 <ul>
 <li><a href="zh/item/maaji.html">竹筴魚</a></li>
@@ -2095,11 +2104,13 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="zh/item/fukinoto.html">蜂斗菜花苞</a></li>
 <li><a href="zh/item/takenoko.html">竹筍</a></li>
 <li><a href="zh/item/warabi.html">蕨菜</a></li>
+<li><a href="zh/item/zenmai.html">紫萁</a></li>
 <li><a href="zh/item/kogomi.html">莢果蕨嫩芽</a></li>
 <li><a href="zh/item/udo.html">獨活</a></li>
 <li><a href="zh/item/fuki.html">蜂斗菜（款冬）</a></li>
 <li><a href="zh/item/nanohana.html">油菜花</a></li>
 <li><a href="zh/item/seri.html">水芹</a></li>
+<li><a href="zh/item/nobiru.html">野蒜</a></li>
 <li><a href="zh/item/asuparagas.html">蘆筍</a></li>
 <li><a href="zh/item/ashitaba.html">明日葉</a></li>
 <li><a href="zh/item/kyabetsu.html">高麗菜</a></li>
@@ -2162,6 +2173,7 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="zh/item/moyashi.html">豆芽菜</a></li>
 <li><a href="zh/item/shintamanegi.html">新洋蔥</a></li>
 <li><a href="zh/item/pecoros.html">珍珠洋蔥</a></li>
+<li><a href="zh/item/rakkyo.html">藠頭</a></li>
 <li><a href="zh/item/daikon.html">白蘿蔔</a></li>
 <li><a href="zh/item/kabu.html">蕪菁</a></li>
 <li><a href="zh/item/ninjin.html">胡蘿蔔</a></li>
@@ -2182,11 +2194,8 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="zh/item/enoki.html">金針菇</a></li>
 <li><a href="zh/item/eringi.html">杏鮑菇</a></li>
 <li><a href="zh/item/maitake.html">舞菇（灰樹花）</a></li>
-<li><a href="zh/item/ginnan.html">銀杏果</a></li>
-<li><a href="zh/item/nobiru.html">野蒜</a></li>
-<li><a href="zh/item/zenmai.html">紫萁</a></li>
 <li><a href="zh/item/kikurage.html">木耳</a></li>
-<li><a href="zh/item/rakkyo.html">藠頭</a></li>
+<li><a href="zh/item/ginnan.html">銀杏果</a></li>
 </ul>
 <h3>水果（35）</h3>
 <ul>
@@ -2220,16 +2229,17 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="zh/item/passionfruit.html">百香果</a></li>
 <li><a href="zh/item/ume.html">梅子</a></li>
 <li><a href="zh/item/kuri.html">栗子</a></li>
+<li><a href="zh/item/akebi.html">木通果</a></li>
 <li><a href="zh/item/yuzu.html">柚子（香橙）</a></li>
 <li><a href="zh/item/sudachi.html">酸橘（酢橘）</a></li>
 <li><a href="zh/item/kabosu.html">香母酢（臭橙）</a></li>
 <li><a href="zh/item/lemon.html">檸檬</a></li>
-<li><a href="zh/item/akebi.html">木通果</a></li>
 </ul>
 </div>
 <div class="ai-set" data-ilang="zh-CN">
 <h2>浏览所有食材</h2>
-<p class="ai-lead">每项食材都有专属页面，收录应季时期、烹饪方法、挑选方法、保存方法与产地。</p>
+<p class="ai-lead">收录日本海鲜、蔬菜与水果共230项，按月份整理应季时期与供应时期。每项食材都有专属页面，收录烹饪方法、挑选方法、保存方法与产地。</p>
+<p class="ai-about"><a href="about.html?lang=zh-CN">关于和食材日历 &rarr;</a></p>
 <h3>海鲜（100）</h3>
 <ul>
 <li><a href="zh-cn/item/maaji.html">竹筴鱼</a></li>
@@ -2338,11 +2348,13 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="zh-cn/item/fukinoto.html">蜂斗菜花苞</a></li>
 <li><a href="zh-cn/item/takenoko.html">竹笋</a></li>
 <li><a href="zh-cn/item/warabi.html">蕨菜</a></li>
+<li><a href="zh-cn/item/zenmai.html">紫萁</a></li>
 <li><a href="zh-cn/item/kogomi.html">荚果蕨嫩芽</a></li>
 <li><a href="zh-cn/item/udo.html">食用土当归</a></li>
 <li><a href="zh-cn/item/fuki.html">蜂斗菜</a></li>
 <li><a href="zh-cn/item/nanohana.html">油菜花</a></li>
 <li><a href="zh-cn/item/seri.html">水芹</a></li>
+<li><a href="zh-cn/item/nobiru.html">野蒜</a></li>
 <li><a href="zh-cn/item/asuparagas.html">芦笋</a></li>
 <li><a href="zh-cn/item/ashitaba.html">明日叶</a></li>
 <li><a href="zh-cn/item/kyabetsu.html">卷心菜</a></li>
@@ -2405,6 +2417,7 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="zh-cn/item/moyashi.html">豆芽菜</a></li>
 <li><a href="zh-cn/item/shintamanegi.html">新洋葱</a></li>
 <li><a href="zh-cn/item/pecoros.html">珍珠洋葱</a></li>
+<li><a href="zh-cn/item/rakkyo.html">藠头</a></li>
 <li><a href="zh-cn/item/daikon.html">白萝卜</a></li>
 <li><a href="zh-cn/item/kabu.html">芜菁</a></li>
 <li><a href="zh-cn/item/ninjin.html">胡萝卜</a></li>
@@ -2425,11 +2438,8 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="zh-cn/item/enoki.html">金针菇</a></li>
 <li><a href="zh-cn/item/eringi.html">杏鲍菇</a></li>
 <li><a href="zh-cn/item/maitake.html">舞菇（灰树花）</a></li>
-<li><a href="zh-cn/item/ginnan.html">白果</a></li>
-<li><a href="zh-cn/item/nobiru.html">野蒜</a></li>
-<li><a href="zh-cn/item/zenmai.html">紫萁</a></li>
 <li><a href="zh-cn/item/kikurage.html">木耳</a></li>
-<li><a href="zh-cn/item/rakkyo.html">藠头</a></li>
+<li><a href="zh-cn/item/ginnan.html">白果</a></li>
 </ul>
 <h3>水果（35）</h3>
 <ul>
@@ -2463,11 +2473,11 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <li><a href="zh-cn/item/passionfruit.html">百香果</a></li>
 <li><a href="zh-cn/item/ume.html">梅子</a></li>
 <li><a href="zh-cn/item/kuri.html">板栗</a></li>
+<li><a href="zh-cn/item/akebi.html">木通果</a></li>
 <li><a href="zh-cn/item/yuzu.html">香橙（柚子）</a></li>
 <li><a href="zh-cn/item/sudachi.html">酸橘</a></li>
 <li><a href="zh-cn/item/kabosu.html">香母酢（臭橙）</a></li>
 <li><a href="zh-cn/item/lemon.html">柠檬</a></li>
-<li><a href="zh-cn/item/akebi.html">木通果</a></li>
 </ul>
 </div>
 </section>
@@ -4449,6 +4459,11 @@ function detailHTML(it){
   if (trivia){
     out.push(`<section class="sect"><h3>${T.secTrivia}</h3><p class="trivia">${esc(trivia)}</p></section>`);
   }
+
+
+
+
+
 
 
 

@@ -41867,4 +41867,15 @@
       <image:caption>榨汁后调蜂蜜。</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://washokuzai-calendar.com/about.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://washokuzai-calendar.com/images/calendar-preview.png</image:loc>
+      <image:title>和食材カレンダーの画面</image:title>
+      <image:caption>日本の魚介・野菜・果物230品目の旬が月ごとにわかるカレンダーの画面</image:caption>
+    </image:image>
+  </url>
 </urlset>

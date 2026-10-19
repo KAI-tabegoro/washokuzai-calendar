@@ -16,7 +16,10 @@ html[lang="th"] body{line-height:1.9}
 .wrap{max-width:760px;margin:0 auto;padding:0 20px 72px}
 a{color:var(--ink)}
 
-.crumb{font-size:12px;color:var(--ink-soft);padding:18px 0 0}
+/* 上部：左にパンくず、右に言語。狭い画面では言語が下の行に回る */
+.topbar{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+        gap:7px 18px;padding:18px 0 0}
+.crumb{font-size:12px;color:var(--ink-soft);padding:0}
 .crumb a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
 .crumb a:hover{color:var(--gold)}
 .crumb span{margin:0 6px;color:var(--rule-strong)}
@@ -85,10 +88,10 @@ h2{font-family:var(--mincho);font-size:17px;font-weight:600;margin:34px 0 12px;
 .rel span{font-size:12px;color:var(--ink)}
 .rel a:hover span{color:var(--gold)}
 
-.langs{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:14px;font-size:13px}
+.langs{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;margin:0}
 .langs a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--rule-strong)}
-.langs a:hover{color:var(--gold)}
-.langs li.on{color:var(--gold)}
+.langs a:hover{color:var(--gold);border-color:var(--gold)}
+.langs .on{color:var(--gold)}
 
 footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--rule);
        font-size:11px;color:var(--ink-soft);line-height:1.8}

@@ -127,6 +127,19 @@ a{color:var(--ink)}
   .brand img{height:28px}
 }
 
+/* ページの上の帯 */
+.pgband{position:relative;overflow:hidden;background:var(--paper-2)}
+.pgband img{width:100%;height:clamp(170px,21vw,300px);object-fit:cover;display:block}
+.pgband .ov{position:absolute;inset:0;display:flex;flex-direction:column;
+            align-items:center;justify-content:center;text-align:center;padding:20px;
+            background:linear-gradient(180deg,rgba(24,36,43,.30),rgba(24,36,43,.58))}
+.pgband h1{font-family:var(--mincho);color:#fff;font-size:clamp(22px,3.3vw,34px);
+           font-weight:600;margin:0 0 9px;letter-spacing:.05em;line-height:1.4;
+           text-shadow:0 2px 14px rgba(20,30,36,.55)}
+.pgband p{color:#fff;font-size:clamp(12.5px,1.35vw,14.5px);margin:0;line-height:1.85;
+          max-width:44em;text-shadow:0 1px 10px rgba(20,30,36,.6)}
+.has-band .crumb{padding-top:14px}
+
 .page-h{padding:34px 0 0}
 .page-h h1{font-family:var(--mincho);font-size:clamp(23px,3.2vw,31px);font-weight:600;
            margin:0 0 10px;letter-spacing:.04em;line-height:1.4}
@@ -197,7 +210,7 @@ a{color:var(--ink)}
 @media (max-width:520px){ .idx{grid-template-columns:1fr} }
 </style>
 </head>
-<body data-lang="zh">
+<body data-lang="zh" class="has-band">
 <header class="site-head"><div class="wrap">
 <a class="brand" href="../zh/index.html"><img src="../washokuzai-mark.png" alt="" width="34" height="34"><b>和食材月曆</b></a>
 <button class="nav-toggle" type="button" id="navBtn" aria-expanded="false" aria-controls="gnav">☰</button>
@@ -222,10 +235,12 @@ a{color:var(--ink)}
 </div></header>
 <div class="wrap"><nav class="crumb"><a href="../zh/index.html">和食材月曆</a><span>›</span>所有食材</nav></div>
 <main>
-<div class="wrap"><div class="page-h">
+<section class="pgband">
+<img src="../images/page/items.jpg" alt="" width="1600" height="500" fetchpriority="high">
+<div class="ov">
 <h1>所有食材</h1>
-<p class="ld">本站收錄的230項食材一覽，可依名稱尋找。</p>
-</div></div>
+<p>本站收錄的230項食材一覽，可依名稱尋找。</p>
+</div></section>
 <section class="sec" style="padding-top:26px"><div class="wrap">
 <div class="cat-h sea"><b>海鮮</b><span>100項</span><span class="ln"></span><a class="more" href="../zh/category/sea.html" style="font-size:12.5px;color:var(--ink-soft);text-decoration:none">依分類尋找 &rsaquo;</a></div>
 <ul class="idx">

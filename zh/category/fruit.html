@@ -128,6 +128,19 @@ a{color:var(--ink)}
   .brand img{height:28px}
 }
 
+/* ページの上の帯 */
+.pgband{position:relative;overflow:hidden;background:var(--paper-2)}
+.pgband img{width:100%;height:clamp(170px,21vw,300px);object-fit:cover;display:block}
+.pgband .ov{position:absolute;inset:0;display:flex;flex-direction:column;
+            align-items:center;justify-content:center;text-align:center;padding:20px;
+            background:linear-gradient(180deg,rgba(24,36,43,.30),rgba(24,36,43,.58))}
+.pgband h1{font-family:var(--mincho);color:#fff;font-size:clamp(22px,3.3vw,34px);
+           font-weight:600;margin:0 0 9px;letter-spacing:.05em;line-height:1.4;
+           text-shadow:0 2px 14px rgba(20,30,36,.55)}
+.pgband p{color:#fff;font-size:clamp(12.5px,1.35vw,14.5px);margin:0;line-height:1.85;
+          max-width:44em;text-shadow:0 1px 10px rgba(20,30,36,.6)}
+.has-band .crumb{padding-top:14px}
+
 .page-h{padding:34px 0 0}
 .page-h h1{font-family:var(--mincho);font-size:clamp(23px,3.2vw,31px);font-weight:600;
            margin:0 0 10px;letter-spacing:.04em;line-height:1.4}
@@ -199,7 +212,7 @@ a{color:var(--ink)}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://washokuzai-calendar.com/zh/category/fruit.html", "url": "https://washokuzai-calendar.com/zh/category/fruit.html", "name": "日本水果的當令時期 35項｜12個月一覽", "description": "日本水果35項的12個月當令一覽表。何時最美味、何時有供應，一目了然。每項食材都有專屬頁面，收錄挑選方式、料理方式與產地。", "inLanguage": "zh-Hant", "isPartOf": {"@type": "WebSite", "name": "和食材月曆", "url": "https://washokuzai-calendar.com/"}, "mainEntity": {"@type": "ItemList", "numberOfItems": 35, "itemListElement": [{"@type": "ListItem", "position": 1, "name": "草莓", "url": "https://washokuzai-calendar.com/zh/item/ichigo.html"}, {"@type": "ListItem", "position": 2, "name": "櫻桃", "url": "https://washokuzai-calendar.com/zh/item/sakuranbo.html"}, {"@type": "ListItem", "position": 3, "name": "李子（日本李）", "url": "https://washokuzai-calendar.com/zh/item/sumomo.html"}, {"@type": "ListItem", "position": 4, "name": "藍莓", "url": "https://washokuzai-calendar.com/zh/item/blueberry.html"}, {"@type": "ListItem", "position": 5, "name": "枇杷", "url": "https://washokuzai-calendar.com/zh/item/biwa.html"}, {"@type": "ListItem", "position": 6, "name": "水蜜桃", "url": "https://washokuzai-calendar.com/zh/item/momo.html"}, {"@type": "ListItem", "position": 7, "name": "西瓜", "url": "https://washokuzai-calendar.com/zh/item/suika.html"}, {"@type": "ListItem", "position": 8, "name": "哈密瓜", "url": "https://washokuzai-calendar.com/zh/item/melon.html"}, {"@type": "ListItem", "position": 9, "name": "德拉瓦葡萄", "url": "https://washokuzai-calendar.com/zh/item/delaware.html"}, {"@type": "ListItem", "position": 10, "name": "皮歐妮葡萄", "url": "https://washokuzai-calendar.com/zh/item/pione.html"}, {"@type": "ListItem", "position": 11, "name": "麝香葡萄", "url": "https://washokuzai-calendar.com/zh/item/muscat.html"}, {"@type": "ListItem", "position": 12, "name": "無花果", "url": "https://washokuzai-calendar.com/zh/item/ichijiku.html"}, {"@type": "ListItem", "position": 13, "name": "荔枝", "url": "https://washokuzai-calendar.com/zh/item/lychee.html"}, {"@type": "ListItem", "position": 14, "name": "日本梨（水梨）", "url": "https://washokuzai-calendar.com/zh/item/nashi.html"}, {"@type": "ListItem", "position": 15, "name": "西洋梨", "url": "https://washokuzai-calendar.com/zh/item/younashi.html"}, {"@type": "ListItem", "position": 16, "name": "蘋果", "url": "https://washokuzai-calendar.com/zh/item/ringo.html"}, {"@type": "ListItem", "position": 17, "name": "青蘋果", "url": "https://washokuzai-calendar.com/zh/item/aoringo.html"}, {"@type": "ListItem", "position": 18, "name": "柿子", "url": "https://washokuzai-calendar.com/zh/item/kaki.html"}, {"@type": "ListItem", "position": 19, "name": "奇異果", "url": "https://washokuzai-calendar.com/zh/item/kiwi.html"}, {"@type": "ListItem", "position": 20, "name": "蜜柑（溫州橘）", "url": "https://washokuzai-calendar.com/zh/item/mikan.html"}, {"@type": "ListItem", "position": 21, "name": "不知火柑（凸頂柑）", "url": "https://washokuzai-calendar.com/zh/item/dekopon.html"}, {"@type": "ListItem", "position": 22, "name": "八朔柑", "url": "https://washokuzai-calendar.com/zh/item/hassaku.html"}, {"@type": "ListItem", "position": 23, "name": "晚白柚", "url": "https://washokuzai-calendar.com/zh/item/banpeiyu.html"}, {"@type": "ListItem", "position": 24, "name": "金桔", "url": "https://washokuzai-calendar.com/zh/item/kinkan.html"}, {"@type": "ListItem", "position": 25, "name": "芒果", "url": "https://washokuzai-calendar.com/zh/item/mango.html"}, {"@type": "ListItem", "position": 26, "name": "鳳梨", "url": "https://washokuzai-calendar.com/zh/item/pineapple.html"}, {"@type": "ListItem", "position": 27, "name": "香蕉", "url": "https://washokuzai-calendar.com/zh/item/banana.html"}, {"@type": "ListItem", "position": 28, "name": "百香果", "url": "https://washokuzai-calendar.com/zh/item/passionfruit.html"}, {"@type": "ListItem", "position": 29, "name": "梅子", "url": "https://washokuzai-calendar.com/zh/item/ume.html"}, {"@type": "ListItem", "position": 30, "name": "栗子", "url": "https://washokuzai-calendar.com/zh/item/kuri.html"}, {"@type": "ListItem", "position": 31, "name": "木通果", "url": "https://washokuzai-calendar.com/zh/item/akebi.html"}, {"@type": "ListItem", "position": 32, "name": "柚子（香橙）", "url": "https://washokuzai-calendar.com/zh/item/yuzu.html"}, {"@type": "ListItem", "position": 33, "name": "酸橘（酢橘）", "url": "https://washokuzai-calendar.com/zh/item/sudachi.html"}, {"@type": "ListItem", "position": 34, "name": "香母酢（臭橙）", "url": "https://washokuzai-calendar.com/zh/item/kabosu.html"}, {"@type": "ListItem", "position": 35, "name": "檸檬", "url": "https://washokuzai-calendar.com/zh/item/lemon.html"}]}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "和食材月曆", "item": "https://washokuzai-calendar.com/"}, {"@type": "ListItem", "position": 2, "name": "水果", "item": "https://washokuzai-calendar.com/zh/category/fruit.html"}]}]}</script>
 </head>
-<body data-lang="zh">
+<body data-lang="zh" class="has-band">
 <header class="site-head"><div class="wrap">
 <a class="brand" href="../../zh/index.html"><img src="../../washokuzai-mark.png" alt="" width="34" height="34"><b>和食材月曆</b></a>
 <button class="nav-toggle" type="button" id="navBtn" aria-expanded="false" aria-controls="gnav">☰</button>
@@ -224,10 +237,12 @@ a{color:var(--ink)}
 </div></header>
 <div class="wrap"><nav class="crumb"><a href="../../zh/index.html">和食材月曆</a><span>›</span>水果</nav></div>
 <main>
-<div class="wrap"><div class="page-h">
+<section class="pgband">
+<img src="../../images/page/fruit.jpg" alt="" width="1600" height="500" fetchpriority="high">
+<div class="ov">
 <h1>日本水果的當令時期 35項</h1>
-<p class="ld">日本水果35項的12個月當令一覽表。何時最美味、何時有供應，一目了然。每項食材都有專屬頁面，收錄挑選方式、料理方式與產地。</p>
-</div></div>
+<p>日本水果35項的12個月當令一覽表。何時最美味、何時有供應，一目了然。每項食材都有專屬頁面，收錄挑選方式、料理方式與產地。</p>
+</div></section>
 <div class="wrap"><div class="mstrip" style="margin-top:22px">
 <a href="sea.html">海鮮</a>
 <a href="land.html">蔬菜</a>

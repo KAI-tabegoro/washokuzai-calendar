@@ -90,6 +90,32 @@ html[lang="th"] body{line-height:2}
   .cards{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
   .pref{font-size:12px;padding:5px 10px}
 }
+
+/* REGIONCIRCLE-CSS-START 都道府県を丸い写真にする */
+.reg{margin:0 0 26px}
+.reg h3{margin:0 0 11px}
+.prefs{display:flex;flex-wrap:wrap;gap:16px 15px}
+.pref{flex:0 0 84px;width:84px;display:block;padding:0;border:0;background:none;
+      text-align:center;font-family:inherit;cursor:pointer}
+.pref .ph{display:block;position:relative;width:100%;aspect-ratio:1/1;border-radius:50%;
+          overflow:hidden;background:var(--paper-2)}
+.pref .ph img{width:100%;height:100%;object-fit:cover;display:block}
+/* 名前は下側に。写真の色が沈まないよう、帯ではなく下からのぼかしで敷く */
+.pref .ph span{position:absolute;left:0;right:0;bottom:0;height:60%;
+               display:flex;align-items:flex-end;justify-content:center;
+               padding:0 5px 8px;font-family:var(--mincho);color:#fff;line-height:1.25;
+               font-size:12px;letter-spacing:.03em;
+               background:linear-gradient(to top,rgba(18,28,34,.78),rgba(18,28,34,.34) 52%,
+                                          rgba(18,28,34,0));
+               text-shadow:0 1px 6px rgba(16,26,32,.95)}
+.pref:hover{border:0}
+.pref:hover .ph{filter:brightness(1.06)}
+.pref.on{background:none;color:inherit;border:0}
+.pref.on .ph{outline:2px solid var(--now);outline-offset:2px}
+.pref i{display:block;font-style:normal;font-size:11px;color:var(--ink-soft);
+        margin-top:6px;opacity:1}
+@media (max-width:520px){ .prefs{gap:13px 11px} .pref{flex:0 0 72px;width:72px} }
+/* REGIONCIRCLE-CSS-END */
 </style>
 </head>
 <body>
@@ -131,6 +157,7 @@ html[lang="th"] body{line-height:2}
 <script>
 const T = {"ja": {"name": "日本語", "title": "産地から探す", "lead": "都道府県を選ぶと、その土地の旬の食材が表示されます。", "region": {"hokkaido": "北海道", "tohoku": "東北", "kanto": "関東", "chubu": "中部", "kinki": "近畿", "chugoku": "中国", "shikoku": "四国", "kyushu": "九州・沖縄"}, "allMonth": "通年", "pick": "選んでください", "count": "{n}品目", "monthAll": "すべての月", "mon": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"], "peak": "旬", "cat": {"sea": "魚介", "land": "野菜", "fruit": "果物"}, "none": "該当する食材がありません。", "back": "サイトへ戻る", "note": "主な産地として登録しているものを表示しています。実際にはこのほかの産地でも獲れます。"}, "en": {"name": "English", "title": "Find by region", "lead": "Choose a prefecture to see what is in season there.", "region": {"hokkaido": "Hokkaido", "tohoku": "Tohoku", "kanto": "Kanto", "chubu": "Chubu", "kinki": "Kinki", "chugoku": "Chugoku", "shikoku": "Shikoku", "kyushu": "Kyushu and Okinawa"}, "allMonth": "All year", "pick": "Please choose", "count": "{n} items", "monthAll": "All months", "mon": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "peak": "In season", "cat": {"sea": "Seafood", "land": "Vegetables", "fruit": "Fruit"}, "none": "Nothing found.", "back": "Back to the site", "note": "These are the main growing and fishing areas on record. Other areas produce them too."}, "th": {"name": "ไทย", "title": "ค้นหาจากแหล่งผลิต", "lead": "เลือกจังหวัดเพื่อดูว่าที่นั่นมีอะไรอยู่ในฤดูกาล", "region": {"hokkaido": "ฮอกไกโด", "tohoku": "โทโฮกุ", "kanto": "คันโต", "chubu": "ชูบุ", "kinki": "คันไซ", "chugoku": "ชูโงกุ", "shikoku": "ชิโกกุ", "kyushu": "คิวชูและโอกินาวะ"}, "allMonth": "ตลอดปี", "pick": "กรุณาเลือก", "count": "{n} รายการ", "monthAll": "ทุกเดือน", "mon": ["ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."], "peak": "ช่วงอร่อยที่สุด", "cat": {"sea": "อาหารทะเล", "land": "ผัก", "fruit": "ผลไม้"}, "none": "ไม่พบรายการ", "back": "กลับไปที่เว็บไซต์", "note": "แสดงเฉพาะแหล่งผลิตหลักที่บันทึกไว้ ในความเป็นจริงยังมีแหล่งอื่นอีก"}, "zh": {"name": "繁體中文", "title": "從產地尋找", "lead": "選擇都道府縣，就能看到當地的當令食材。", "region": {"hokkaido": "北海道", "tohoku": "東北", "kanto": "關東", "chubu": "中部", "kinki": "近畿", "chugoku": "中國地方", "shikoku": "四國", "kyushu": "九州・沖繩"}, "allMonth": "全年", "pick": "請選擇", "count": "{n} 項", "monthAll": "所有月份", "mon": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"], "peak": "當令", "cat": {"sea": "海鮮", "land": "蔬菜", "fruit": "水果"}, "none": "沒有符合的食材。", "back": "返回網站", "note": "這裡顯示的是登錄為主要產地的資料，實際上其他產地也有出產。"}, "zh-CN": {"name": "简体中文", "title": "从产地寻找", "lead": "选择都道府县，就能看到当地的应季食材。", "region": {"hokkaido": "北海道", "tohoku": "东北", "kanto": "关东", "chubu": "中部", "kinki": "近畿", "chugoku": "中国地方", "shikoku": "四国", "kyushu": "九州・冲绳"}, "allMonth": "全年", "pick": "请选择", "count": "{n} 项", "monthAll": "所有月份", "mon": ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"], "peak": "应季", "cat": {"sea": "海鲜", "land": "蔬菜", "fruit": "水果"}, "none": "没有符合的食材。", "back": "返回网站", "note": "这里显示的是登录为主要产地的数据，实际上其他产地也有出产。"}};
 const REGIONS = [["hokkaido", ["北海道"]], ["tohoku", ["青森", "岩手", "宮城", "秋田", "山形", "福島"]], ["kanto", ["茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川"]], ["chubu", ["新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", "静岡", "愛知"]], ["kinki", ["三重", "滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山"]], ["chugoku", ["鳥取", "島根", "岡山", "広島", "山口"]], ["shikoku", ["徳島", "香川", "愛媛", "高知"]], ["kyushu", ["福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄"]]];
+const PREF_IMG = {"北海道":"images/pref/hokkaido.jpg","青森":"images/pref/aomori.jpg","岩手":"images/pref/iwate.jpg","宮城":"images/pref/miyagi.jpg","秋田":"images/pref/akita.jpg","山形":"images/pref/yamagata.jpg","福島":"images/pref/fukushima.jpg","茨城":"images/pref/ibaraki.jpg","栃木":"images/pref/tochigi.jpg","群馬":"images/pref/gunma.jpg","埼玉":"images/pref/saitama.jpg","千葉":"images/pref/chiba.jpg","東京":"images/pref/tokyo.jpg","神奈川":"images/pref/kanagawa.jpg","新潟":"images/pref/niigata.jpg","富山":"images/pref/toyama.jpg","石川":"images/pref/ishikawa.jpg","福井":"images/pref/fukui.jpg","山梨":"images/pref/yamanashi.jpg","長野":"images/pref/nagano.jpg","岐阜":"images/pref/gifu.jpg","静岡":"images/pref/shizuoka.jpg","愛知":"images/pref/aichi.jpg","三重":"images/pref/mie.jpg","滋賀":"images/pref/shiga.jpg","京都":"images/pref/kyoto.jpg","大阪":"images/pref/osaka.jpg","兵庫":"images/pref/hyogo.jpg","奈良":"images/pref/nara.jpg","和歌山":"images/pref/wakayama.jpg","鳥取":"images/pref/tottori.jpg","島根":"images/pref/shimane.jpg","岡山":"images/pref/okayama.jpg","広島":"images/pref/hiroshima.jpg","山口":"images/pref/yamaguchi.jpg","徳島":"images/pref/tokushima.jpg","香川":"images/pref/kagawa.jpg","愛媛":"images/pref/ehime.jpg","高知":"images/pref/kochi.jpg","福岡":"images/pref/fukuoka.jpg","佐賀":"images/pref/saga.jpg","長崎":"images/pref/nagasaki.jpg","熊本":"images/pref/kumamoto.jpg","大分":"images/pref/oita.jpg","宮崎":"images/pref/miyazaki.jpg","鹿児島":"images/pref/kagoshima.jpg","沖縄":"images/pref/okinawa.jpg"};
 const LANGS = ["ja", "en", "th", "zh", "zh-CN"];
 
 let lang = "ja";
@@ -218,7 +245,12 @@ function drawRegions(){
       b.className = "pref" + (pref === jp ? " on" : "");
       b.type = "button";
       b.dataset.pref = jp;
-      b.innerHTML = `<b>${prefName(jp, L)}</b><i>${n}</i>`;
+      /* REGIONCIRCLE-JS-START */
+      const src = PREF_IMG[jp];
+      b.innerHTML = `<span class="ph">`
+        + (src ? `<img src="${src}" alt="" width="200" height="200" loading="lazy" decoding="async">` : ``)
+        + `<span>${prefName(jp, L)}</span></span><i>${n}</i>`;
+      /* REGIONCIRCLE-JS-END */
       row.appendChild(b);
     }
     sec.append(h, row);

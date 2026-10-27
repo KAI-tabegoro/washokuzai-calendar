@@ -73,7 +73,7 @@ a{color:var(--ink)}
              border-bottom:1px solid var(--rule)}
 .srch-list a:last-child{border-bottom:0}
 .srch-list a:hover,.srch-list a.sel{background:var(--paper-2)}
-.srch-list img{width:40px;height:30px;object-fit:cover;border-radius:2px;flex:0 0 auto;
+.srch-list img{width:42px;height:28px;object-fit:cover;border-radius:2px;flex:0 0 auto;
                background:var(--paper-2)}
 .srch-list .nm{font-size:13.5px}
 .srch-list .sb{font-size:11.5px;color:var(--ink-soft)}
@@ -91,7 +91,7 @@ a{color:var(--ink)}
 /* 品目カード */
 .cards{display:grid;grid-template-columns:repeat(7,1fr);gap:16px}
 .cards a{text-decoration:none;display:block;min-width:0}
-.cards img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+.cards img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px;
            background:var(--paper-2);display:block;margin-bottom:7px}
 .cards .nm{font-size:13.5px;display:block;line-height:1.5}
 .cards .sn{font-size:11.5px;color:var(--ink-soft);display:block;line-height:1.5}
@@ -172,7 +172,7 @@ a{color:var(--ink)}
 .rail:hover .rail-track.run{animation-play-state:paused}
 @keyframes railFlow{from{transform:translateX(0)}to{transform:translateX(var(--half))}}
 .rail-track a{flex:0 0 auto;width:168px;text-decoration:none;display:block}
-.rail-track img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+.rail-track img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px;
                 background:var(--paper-2);display:block;margin-bottom:7px}
 .rail-track .nm{font-size:13.5px;display:block;line-height:1.5;white-space:nowrap;
                 overflow:hidden;text-overflow:ellipsis}
@@ -268,48 +268,48 @@ a{color:var(--ink)}
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>อร่อยที่สุดในตอนนี้</h2><span class="ln"></span><a class="more" id="nowMore" href="../th/month/10.html">ดูของอร่อยประจำเดือนนี้ทั้งหมด &rsaquo;</a></div>
 <div class="rail" id="nowRail"><div class="rail-track" id="nowCards">
-<a href="../th/item/sanma.html"><img src="../images/t/sanma.jpg" alt="ปลาซันมะ" width="400" height="300" loading="lazy"><span class="nm">ปลาซันมะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/masaba.html"><img src="../images/t/masaba.jpg" alt="ปลาซาบะ" width="400" height="300" loading="lazy"><span class="nm">ปลาซาบะ</span><span class="sn">ต.ค.–ม.ค.</span></a>
-<a href="../th/item/katsuo.html"><img src="../images/t/katsuo.jpg" alt="ปลาคัตสึโอะ (ปลาโอ)" width="400" height="300" loading="lazy"><span class="nm">ปลาคัตสึโอะ (ปลาโอ)</span><span class="sn">พ.ค., ก.ย.–ต.ค.</span></a>
-<a href="../th/item/renkodai.html"><img src="../images/t/renkodai.jpg" alt="ปลาเรนโกได (ปลาทรายแดงหลังเหลือง)" width="400" height="300" loading="lazy"><span class="nm">ปลาเรนโกได (ปลาทรายแดงหลังเหลือง)</span><span class="sn">ก.ย.–พ.ย.</span></a>
-<a href="../th/item/nodoguro.html"><img src="../images/t/nodoguro.jpg" alt="ปลาโนโดะงุโระ (ปลาเก๋าคอดำ)" width="400" height="300" loading="lazy"><span class="nm">ปลาโนโดะงุโระ (ปลาเก๋าคอดำ)</span><span class="sn">ส.ค.–พ.ย.</span></a>
-<a href="../th/item/kamasu.html"><img src="../images/t/kamasu.jpg" alt="ปลาน้ำดอกไม้ญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">ปลาน้ำดอกไม้ญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
-<a href="../th/item/sake.html"><img src="../images/t/sake.jpg" alt="ปลาแซลมอนญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">ปลาแซลมอนญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
-<a href="../th/item/unagi.html"><img src="../images/t/unagi.jpg" alt="ปลาไหลญี่ปุ่น (อุนางิ)" width="400" height="300" loading="lazy"><span class="nm">ปลาไหลญี่ปุ่น (อุนางิ)</span><span class="sn">ต.ค.–พ.ย.</span></a>
-<a href="../th/item/kawahagi.html"><img src="../images/t/kawahagi.jpg" alt="ปลาคาวาฮางิ (ปลาวัว)" width="400" height="300" loading="lazy"><span class="nm">ปลาคาวาฮางิ (ปลาวัว)</span><span class="sn">ต.ค.–ก.พ.</span></a>
-<a href="../th/item/umazurahagi.html"><img src="../images/t/umazurahagi.jpg" alt="ปลาวัวหน้าม้า" width="400" height="300" loading="lazy"><span class="nm">ปลาวัวหน้าม้า</span><span class="sn">ต.ค.–ก.พ.</span></a>
-<a href="../th/item/shirasu.html"><img src="../images/t/shirasu.jpg" alt="ชิราสุ (ลูกปลาตัวเล็ก)" width="400" height="300" loading="lazy"><span class="nm">ชิราสุ (ลูกปลาตัวเล็ก)</span><span class="sn">เม.ย.–มิ.ย., ต.ค.–พ.ย.</span></a>
-<a href="../th/item/sakuraebi.html"><img src="../images/t/sakuraebi.jpg" alt="กุ้งซากุระ" width="400" height="300" loading="lazy"><span class="nm">กุ้งซากุระ</span><span class="sn">เม.ย.–พ.ค., ต.ค.</span></a>
-<a href="../th/item/ikura.html"><img src="../images/t/ikura.jpg" alt="อิคุระ (ไข่ปลาแซลมอน)" width="400" height="300" loading="lazy"><span class="nm">อิคุระ (ไข่ปลาแซลมอน)</span><span class="sn">ก.ย.–พ.ย.</span></a>
-<a href="../th/item/kyabetsu.html"><img src="../images/t/kyabetsu.jpg" alt="กะหล่ำปลี" width="400" height="300" loading="lazy"><span class="nm">กะหล่ำปลี</span><span class="sn">มี.ค.–พ.ค., ต.ค.–พ.ย.</span></a>
-<a href="../th/item/chingensai.html"><img src="../images/t/chingensai.jpg" alt="ผักกวางตุ้งฮ่องเต้" width="400" height="300" loading="lazy"><span class="nm">ผักกวางตุ้งฮ่องเต้</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/hanaho.html"><img src="../images/t/hanaho.jpg" alt="ช่อดอกชิโสะ" width="400" height="300" loading="lazy"><span class="nm">ช่อดอกชิโสะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/hojiso.html"><img src="../images/t/hojiso.jpg" alt="ช่อเมล็ดชิโสะ" width="400" height="300" loading="lazy"><span class="nm">ช่อเมล็ดชิโสะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/momiji.html"><img src="../images/t/momiji.jpg" alt="ใบเมเปิลกินได้" width="400" height="300" loading="lazy"><span class="nm">ใบเมเปิลกินได้</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/kabocha.html"><img src="../images/t/kabocha.jpg" alt="ฟักทองญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">ฟักทองญี่ปุ่น</span><span class="sn">ส.ค.–ต.ค.</span></a>
-<a href="../th/item/kabu.html"><img src="../images/t/kabu.jpg" alt="หัวผักกาดคาบุ" width="400" height="300" loading="lazy"><span class="nm">หัวผักกาดคาบุ</span><span class="sn">ต.ค.–ก.พ.</span></a>
-<a href="../th/item/ninjin.html"><img src="../images/t/ninjin.jpg" alt="แครอท" width="400" height="300" loading="lazy"><span class="nm">แครอท</span><span class="sn">ต.ค.–ธ.ค.</span></a>
-<a href="../th/item/renkon.html"><img src="../images/t/renkon.jpg" alt="รากบัว" width="400" height="300" loading="lazy"><span class="nm">รากบัว</span><span class="sn">ต.ค.–ก.พ.</span></a>
-<a href="../th/item/satsumaimo.html"><img src="../images/t/satsumaimo.jpg" alt="มันเทศญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">มันเทศญี่ปุ่น</span><span class="sn">ต.ค.–ก.พ.</span></a>
-<a href="../th/item/jagaimo.html"><img src="../images/t/jagaimo.jpg" alt="มันฝรั่ง" width="400" height="300" loading="lazy"><span class="nm">มันฝรั่ง</span><span class="sn">พ.ค.–มิ.ย., ต.ค.–ธ.ค.</span></a>
-<a href="../th/item/satoimo.html"><img src="../images/t/satoimo.jpg" alt="เผือกซาโตะอิโมะ" width="400" height="300" loading="lazy"><span class="nm">เผือกซาโตะอิโมะ</span><span class="sn">ต.ค.–ม.ค.</span></a>
-<a href="../th/item/yamaimo.html"><img src="../images/t/yamaimo.jpg" alt="มันภูเขาญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">มันภูเขาญี่ปุ่น</span><span class="sn">ต.ค.–ก.พ.</span></a>
-<a href="../th/item/mukago.html"><img src="../images/t/mukago.jpg" alt="หัวย่อยมันภูเขา" width="400" height="300" loading="lazy"><span class="nm">หัวย่อยมันภูเขา</span><span class="sn">ต.ค.–พ.ย.</span></a>
-<a href="../th/item/matsutake.html"><img src="../images/t/matsutake.jpg" alt="เห็ดมัตสึทาเกะ" width="400" height="300" loading="lazy"><span class="nm">เห็ดมัตสึทาเกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/shiitake.html"><img src="../images/t/shiitake.jpg" alt="เห็ดหอม" width="400" height="300" loading="lazy"><span class="nm">เห็ดหอม</span><span class="sn">มี.ค.–พ.ค., ก.ย.–พ.ย.</span></a>
-<a href="../th/item/shimeji.html"><img src="../images/t/shimeji.jpg" alt="เห็ดชิเมจิ" width="400" height="300" loading="lazy"><span class="nm">เห็ดชิเมจิ</span><span class="sn">ก.ย.–พ.ย.</span></a>
-<a href="../th/item/nameko.html"><img src="../images/t/nameko.jpg" alt="เห็ดนาเมโกะ" width="400" height="300" loading="lazy"><span class="nm">เห็ดนาเมโกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/enoki.html"><img src="../images/t/enoki.jpg" alt="เห็ดเข็มทอง" width="400" height="300" loading="lazy"><span class="nm">เห็ดเข็มทอง</span><span class="sn">ต.ค.–พ.ย.</span></a>
-<a href="../th/item/maitake.html"><img src="../images/t/maitake.jpg" alt="เห็ดไมตาเกะ" width="400" height="300" loading="lazy"><span class="nm">เห็ดไมตาเกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/ginnan.html"><img src="../images/t/ginnan.jpg" alt="เมล็ดแปะก๊วย" width="400" height="300" loading="lazy"><span class="nm">เมล็ดแปะก๊วย</span><span class="sn">ต.ค.–พ.ย.</span></a>
-<a href="../th/item/ichijiku.html"><img src="../images/t/ichijiku.jpg" alt="มะเดื่อฝรั่ง" width="400" height="300" loading="lazy"><span class="nm">มะเดื่อฝรั่ง</span><span class="sn">ส.ค.–ต.ค.</span></a>
-<a href="../th/item/nashi.html"><img src="../images/t/nashi.jpg" alt="สาลี่ญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">สาลี่ญี่ปุ่น</span><span class="sn">ส.ค.–ต.ค.</span></a>
-<a href="../th/item/younashi.html"><img src="../images/t/younashi.jpg" alt="ลูกแพร์ฝรั่ง" width="400" height="300" loading="lazy"><span class="nm">ลูกแพร์ฝรั่ง</span><span class="sn">ต.ค.–พ.ย.</span></a>
-<a href="../th/item/ringo.html"><img src="../images/t/ringo.jpg" alt="แอปเปิล" width="400" height="300" loading="lazy"><span class="nm">แอปเปิล</span><span class="sn">ต.ค.–ธ.ค.</span></a>
-<a href="../th/item/kaki.html"><img src="../images/t/kaki.jpg" alt="ลูกพลับ" width="400" height="300" loading="lazy"><span class="nm">ลูกพลับ</span><span class="sn">ต.ค.–พ.ย.</span></a>
-<a href="../th/item/kuri.html"><img src="../images/t/kuri.jpg" alt="เกาลัดญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">เกาลัดญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
-<a href="../th/item/akebi.html"><img src="../images/t/akebi.jpg" alt="อาเกบิ" width="400" height="300" loading="lazy"><span class="nm">อาเกบิ</span><span class="sn">ก.ย.–ต.ค.</span></a>
-<a href="../th/item/sudachi.html"><img src="../images/t/sudachi.jpg" alt="ซูดาจิ" width="400" height="300" loading="lazy"><span class="nm">ซูดาจิ</span><span class="sn">ส.ค.–ต.ค.</span></a>
+<a href="../th/item/sanma.html"><img src="../images/t/sanma.jpg" alt="ปลาซันมะ" width="420" height="280" loading="lazy"><span class="nm">ปลาซันมะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/masaba.html"><img src="../images/t/masaba.jpg" alt="ปลาซาบะ" width="420" height="280" loading="lazy"><span class="nm">ปลาซาบะ</span><span class="sn">ต.ค.–ม.ค.</span></a>
+<a href="../th/item/katsuo.html"><img src="../images/t/katsuo.jpg" alt="ปลาคัตสึโอะ (ปลาโอ)" width="420" height="280" loading="lazy"><span class="nm">ปลาคัตสึโอะ (ปลาโอ)</span><span class="sn">พ.ค., ก.ย.–ต.ค.</span></a>
+<a href="../th/item/renkodai.html"><img src="../images/t/renkodai.jpg" alt="ปลาเรนโกได (ปลาทรายแดงหลังเหลือง)" width="420" height="280" loading="lazy"><span class="nm">ปลาเรนโกได (ปลาทรายแดงหลังเหลือง)</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/nodoguro.html"><img src="../images/t/nodoguro.jpg" alt="ปลาโนโดะงุโระ (ปลาเก๋าคอดำ)" width="420" height="280" loading="lazy"><span class="nm">ปลาโนโดะงุโระ (ปลาเก๋าคอดำ)</span><span class="sn">ส.ค.–พ.ย.</span></a>
+<a href="../th/item/kamasu.html"><img src="../images/t/kamasu.jpg" alt="ปลาน้ำดอกไม้ญี่ปุ่น" width="420" height="280" loading="lazy"><span class="nm">ปลาน้ำดอกไม้ญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/sake.html"><img src="../images/t/sake.jpg" alt="ปลาแซลมอนญี่ปุ่น" width="420" height="280" loading="lazy"><span class="nm">ปลาแซลมอนญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/unagi.html"><img src="../images/t/unagi.jpg" alt="ปลาไหลญี่ปุ่น (อุนางิ)" width="420" height="280" loading="lazy"><span class="nm">ปลาไหลญี่ปุ่น (อุนางิ)</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/kawahagi.html"><img src="../images/t/kawahagi.jpg" alt="ปลาคาวาฮางิ (ปลาวัว)" width="420" height="280" loading="lazy"><span class="nm">ปลาคาวาฮางิ (ปลาวัว)</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/umazurahagi.html"><img src="../images/t/umazurahagi.jpg" alt="ปลาวัวหน้าม้า" width="420" height="280" loading="lazy"><span class="nm">ปลาวัวหน้าม้า</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/shirasu.html"><img src="../images/t/shirasu.jpg" alt="ชิราสุ (ลูกปลาตัวเล็ก)" width="420" height="280" loading="lazy"><span class="nm">ชิราสุ (ลูกปลาตัวเล็ก)</span><span class="sn">เม.ย.–มิ.ย., ต.ค.–พ.ย.</span></a>
+<a href="../th/item/sakuraebi.html"><img src="../images/t/sakuraebi.jpg" alt="กุ้งซากุระ" width="420" height="280" loading="lazy"><span class="nm">กุ้งซากุระ</span><span class="sn">เม.ย.–พ.ค., ต.ค.</span></a>
+<a href="../th/item/ikura.html"><img src="../images/t/ikura.jpg" alt="อิคุระ (ไข่ปลาแซลมอน)" width="420" height="280" loading="lazy"><span class="nm">อิคุระ (ไข่ปลาแซลมอน)</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/kyabetsu.html"><img src="../images/t/kyabetsu.jpg" alt="กะหล่ำปลี" width="420" height="280" loading="lazy"><span class="nm">กะหล่ำปลี</span><span class="sn">มี.ค.–พ.ค., ต.ค.–พ.ย.</span></a>
+<a href="../th/item/chingensai.html"><img src="../images/t/chingensai.jpg" alt="ผักกวางตุ้งฮ่องเต้" width="420" height="280" loading="lazy"><span class="nm">ผักกวางตุ้งฮ่องเต้</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/hanaho.html"><img src="../images/t/hanaho.jpg" alt="ช่อดอกชิโสะ" width="420" height="280" loading="lazy"><span class="nm">ช่อดอกชิโสะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/hojiso.html"><img src="../images/t/hojiso.jpg" alt="ช่อเมล็ดชิโสะ" width="420" height="280" loading="lazy"><span class="nm">ช่อเมล็ดชิโสะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/momiji.html"><img src="../images/t/momiji.jpg" alt="ใบเมเปิลกินได้" width="420" height="280" loading="lazy"><span class="nm">ใบเมเปิลกินได้</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/kabocha.html"><img src="../images/t/kabocha.jpg" alt="ฟักทองญี่ปุ่น" width="420" height="280" loading="lazy"><span class="nm">ฟักทองญี่ปุ่น</span><span class="sn">ส.ค.–ต.ค.</span></a>
+<a href="../th/item/kabu.html"><img src="../images/t/kabu.jpg" alt="หัวผักกาดคาบุ" width="420" height="280" loading="lazy"><span class="nm">หัวผักกาดคาบุ</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/ninjin.html"><img src="../images/t/ninjin.jpg" alt="แครอท" width="420" height="280" loading="lazy"><span class="nm">แครอท</span><span class="sn">ต.ค.–ธ.ค.</span></a>
+<a href="../th/item/renkon.html"><img src="../images/t/renkon.jpg" alt="รากบัว" width="420" height="280" loading="lazy"><span class="nm">รากบัว</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/satsumaimo.html"><img src="../images/t/satsumaimo.jpg" alt="มันเทศญี่ปุ่น" width="420" height="280" loading="lazy"><span class="nm">มันเทศญี่ปุ่น</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/jagaimo.html"><img src="../images/t/jagaimo.jpg" alt="มันฝรั่ง" width="420" height="280" loading="lazy"><span class="nm">มันฝรั่ง</span><span class="sn">พ.ค.–มิ.ย., ต.ค.–ธ.ค.</span></a>
+<a href="../th/item/satoimo.html"><img src="../images/t/satoimo.jpg" alt="เผือกซาโตะอิโมะ" width="420" height="280" loading="lazy"><span class="nm">เผือกซาโตะอิโมะ</span><span class="sn">ต.ค.–ม.ค.</span></a>
+<a href="../th/item/yamaimo.html"><img src="../images/t/yamaimo.jpg" alt="มันภูเขาญี่ปุ่น" width="420" height="280" loading="lazy"><span class="nm">มันภูเขาญี่ปุ่น</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/mukago.html"><img src="../images/t/mukago.jpg" alt="หัวย่อยมันภูเขา" width="420" height="280" loading="lazy"><span class="nm">หัวย่อยมันภูเขา</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/matsutake.html"><img src="../images/t/matsutake.jpg" alt="เห็ดมัตสึทาเกะ" width="420" height="280" loading="lazy"><span class="nm">เห็ดมัตสึทาเกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/shiitake.html"><img src="../images/t/shiitake.jpg" alt="เห็ดหอม" width="420" height="280" loading="lazy"><span class="nm">เห็ดหอม</span><span class="sn">มี.ค.–พ.ค., ก.ย.–พ.ย.</span></a>
+<a href="../th/item/shimeji.html"><img src="../images/t/shimeji.jpg" alt="เห็ดชิเมจิ" width="420" height="280" loading="lazy"><span class="nm">เห็ดชิเมจิ</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/nameko.html"><img src="../images/t/nameko.jpg" alt="เห็ดนาเมโกะ" width="420" height="280" loading="lazy"><span class="nm">เห็ดนาเมโกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/enoki.html"><img src="../images/t/enoki.jpg" alt="เห็ดเข็มทอง" width="420" height="280" loading="lazy"><span class="nm">เห็ดเข็มทอง</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/maitake.html"><img src="../images/t/maitake.jpg" alt="เห็ดไมตาเกะ" width="420" height="280" loading="lazy"><span class="nm">เห็ดไมตาเกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/ginnan.html"><img src="../images/t/ginnan.jpg" alt="เมล็ดแปะก๊วย" width="420" height="280" loading="lazy"><span class="nm">เมล็ดแปะก๊วย</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/ichijiku.html"><img src="../images/t/ichijiku.jpg" alt="มะเดื่อฝรั่ง" width="420" height="280" loading="lazy"><span class="nm">มะเดื่อฝรั่ง</span><span class="sn">ส.ค.–ต.ค.</span></a>
+<a href="../th/item/nashi.html"><img src="../images/t/nashi.jpg" alt="สาลี่ญี่ปุ่น" width="420" height="280" loading="lazy"><span class="nm">สาลี่ญี่ปุ่น</span><span class="sn">ส.ค.–ต.ค.</span></a>
+<a href="../th/item/younashi.html"><img src="../images/t/younashi.jpg" alt="ลูกแพร์ฝรั่ง" width="420" height="280" loading="lazy"><span class="nm">ลูกแพร์ฝรั่ง</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/ringo.html"><img src="../images/t/ringo.jpg" alt="แอปเปิล" width="420" height="280" loading="lazy"><span class="nm">แอปเปิล</span><span class="sn">ต.ค.–ธ.ค.</span></a>
+<a href="../th/item/kaki.html"><img src="../images/t/kaki.jpg" alt="ลูกพลับ" width="420" height="280" loading="lazy"><span class="nm">ลูกพลับ</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/kuri.html"><img src="../images/t/kuri.jpg" alt="เกาลัดญี่ปุ่น" width="420" height="280" loading="lazy"><span class="nm">เกาลัดญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/akebi.html"><img src="../images/t/akebi.jpg" alt="อาเกบิ" width="420" height="280" loading="lazy"><span class="nm">อาเกบิ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/sudachi.html"><img src="../images/t/sudachi.jpg" alt="ซูดาจิ" width="420" height="280" loading="lazy"><span class="nm">ซูดาจิ</span><span class="sn">ส.ค.–ต.ค.</span></a>
 </div></div></div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>ค้นหาตามหมวด</h2><span class="ln"></span><a class="more" href="../th/items.html">ดูวัตถุดิบทั้งหมด &rsaquo;</a></div>
@@ -383,7 +383,7 @@ const NORES = "ไม่พบข้อมูล";
   function cardHTML(x){
     var nm = x.n[LG] || x.n.ja;
     return '<a href="' + UP + D + '/item/' + x.s + '.html">'
-         + '<img src="' + UP + x.t2 + '" alt="' + nm + '" width="400" height="300" loading="lazy">'
+         + '<img src="' + UP + x.t2 + '" alt="' + nm + '" width="420" height="280" loading="lazy">'
          + '<span class="nm">' + nm + '</span>'
          + '<span class="sn">' + (x.t[LG] || "") + '</span></a>';
   }

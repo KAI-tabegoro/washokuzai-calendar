@@ -73,7 +73,7 @@ a{color:var(--ink)}
              border-bottom:1px solid var(--rule)}
 .srch-list a:last-child{border-bottom:0}
 .srch-list a:hover,.srch-list a.sel{background:var(--paper-2)}
-.srch-list img{width:40px;height:30px;object-fit:cover;border-radius:2px;flex:0 0 auto;
+.srch-list img{width:42px;height:28px;object-fit:cover;border-radius:2px;flex:0 0 auto;
                background:var(--paper-2)}
 .srch-list .nm{font-size:13.5px}
 .srch-list .sb{font-size:11.5px;color:var(--ink-soft)}
@@ -91,7 +91,7 @@ a{color:var(--ink)}
 /* 品目カード */
 .cards{display:grid;grid-template-columns:repeat(7,1fr);gap:16px}
 .cards a{text-decoration:none;display:block;min-width:0}
-.cards img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+.cards img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px;
            background:var(--paper-2);display:block;margin-bottom:7px}
 .cards .nm{font-size:13.5px;display:block;line-height:1.5}
 .cards .sn{font-size:11.5px;color:var(--ink-soft);display:block;line-height:1.5}
@@ -172,7 +172,7 @@ a{color:var(--ink)}
 .rail:hover .rail-track.run{animation-play-state:paused}
 @keyframes railFlow{from{transform:translateX(0)}to{transform:translateX(var(--half))}}
 .rail-track a{flex:0 0 auto;width:168px;text-decoration:none;display:block}
-.rail-track img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+.rail-track img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px;
                 background:var(--paper-2);display:block;margin-bottom:7px}
 .rail-track .nm{font-size:13.5px;display:block;line-height:1.5;white-space:nowrap;
                 overflow:hidden;text-overflow:ellipsis}
@@ -268,48 +268,48 @@ a{color:var(--ink)}
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>いま旬の食材</h2><span class="ln"></span><a class="more" id="nowMore" href="ja/month/10.html">今月が旬のものをすべて見る &rsaquo;</a></div>
 <div class="rail" id="nowRail"><div class="rail-track" id="nowCards">
-<a href="ja/item/sanma.html"><img src="images/t/sanma.jpg" alt="サンマ" width="400" height="300" loading="lazy"><span class="nm">サンマ</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/masaba.html"><img src="images/t/masaba.jpg" alt="マサバ" width="400" height="300" loading="lazy"><span class="nm">マサバ</span><span class="sn">10月〜1月</span></a>
-<a href="ja/item/katsuo.html"><img src="images/t/katsuo.jpg" alt="カツオ" width="400" height="300" loading="lazy"><span class="nm">カツオ</span><span class="sn">5月・9月〜10月</span></a>
-<a href="ja/item/renkodai.html"><img src="images/t/renkodai.jpg" alt="レンコダイ" width="400" height="300" loading="lazy"><span class="nm">レンコダイ</span><span class="sn">9月〜11月</span></a>
-<a href="ja/item/nodoguro.html"><img src="images/t/nodoguro.jpg" alt="ノドグロ" width="400" height="300" loading="lazy"><span class="nm">ノドグロ</span><span class="sn">8月〜11月</span></a>
-<a href="ja/item/kamasu.html"><img src="images/t/kamasu.jpg" alt="カマス" width="400" height="300" loading="lazy"><span class="nm">カマス</span><span class="sn">9月〜11月</span></a>
-<a href="ja/item/sake.html"><img src="images/t/sake.jpg" alt="サケ" width="400" height="300" loading="lazy"><span class="nm">サケ</span><span class="sn">9月〜11月</span></a>
-<a href="ja/item/unagi.html"><img src="images/t/unagi.jpg" alt="ウナギ" width="400" height="300" loading="lazy"><span class="nm">ウナギ</span><span class="sn">10月〜11月</span></a>
-<a href="ja/item/kawahagi.html"><img src="images/t/kawahagi.jpg" alt="カワハギ" width="400" height="300" loading="lazy"><span class="nm">カワハギ</span><span class="sn">10月〜2月</span></a>
-<a href="ja/item/umazurahagi.html"><img src="images/t/umazurahagi.jpg" alt="ウマヅラハギ" width="400" height="300" loading="lazy"><span class="nm">ウマヅラハギ</span><span class="sn">10月〜2月</span></a>
-<a href="ja/item/shirasu.html"><img src="images/t/shirasu.jpg" alt="シラス" width="400" height="300" loading="lazy"><span class="nm">シラス</span><span class="sn">4月〜6月・10月〜11月</span></a>
-<a href="ja/item/sakuraebi.html"><img src="images/t/sakuraebi.jpg" alt="桜えび" width="400" height="300" loading="lazy"><span class="nm">桜えび</span><span class="sn">4月〜5月・10月</span></a>
-<a href="ja/item/ikura.html"><img src="images/t/ikura.jpg" alt="イクラ" width="400" height="300" loading="lazy"><span class="nm">イクラ</span><span class="sn">9月〜11月</span></a>
-<a href="ja/item/kyabetsu.html"><img src="images/t/kyabetsu.jpg" alt="キャベツ" width="400" height="300" loading="lazy"><span class="nm">キャベツ</span><span class="sn">3月〜5月・10月〜11月</span></a>
-<a href="ja/item/chingensai.html"><img src="images/t/chingensai.jpg" alt="チンゲン菜" width="400" height="300" loading="lazy"><span class="nm">チンゲン菜</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/hanaho.html"><img src="images/t/hanaho.jpg" alt="花穂" width="400" height="300" loading="lazy"><span class="nm">花穂</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/hojiso.html"><img src="images/t/hojiso.jpg" alt="穂紫蘇" width="400" height="300" loading="lazy"><span class="nm">穂紫蘇</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/momiji.html"><img src="images/t/momiji.jpg" alt="紅葉" width="400" height="300" loading="lazy"><span class="nm">紅葉</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/kabocha.html"><img src="images/t/kabocha.jpg" alt="カボチャ" width="400" height="300" loading="lazy"><span class="nm">カボチャ</span><span class="sn">8月〜10月</span></a>
-<a href="ja/item/kabu.html"><img src="images/t/kabu.jpg" alt="カブ" width="400" height="300" loading="lazy"><span class="nm">カブ</span><span class="sn">10月〜2月</span></a>
-<a href="ja/item/ninjin.html"><img src="images/t/ninjin.jpg" alt="ニンジン" width="400" height="300" loading="lazy"><span class="nm">ニンジン</span><span class="sn">10月〜12月</span></a>
-<a href="ja/item/renkon.html"><img src="images/t/renkon.jpg" alt="レンコン" width="400" height="300" loading="lazy"><span class="nm">レンコン</span><span class="sn">10月〜2月</span></a>
-<a href="ja/item/satsumaimo.html"><img src="images/t/satsumaimo.jpg" alt="サツマイモ" width="400" height="300" loading="lazy"><span class="nm">サツマイモ</span><span class="sn">10月〜2月</span></a>
-<a href="ja/item/jagaimo.html"><img src="images/t/jagaimo.jpg" alt="ジャガイモ" width="400" height="300" loading="lazy"><span class="nm">ジャガイモ</span><span class="sn">5月〜6月・10月〜12月</span></a>
-<a href="ja/item/satoimo.html"><img src="images/t/satoimo.jpg" alt="サトイモ" width="400" height="300" loading="lazy"><span class="nm">サトイモ</span><span class="sn">10月〜1月</span></a>
-<a href="ja/item/yamaimo.html"><img src="images/t/yamaimo.jpg" alt="山芋" width="400" height="300" loading="lazy"><span class="nm">山芋</span><span class="sn">10月〜2月</span></a>
-<a href="ja/item/mukago.html"><img src="images/t/mukago.jpg" alt="むかご" width="400" height="300" loading="lazy"><span class="nm">むかご</span><span class="sn">10月〜11月</span></a>
-<a href="ja/item/matsutake.html"><img src="images/t/matsutake.jpg" alt="マツタケ" width="400" height="300" loading="lazy"><span class="nm">マツタケ</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/shiitake.html"><img src="images/t/shiitake.jpg" alt="シイタケ" width="400" height="300" loading="lazy"><span class="nm">シイタケ</span><span class="sn">3月〜5月・9月〜11月</span></a>
-<a href="ja/item/shimeji.html"><img src="images/t/shimeji.jpg" alt="しめじ" width="400" height="300" loading="lazy"><span class="nm">しめじ</span><span class="sn">9月〜11月</span></a>
-<a href="ja/item/nameko.html"><img src="images/t/nameko.jpg" alt="ナメコ" width="400" height="300" loading="lazy"><span class="nm">ナメコ</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/enoki.html"><img src="images/t/enoki.jpg" alt="えのき" width="400" height="300" loading="lazy"><span class="nm">えのき</span><span class="sn">10月〜11月</span></a>
-<a href="ja/item/maitake.html"><img src="images/t/maitake.jpg" alt="舞茸" width="400" height="300" loading="lazy"><span class="nm">舞茸</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/ginnan.html"><img src="images/t/ginnan.jpg" alt="ギンナン" width="400" height="300" loading="lazy"><span class="nm">ギンナン</span><span class="sn">10月〜11月</span></a>
-<a href="ja/item/ichijiku.html"><img src="images/t/ichijiku.jpg" alt="イチジク" width="400" height="300" loading="lazy"><span class="nm">イチジク</span><span class="sn">8月〜10月</span></a>
-<a href="ja/item/nashi.html"><img src="images/t/nashi.jpg" alt="ナシ" width="400" height="300" loading="lazy"><span class="nm">ナシ</span><span class="sn">8月〜10月</span></a>
-<a href="ja/item/younashi.html"><img src="images/t/younashi.jpg" alt="洋梨" width="400" height="300" loading="lazy"><span class="nm">洋梨</span><span class="sn">10月〜11月</span></a>
-<a href="ja/item/ringo.html"><img src="images/t/ringo.jpg" alt="リンゴ" width="400" height="300" loading="lazy"><span class="nm">リンゴ</span><span class="sn">10月〜12月</span></a>
-<a href="ja/item/kaki.html"><img src="images/t/kaki.jpg" alt="カキ" width="400" height="300" loading="lazy"><span class="nm">カキ</span><span class="sn">10月〜11月</span></a>
-<a href="ja/item/kuri.html"><img src="images/t/kuri.jpg" alt="クリ" width="400" height="300" loading="lazy"><span class="nm">クリ</span><span class="sn">9月〜11月</span></a>
-<a href="ja/item/akebi.html"><img src="images/t/akebi.jpg" alt="アケビ" width="400" height="300" loading="lazy"><span class="nm">アケビ</span><span class="sn">9月〜10月</span></a>
-<a href="ja/item/sudachi.html"><img src="images/t/sudachi.jpg" alt="スダチ" width="400" height="300" loading="lazy"><span class="nm">スダチ</span><span class="sn">8月〜10月</span></a>
+<a href="ja/item/sanma.html"><img src="images/t/sanma.jpg" alt="サンマ" width="420" height="280" loading="lazy"><span class="nm">サンマ</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/masaba.html"><img src="images/t/masaba.jpg" alt="マサバ" width="420" height="280" loading="lazy"><span class="nm">マサバ</span><span class="sn">10月〜1月</span></a>
+<a href="ja/item/katsuo.html"><img src="images/t/katsuo.jpg" alt="カツオ" width="420" height="280" loading="lazy"><span class="nm">カツオ</span><span class="sn">5月・9月〜10月</span></a>
+<a href="ja/item/renkodai.html"><img src="images/t/renkodai.jpg" alt="レンコダイ" width="420" height="280" loading="lazy"><span class="nm">レンコダイ</span><span class="sn">9月〜11月</span></a>
+<a href="ja/item/nodoguro.html"><img src="images/t/nodoguro.jpg" alt="ノドグロ" width="420" height="280" loading="lazy"><span class="nm">ノドグロ</span><span class="sn">8月〜11月</span></a>
+<a href="ja/item/kamasu.html"><img src="images/t/kamasu.jpg" alt="カマス" width="420" height="280" loading="lazy"><span class="nm">カマス</span><span class="sn">9月〜11月</span></a>
+<a href="ja/item/sake.html"><img src="images/t/sake.jpg" alt="サケ" width="420" height="280" loading="lazy"><span class="nm">サケ</span><span class="sn">9月〜11月</span></a>
+<a href="ja/item/unagi.html"><img src="images/t/unagi.jpg" alt="ウナギ" width="420" height="280" loading="lazy"><span class="nm">ウナギ</span><span class="sn">10月〜11月</span></a>
+<a href="ja/item/kawahagi.html"><img src="images/t/kawahagi.jpg" alt="カワハギ" width="420" height="280" loading="lazy"><span class="nm">カワハギ</span><span class="sn">10月〜2月</span></a>
+<a href="ja/item/umazurahagi.html"><img src="images/t/umazurahagi.jpg" alt="ウマヅラハギ" width="420" height="280" loading="lazy"><span class="nm">ウマヅラハギ</span><span class="sn">10月〜2月</span></a>
+<a href="ja/item/shirasu.html"><img src="images/t/shirasu.jpg" alt="シラス" width="420" height="280" loading="lazy"><span class="nm">シラス</span><span class="sn">4月〜6月・10月〜11月</span></a>
+<a href="ja/item/sakuraebi.html"><img src="images/t/sakuraebi.jpg" alt="桜えび" width="420" height="280" loading="lazy"><span class="nm">桜えび</span><span class="sn">4月〜5月・10月</span></a>
+<a href="ja/item/ikura.html"><img src="images/t/ikura.jpg" alt="イクラ" width="420" height="280" loading="lazy"><span class="nm">イクラ</span><span class="sn">9月〜11月</span></a>
+<a href="ja/item/kyabetsu.html"><img src="images/t/kyabetsu.jpg" alt="キャベツ" width="420" height="280" loading="lazy"><span class="nm">キャベツ</span><span class="sn">3月〜5月・10月〜11月</span></a>
+<a href="ja/item/chingensai.html"><img src="images/t/chingensai.jpg" alt="チンゲン菜" width="420" height="280" loading="lazy"><span class="nm">チンゲン菜</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/hanaho.html"><img src="images/t/hanaho.jpg" alt="花穂" width="420" height="280" loading="lazy"><span class="nm">花穂</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/hojiso.html"><img src="images/t/hojiso.jpg" alt="穂紫蘇" width="420" height="280" loading="lazy"><span class="nm">穂紫蘇</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/momiji.html"><img src="images/t/momiji.jpg" alt="紅葉" width="420" height="280" loading="lazy"><span class="nm">紅葉</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/kabocha.html"><img src="images/t/kabocha.jpg" alt="カボチャ" width="420" height="280" loading="lazy"><span class="nm">カボチャ</span><span class="sn">8月〜10月</span></a>
+<a href="ja/item/kabu.html"><img src="images/t/kabu.jpg" alt="カブ" width="420" height="280" loading="lazy"><span class="nm">カブ</span><span class="sn">10月〜2月</span></a>
+<a href="ja/item/ninjin.html"><img src="images/t/ninjin.jpg" alt="ニンジン" width="420" height="280" loading="lazy"><span class="nm">ニンジン</span><span class="sn">10月〜12月</span></a>
+<a href="ja/item/renkon.html"><img src="images/t/renkon.jpg" alt="レンコン" width="420" height="280" loading="lazy"><span class="nm">レンコン</span><span class="sn">10月〜2月</span></a>
+<a href="ja/item/satsumaimo.html"><img src="images/t/satsumaimo.jpg" alt="サツマイモ" width="420" height="280" loading="lazy"><span class="nm">サツマイモ</span><span class="sn">10月〜2月</span></a>
+<a href="ja/item/jagaimo.html"><img src="images/t/jagaimo.jpg" alt="ジャガイモ" width="420" height="280" loading="lazy"><span class="nm">ジャガイモ</span><span class="sn">5月〜6月・10月〜12月</span></a>
+<a href="ja/item/satoimo.html"><img src="images/t/satoimo.jpg" alt="サトイモ" width="420" height="280" loading="lazy"><span class="nm">サトイモ</span><span class="sn">10月〜1月</span></a>
+<a href="ja/item/yamaimo.html"><img src="images/t/yamaimo.jpg" alt="山芋" width="420" height="280" loading="lazy"><span class="nm">山芋</span><span class="sn">10月〜2月</span></a>
+<a href="ja/item/mukago.html"><img src="images/t/mukago.jpg" alt="むかご" width="420" height="280" loading="lazy"><span class="nm">むかご</span><span class="sn">10月〜11月</span></a>
+<a href="ja/item/matsutake.html"><img src="images/t/matsutake.jpg" alt="マツタケ" width="420" height="280" loading="lazy"><span class="nm">マツタケ</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/shiitake.html"><img src="images/t/shiitake.jpg" alt="シイタケ" width="420" height="280" loading="lazy"><span class="nm">シイタケ</span><span class="sn">3月〜5月・9月〜11月</span></a>
+<a href="ja/item/shimeji.html"><img src="images/t/shimeji.jpg" alt="しめじ" width="420" height="280" loading="lazy"><span class="nm">しめじ</span><span class="sn">9月〜11月</span></a>
+<a href="ja/item/nameko.html"><img src="images/t/nameko.jpg" alt="ナメコ" width="420" height="280" loading="lazy"><span class="nm">ナメコ</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/enoki.html"><img src="images/t/enoki.jpg" alt="えのき" width="420" height="280" loading="lazy"><span class="nm">えのき</span><span class="sn">10月〜11月</span></a>
+<a href="ja/item/maitake.html"><img src="images/t/maitake.jpg" alt="舞茸" width="420" height="280" loading="lazy"><span class="nm">舞茸</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/ginnan.html"><img src="images/t/ginnan.jpg" alt="ギンナン" width="420" height="280" loading="lazy"><span class="nm">ギンナン</span><span class="sn">10月〜11月</span></a>
+<a href="ja/item/ichijiku.html"><img src="images/t/ichijiku.jpg" alt="イチジク" width="420" height="280" loading="lazy"><span class="nm">イチジク</span><span class="sn">8月〜10月</span></a>
+<a href="ja/item/nashi.html"><img src="images/t/nashi.jpg" alt="ナシ" width="420" height="280" loading="lazy"><span class="nm">ナシ</span><span class="sn">8月〜10月</span></a>
+<a href="ja/item/younashi.html"><img src="images/t/younashi.jpg" alt="洋梨" width="420" height="280" loading="lazy"><span class="nm">洋梨</span><span class="sn">10月〜11月</span></a>
+<a href="ja/item/ringo.html"><img src="images/t/ringo.jpg" alt="リンゴ" width="420" height="280" loading="lazy"><span class="nm">リンゴ</span><span class="sn">10月〜12月</span></a>
+<a href="ja/item/kaki.html"><img src="images/t/kaki.jpg" alt="カキ" width="420" height="280" loading="lazy"><span class="nm">カキ</span><span class="sn">10月〜11月</span></a>
+<a href="ja/item/kuri.html"><img src="images/t/kuri.jpg" alt="クリ" width="420" height="280" loading="lazy"><span class="nm">クリ</span><span class="sn">9月〜11月</span></a>
+<a href="ja/item/akebi.html"><img src="images/t/akebi.jpg" alt="アケビ" width="420" height="280" loading="lazy"><span class="nm">アケビ</span><span class="sn">9月〜10月</span></a>
+<a href="ja/item/sudachi.html"><img src="images/t/sudachi.jpg" alt="スダチ" width="420" height="280" loading="lazy"><span class="nm">スダチ</span><span class="sn">8月〜10月</span></a>
 </div></div></div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>種類から探す</h2><span class="ln"></span><a class="more" href="ja/items.html">食材をすべて見る &rsaquo;</a></div>
@@ -383,7 +383,7 @@ const NORES = "見つかりませんでした";
   function cardHTML(x){
     var nm = x.n[LG] || x.n.ja;
     return '<a href="' + UP + D + '/item/' + x.s + '.html">'
-         + '<img src="' + UP + x.t2 + '" alt="' + nm + '" width="400" height="300" loading="lazy">'
+         + '<img src="' + UP + x.t2 + '" alt="' + nm + '" width="420" height="280" loading="lazy">'
          + '<span class="nm">' + nm + '</span>'
          + '<span class="sn">' + (x.t[LG] || "") + '</span></a>';
   }

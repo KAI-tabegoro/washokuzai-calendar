@@ -175,7 +175,7 @@ document.querySelector(".ptabs").addEventListener("click", e => {
 });
 
 /* 連絡先はまとめて組み立てる（そのまま書くと収集されやすいため） */
-const u="support", dm="washokuzai-calendar", tld="com";
+const u="washokuzai.calendar", dm="gmail", tld="com";
 document.querySelectorAll(".mail").forEach(el => {
   const a = document.createElement("a");
   a.href = "mailto:" + u + "@" + dm + "." + tld;

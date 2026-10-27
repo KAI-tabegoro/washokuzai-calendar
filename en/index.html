@@ -163,6 +163,28 @@ a{color:var(--ink)}
 .months a:hover .ph span{background:rgba(32,46,54,.12)}
 .months a.on .ph{outline:2px solid var(--now);outline-offset:2px}
 
+/* 横に流れる帯 */
+.rail{position:relative;overflow:hidden;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 36px,#000 calc(100% - 36px),transparent);
+      mask-image:linear-gradient(90deg,transparent,#000 36px,#000 calc(100% - 36px),transparent)}
+.rail-track{display:flex;gap:16px;width:max-content;will-change:transform}
+.rail-track.run{animation:railFlow linear infinite}
+.rail:hover .rail-track.run{animation-play-state:paused}
+@keyframes railFlow{from{transform:translateX(0)}to{transform:translateX(var(--half))}}
+.rail-track a{flex:0 0 auto;width:168px;text-decoration:none;display:block}
+.rail-track img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+                background:var(--paper-2);display:block;margin-bottom:7px}
+.rail-track .nm{font-size:13.5px;display:block;line-height:1.5;white-space:nowrap;
+                overflow:hidden;text-overflow:ellipsis}
+.rail-track .sn{font-size:11.5px;color:var(--ink-soft);display:block;line-height:1.5;
+                white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rail-track a:hover .nm{color:var(--gold)}
+@media (prefers-reduced-motion:reduce){
+  .rail{overflow-x:auto}
+  .rail-track.run{animation:none}
+}
+@media (max-width:520px){ .rail-track a{width:140px} }
+
 /* 分類カード */
 .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .cats a{text-decoration:none;display:block;background:#fff;border:1px solid var(--rule);
@@ -245,15 +267,50 @@ a{color:var(--ink)}
 </nav></div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>At their best right now</h2><span class="ln"></span><a class="more" id="nowMore" href="../en/month/10.html">See everything in season this month &rsaquo;</a></div>
-<div class="cards" id="nowCards">
+<div class="rail" id="nowRail"><div class="rail-track" id="nowCards">
 <a href="../en/item/sanma.html"><img src="../images/t/sanma.jpg" alt="Pacific saury" width="400" height="300" loading="lazy"><span class="nm">Pacific saury</span><span class="sn">Sep–Oct</span></a>
 <a href="../en/item/masaba.html"><img src="../images/t/masaba.jpg" alt="Chub mackerel" width="400" height="300" loading="lazy"><span class="nm">Chub mackerel</span><span class="sn">Oct–Jan</span></a>
 <a href="../en/item/katsuo.html"><img src="../images/t/katsuo.jpg" alt="Skipjack tuna" width="400" height="300" loading="lazy"><span class="nm">Skipjack tuna</span><span class="sn">May, Sep–Oct</span></a>
+<a href="../en/item/renkodai.html"><img src="../images/t/renkodai.jpg" alt="Yellowback seabream" width="400" height="300" loading="lazy"><span class="nm">Yellowback seabream</span><span class="sn">Sep–Nov</span></a>
+<a href="../en/item/nodoguro.html"><img src="../images/t/nodoguro.jpg" alt="Blackthroat seaperch" width="400" height="300" loading="lazy"><span class="nm">Blackthroat seaperch</span><span class="sn">Aug–Nov</span></a>
+<a href="../en/item/kamasu.html"><img src="../images/t/kamasu.jpg" alt="Japanese barracuda" width="400" height="300" loading="lazy"><span class="nm">Japanese barracuda</span><span class="sn">Sep–Nov</span></a>
+<a href="../en/item/sake.html"><img src="../images/t/sake.jpg" alt="Chum salmon" width="400" height="300" loading="lazy"><span class="nm">Chum salmon</span><span class="sn">Sep–Nov</span></a>
+<a href="../en/item/unagi.html"><img src="../images/t/unagi.jpg" alt="Japanese eel" width="400" height="300" loading="lazy"><span class="nm">Japanese eel</span><span class="sn">Oct–Nov</span></a>
+<a href="../en/item/kawahagi.html"><img src="../images/t/kawahagi.jpg" alt="Threadsail filefish" width="400" height="300" loading="lazy"><span class="nm">Threadsail filefish</span><span class="sn">Oct–Feb</span></a>
+<a href="../en/item/umazurahagi.html"><img src="../images/t/umazurahagi.jpg" alt="Black scraper" width="400" height="300" loading="lazy"><span class="nm">Black scraper</span><span class="sn">Oct–Feb</span></a>
+<a href="../en/item/shirasu.html"><img src="../images/t/shirasu.jpg" alt="Whitebait" width="400" height="300" loading="lazy"><span class="nm">Whitebait</span><span class="sn">Apr–Jun, Oct–Nov</span></a>
+<a href="../en/item/sakuraebi.html"><img src="../images/t/sakuraebi.jpg" alt="Sakura shrimp" width="400" height="300" loading="lazy"><span class="nm">Sakura shrimp</span><span class="sn">Apr–May, Oct</span></a>
+<a href="../en/item/ikura.html"><img src="../images/t/ikura.jpg" alt="Salmon roe" width="400" height="300" loading="lazy"><span class="nm">Salmon roe</span><span class="sn">Sep–Nov</span></a>
 <a href="../en/item/kyabetsu.html"><img src="../images/t/kyabetsu.jpg" alt="Cabbage" width="400" height="300" loading="lazy"><span class="nm">Cabbage</span><span class="sn">Mar–May, Oct–Nov</span></a>
 <a href="../en/item/chingensai.html"><img src="../images/t/chingensai.jpg" alt="Bok choy" width="400" height="300" loading="lazy"><span class="nm">Bok choy</span><span class="sn">Sep–Oct</span></a>
+<a href="../en/item/hanaho.html"><img src="../images/t/hanaho.jpg" alt="Shiso flower spike" width="400" height="300" loading="lazy"><span class="nm">Shiso flower spike</span><span class="sn">Sep–Oct</span></a>
+<a href="../en/item/hojiso.html"><img src="../images/t/hojiso.jpg" alt="Shiso seed spike" width="400" height="300" loading="lazy"><span class="nm">Shiso seed spike</span><span class="sn">Sep–Oct</span></a>
+<a href="../en/item/momiji.html"><img src="../images/t/momiji.jpg" alt="Edible maple leaf" width="400" height="300" loading="lazy"><span class="nm">Edible maple leaf</span><span class="sn">Sep–Oct</span></a>
+<a href="../en/item/kabocha.html"><img src="../images/t/kabocha.jpg" alt="Kabocha squash" width="400" height="300" loading="lazy"><span class="nm">Kabocha squash</span><span class="sn">Aug–Oct</span></a>
+<a href="../en/item/kabu.html"><img src="../images/t/kabu.jpg" alt="Turnip" width="400" height="300" loading="lazy"><span class="nm">Turnip</span><span class="sn">Oct–Feb</span></a>
+<a href="../en/item/ninjin.html"><img src="../images/t/ninjin.jpg" alt="Carrot" width="400" height="300" loading="lazy"><span class="nm">Carrot</span><span class="sn">Oct–Dec</span></a>
+<a href="../en/item/renkon.html"><img src="../images/t/renkon.jpg" alt="Lotus root" width="400" height="300" loading="lazy"><span class="nm">Lotus root</span><span class="sn">Oct–Feb</span></a>
+<a href="../en/item/satsumaimo.html"><img src="../images/t/satsumaimo.jpg" alt="Sweet potato" width="400" height="300" loading="lazy"><span class="nm">Sweet potato</span><span class="sn">Oct–Feb</span></a>
+<a href="../en/item/jagaimo.html"><img src="../images/t/jagaimo.jpg" alt="Potato" width="400" height="300" loading="lazy"><span class="nm">Potato</span><span class="sn">May–Jun, Oct–Dec</span></a>
+<a href="../en/item/satoimo.html"><img src="../images/t/satoimo.jpg" alt="Taro" width="400" height="300" loading="lazy"><span class="nm">Taro</span><span class="sn">Oct–Jan</span></a>
+<a href="../en/item/yamaimo.html"><img src="../images/t/yamaimo.jpg" alt="Japanese yam" width="400" height="300" loading="lazy"><span class="nm">Japanese yam</span><span class="sn">Oct–Feb</span></a>
+<a href="../en/item/mukago.html"><img src="../images/t/mukago.jpg" alt="Yam bulbil" width="400" height="300" loading="lazy"><span class="nm">Yam bulbil</span><span class="sn">Oct–Nov</span></a>
+<a href="../en/item/matsutake.html"><img src="../images/t/matsutake.jpg" alt="Matsutake mushroom" width="400" height="300" loading="lazy"><span class="nm">Matsutake mushroom</span><span class="sn">Sep–Oct</span></a>
+<a href="../en/item/shiitake.html"><img src="../images/t/shiitake.jpg" alt="Shiitake mushroom" width="400" height="300" loading="lazy"><span class="nm">Shiitake mushroom</span><span class="sn">Mar–May, Sep–Nov</span></a>
+<a href="../en/item/shimeji.html"><img src="../images/t/shimeji.jpg" alt="Shimeji mushroom" width="400" height="300" loading="lazy"><span class="nm">Shimeji mushroom</span><span class="sn">Sep–Nov</span></a>
+<a href="../en/item/nameko.html"><img src="../images/t/nameko.jpg" alt="Nameko mushroom" width="400" height="300" loading="lazy"><span class="nm">Nameko mushroom</span><span class="sn">Sep–Oct</span></a>
+<a href="../en/item/enoki.html"><img src="../images/t/enoki.jpg" alt="Enoki mushroom" width="400" height="300" loading="lazy"><span class="nm">Enoki mushroom</span><span class="sn">Oct–Nov</span></a>
+<a href="../en/item/maitake.html"><img src="../images/t/maitake.jpg" alt="Maitake mushroom" width="400" height="300" loading="lazy"><span class="nm">Maitake mushroom</span><span class="sn">Sep–Oct</span></a>
+<a href="../en/item/ginnan.html"><img src="../images/t/ginnan.jpg" alt="Ginkgo nut" width="400" height="300" loading="lazy"><span class="nm">Ginkgo nut</span><span class="sn">Oct–Nov</span></a>
 <a href="../en/item/ichijiku.html"><img src="../images/t/ichijiku.jpg" alt="Fig" width="400" height="300" loading="lazy"><span class="nm">Fig</span><span class="sn">Aug–Oct</span></a>
 <a href="../en/item/nashi.html"><img src="../images/t/nashi.jpg" alt="Japanese pear" width="400" height="300" loading="lazy"><span class="nm">Japanese pear</span><span class="sn">Aug–Oct</span></a>
-</div></div></section>
+<a href="../en/item/younashi.html"><img src="../images/t/younashi.jpg" alt="European pear" width="400" height="300" loading="lazy"><span class="nm">European pear</span><span class="sn">Oct–Nov</span></a>
+<a href="../en/item/ringo.html"><img src="../images/t/ringo.jpg" alt="Apple" width="400" height="300" loading="lazy"><span class="nm">Apple</span><span class="sn">Oct–Dec</span></a>
+<a href="../en/item/kaki.html"><img src="../images/t/kaki.jpg" alt="Persimmon" width="400" height="300" loading="lazy"><span class="nm">Persimmon</span><span class="sn">Oct–Nov</span></a>
+<a href="../en/item/kuri.html"><img src="../images/t/kuri.jpg" alt="Chestnut" width="400" height="300" loading="lazy"><span class="nm">Chestnut</span><span class="sn">Sep–Nov</span></a>
+<a href="../en/item/akebi.html"><img src="../images/t/akebi.jpg" alt="Akebi" width="400" height="300" loading="lazy"><span class="nm">Akebi</span><span class="sn">Sep–Oct</span></a>
+<a href="../en/item/sudachi.html"><img src="../images/t/sudachi.jpg" alt="Sudachi" width="400" height="300" loading="lazy"><span class="nm">Sudachi</span><span class="sn">Aug–Oct</span></a>
+</div></div></div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>Browse by category</h2><span class="ln"></span><a class="more" href="../en/items.html">See every ingredient &rsaquo;</a></div>
 <div class="cats" id="catCards">
@@ -319,45 +376,61 @@ const NORES = "Nothing found";
 <script>
 (function(){
   var D = "en", UP = "../", BUILT = 9, LG = "en";
-  var now = new Date().getMonth();
-  if (now === BUILT || typeof ITEMS === "undefined") return;
-  var want = {sea:3, land:2, fruit:2}, pick = [];
-  ["sea","land","fruit"].forEach(function(c){
-    var g = ITEMS.filter(function(x){ return x.c === c && x.m[now] === "2"; });
-    pick = pick.concat(g.slice(0, want[c]));
-  });
-  var i = 0;
-  while (pick.length < 7 && i < 40) {
-    ["sea","land","fruit"].forEach(function(c){
-      var g = ITEMS.filter(function(x){
-        return x.c === c && x.m[now] === "2" && pick.indexOf(x) < 0; });
-      if (g.length && pick.length < 7) pick.push(g[0]);
-    });
-    i++;
-  }
-  if (!pick.length) return;
-  var box = document.getElementById("nowCards");
-  box.innerHTML = pick.slice(0, 7).map(function(x){
+  var rail = document.getElementById("nowRail");
+  var track = document.getElementById("nowCards");
+  if (!track) return;
+
+  function cardHTML(x){
     var nm = x.n[LG] || x.n.ja;
     return '<a href="' + UP + D + '/item/' + x.s + '.html">'
          + '<img src="' + UP + x.t2 + '" alt="' + nm + '" width="400" height="300" loading="lazy">'
          + '<span class="nm">' + nm + '</span>'
          + '<span class="sn">' + (x.t[LG] || "") + '</span></a>';
-  }).join("");
-  var more = document.getElementById("nowMore");
-  if (more) more.href = UP + D + "/month/" + ("0" + (now + 1)).slice(-2) + ".html";
-  document.querySelectorAll(".months a").forEach(function(a, k){
-    a.classList.toggle("on", k === now);
-  });
-  document.querySelectorAll("#catCards a").forEach(function(a){
-    var c = a.className;
-    var g = ITEMS.filter(function(x){ return x.c === c && x.m[now] === "2"; })
-      .concat(ITEMS.filter(function(x){ return x.c === c && x.m[now] === "1"; }))
-      .concat(ITEMS.filter(function(x){ return x.c === c; }));
-    a.querySelectorAll(".strip img").forEach(function(el, k){
-      if (g[k]) el.src = UP + g[k].t2;
-    });
-  });
+  }
+
+  // 同じ並びを二度置いて、切れ目なく回す
+  function flow(){
+    if (!rail) return;
+    track.classList.remove("run");
+    track.style.removeProperty("--half");
+    var dup = track.querySelectorAll('[data-dup="1"]');
+    for (var k = 0; k < dup.length; k++) dup[k].remove();
+    var half = track.scrollWidth;
+    if (!half || half <= rail.clientWidth) return;
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var copy = track.innerHTML.replace(/<a /g, '<a data-dup="1" ');
+    track.insertAdjacentHTML("beforeend", copy);
+    track.style.setProperty("--half", "-" + half + "px");
+    track.style.animationDuration = Math.round(half / 34) + "s";
+    track.classList.add("run");
+  }
+
+  // 月が変わっていれば中身から作り直す
+  var now = new Date().getMonth();
+  if (now !== BUILT && typeof ITEMS !== "undefined") {
+    var g = ITEMS.filter(function(x){ return x.m[now] === "2"; });
+    if (g.length) {
+      track.innerHTML = g.map(cardHTML).join("");
+      var more = document.getElementById("nowMore");
+      if (more) more.href = UP + D + "/month/" + ("0" + (now + 1)).slice(-2) + ".html";
+      var mn = document.querySelectorAll(".months a");
+      for (var k = 0; k < mn.length; k++) mn[k].classList.toggle("on", k === now);
+      var cards = document.querySelectorAll("#catCards a");
+      for (var c = 0; c < cards.length; c++) {
+        var a = cards[c], cls = a.className;
+        var im = a.querySelectorAll(".strip img");
+        if (im.length < 2) continue;          // 用意した1枚のときは触らない
+        var pool = ITEMS.filter(function(x){ return x.c === cls && x.m[now] === "2"; })
+          .concat(ITEMS.filter(function(x){ return x.c === cls && x.m[now] === "1"; }))
+          .concat(ITEMS.filter(function(x){ return x.c === cls; }));
+        for (var q = 0; q < im.length; q++) if (pool[q]) im[q].src = UP + pool[q].t2;
+      }
+    }
+  }
+
+  if (document.readyState === "complete") flow();
+  else addEventListener("load", flow);
+  var tm; addEventListener("resize", function(){ clearTimeout(tm); tm = setTimeout(flow, 250); });
 })();
 </script>
 

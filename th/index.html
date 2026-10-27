@@ -163,6 +163,28 @@ a{color:var(--ink)}
 .months a:hover .ph span{background:rgba(32,46,54,.12)}
 .months a.on .ph{outline:2px solid var(--now);outline-offset:2px}
 
+/* 横に流れる帯 */
+.rail{position:relative;overflow:hidden;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 36px,#000 calc(100% - 36px),transparent);
+      mask-image:linear-gradient(90deg,transparent,#000 36px,#000 calc(100% - 36px),transparent)}
+.rail-track{display:flex;gap:16px;width:max-content;will-change:transform}
+.rail-track.run{animation:railFlow linear infinite}
+.rail:hover .rail-track.run{animation-play-state:paused}
+@keyframes railFlow{from{transform:translateX(0)}to{transform:translateX(var(--half))}}
+.rail-track a{flex:0 0 auto;width:168px;text-decoration:none;display:block}
+.rail-track img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+                background:var(--paper-2);display:block;margin-bottom:7px}
+.rail-track .nm{font-size:13.5px;display:block;line-height:1.5;white-space:nowrap;
+                overflow:hidden;text-overflow:ellipsis}
+.rail-track .sn{font-size:11.5px;color:var(--ink-soft);display:block;line-height:1.5;
+                white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rail-track a:hover .nm{color:var(--gold)}
+@media (prefers-reduced-motion:reduce){
+  .rail{overflow-x:auto}
+  .rail-track.run{animation:none}
+}
+@media (max-width:520px){ .rail-track a{width:140px} }
+
 /* 分類カード */
 .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .cats a{text-decoration:none;display:block;background:#fff;border:1px solid var(--rule);
@@ -245,15 +267,50 @@ a{color:var(--ink)}
 </nav></div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>อร่อยที่สุดในตอนนี้</h2><span class="ln"></span><a class="more" id="nowMore" href="../th/month/10.html">ดูของอร่อยประจำเดือนนี้ทั้งหมด &rsaquo;</a></div>
-<div class="cards" id="nowCards">
+<div class="rail" id="nowRail"><div class="rail-track" id="nowCards">
 <a href="../th/item/sanma.html"><img src="../images/t/sanma.jpg" alt="ปลาซันมะ" width="400" height="300" loading="lazy"><span class="nm">ปลาซันมะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
 <a href="../th/item/masaba.html"><img src="../images/t/masaba.jpg" alt="ปลาซาบะ" width="400" height="300" loading="lazy"><span class="nm">ปลาซาบะ</span><span class="sn">ต.ค.–ม.ค.</span></a>
 <a href="../th/item/katsuo.html"><img src="../images/t/katsuo.jpg" alt="ปลาคัตสึโอะ (ปลาโอ)" width="400" height="300" loading="lazy"><span class="nm">ปลาคัตสึโอะ (ปลาโอ)</span><span class="sn">พ.ค., ก.ย.–ต.ค.</span></a>
+<a href="../th/item/renkodai.html"><img src="../images/t/renkodai.jpg" alt="ปลาเรนโกได (ปลาทรายแดงหลังเหลือง)" width="400" height="300" loading="lazy"><span class="nm">ปลาเรนโกได (ปลาทรายแดงหลังเหลือง)</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/nodoguro.html"><img src="../images/t/nodoguro.jpg" alt="ปลาโนโดะงุโระ (ปลาเก๋าคอดำ)" width="400" height="300" loading="lazy"><span class="nm">ปลาโนโดะงุโระ (ปลาเก๋าคอดำ)</span><span class="sn">ส.ค.–พ.ย.</span></a>
+<a href="../th/item/kamasu.html"><img src="../images/t/kamasu.jpg" alt="ปลาน้ำดอกไม้ญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">ปลาน้ำดอกไม้ญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/sake.html"><img src="../images/t/sake.jpg" alt="ปลาแซลมอนญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">ปลาแซลมอนญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/unagi.html"><img src="../images/t/unagi.jpg" alt="ปลาไหลญี่ปุ่น (อุนางิ)" width="400" height="300" loading="lazy"><span class="nm">ปลาไหลญี่ปุ่น (อุนางิ)</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/kawahagi.html"><img src="../images/t/kawahagi.jpg" alt="ปลาคาวาฮางิ (ปลาวัว)" width="400" height="300" loading="lazy"><span class="nm">ปลาคาวาฮางิ (ปลาวัว)</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/umazurahagi.html"><img src="../images/t/umazurahagi.jpg" alt="ปลาวัวหน้าม้า" width="400" height="300" loading="lazy"><span class="nm">ปลาวัวหน้าม้า</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/shirasu.html"><img src="../images/t/shirasu.jpg" alt="ชิราสุ (ลูกปลาตัวเล็ก)" width="400" height="300" loading="lazy"><span class="nm">ชิราสุ (ลูกปลาตัวเล็ก)</span><span class="sn">เม.ย.–มิ.ย., ต.ค.–พ.ย.</span></a>
+<a href="../th/item/sakuraebi.html"><img src="../images/t/sakuraebi.jpg" alt="กุ้งซากุระ" width="400" height="300" loading="lazy"><span class="nm">กุ้งซากุระ</span><span class="sn">เม.ย.–พ.ค., ต.ค.</span></a>
+<a href="../th/item/ikura.html"><img src="../images/t/ikura.jpg" alt="อิคุระ (ไข่ปลาแซลมอน)" width="400" height="300" loading="lazy"><span class="nm">อิคุระ (ไข่ปลาแซลมอน)</span><span class="sn">ก.ย.–พ.ย.</span></a>
 <a href="../th/item/kyabetsu.html"><img src="../images/t/kyabetsu.jpg" alt="กะหล่ำปลี" width="400" height="300" loading="lazy"><span class="nm">กะหล่ำปลี</span><span class="sn">มี.ค.–พ.ค., ต.ค.–พ.ย.</span></a>
 <a href="../th/item/chingensai.html"><img src="../images/t/chingensai.jpg" alt="ผักกวางตุ้งฮ่องเต้" width="400" height="300" loading="lazy"><span class="nm">ผักกวางตุ้งฮ่องเต้</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/hanaho.html"><img src="../images/t/hanaho.jpg" alt="ช่อดอกชิโสะ" width="400" height="300" loading="lazy"><span class="nm">ช่อดอกชิโสะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/hojiso.html"><img src="../images/t/hojiso.jpg" alt="ช่อเมล็ดชิโสะ" width="400" height="300" loading="lazy"><span class="nm">ช่อเมล็ดชิโสะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/momiji.html"><img src="../images/t/momiji.jpg" alt="ใบเมเปิลกินได้" width="400" height="300" loading="lazy"><span class="nm">ใบเมเปิลกินได้</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/kabocha.html"><img src="../images/t/kabocha.jpg" alt="ฟักทองญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">ฟักทองญี่ปุ่น</span><span class="sn">ส.ค.–ต.ค.</span></a>
+<a href="../th/item/kabu.html"><img src="../images/t/kabu.jpg" alt="หัวผักกาดคาบุ" width="400" height="300" loading="lazy"><span class="nm">หัวผักกาดคาบุ</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/ninjin.html"><img src="../images/t/ninjin.jpg" alt="แครอท" width="400" height="300" loading="lazy"><span class="nm">แครอท</span><span class="sn">ต.ค.–ธ.ค.</span></a>
+<a href="../th/item/renkon.html"><img src="../images/t/renkon.jpg" alt="รากบัว" width="400" height="300" loading="lazy"><span class="nm">รากบัว</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/satsumaimo.html"><img src="../images/t/satsumaimo.jpg" alt="มันเทศญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">มันเทศญี่ปุ่น</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/jagaimo.html"><img src="../images/t/jagaimo.jpg" alt="มันฝรั่ง" width="400" height="300" loading="lazy"><span class="nm">มันฝรั่ง</span><span class="sn">พ.ค.–มิ.ย., ต.ค.–ธ.ค.</span></a>
+<a href="../th/item/satoimo.html"><img src="../images/t/satoimo.jpg" alt="เผือกซาโตะอิโมะ" width="400" height="300" loading="lazy"><span class="nm">เผือกซาโตะอิโมะ</span><span class="sn">ต.ค.–ม.ค.</span></a>
+<a href="../th/item/yamaimo.html"><img src="../images/t/yamaimo.jpg" alt="มันภูเขาญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">มันภูเขาญี่ปุ่น</span><span class="sn">ต.ค.–ก.พ.</span></a>
+<a href="../th/item/mukago.html"><img src="../images/t/mukago.jpg" alt="หัวย่อยมันภูเขา" width="400" height="300" loading="lazy"><span class="nm">หัวย่อยมันภูเขา</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/matsutake.html"><img src="../images/t/matsutake.jpg" alt="เห็ดมัตสึทาเกะ" width="400" height="300" loading="lazy"><span class="nm">เห็ดมัตสึทาเกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/shiitake.html"><img src="../images/t/shiitake.jpg" alt="เห็ดหอม" width="400" height="300" loading="lazy"><span class="nm">เห็ดหอม</span><span class="sn">มี.ค.–พ.ค., ก.ย.–พ.ย.</span></a>
+<a href="../th/item/shimeji.html"><img src="../images/t/shimeji.jpg" alt="เห็ดชิเมจิ" width="400" height="300" loading="lazy"><span class="nm">เห็ดชิเมจิ</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/nameko.html"><img src="../images/t/nameko.jpg" alt="เห็ดนาเมโกะ" width="400" height="300" loading="lazy"><span class="nm">เห็ดนาเมโกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/enoki.html"><img src="../images/t/enoki.jpg" alt="เห็ดเข็มทอง" width="400" height="300" loading="lazy"><span class="nm">เห็ดเข็มทอง</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/maitake.html"><img src="../images/t/maitake.jpg" alt="เห็ดไมตาเกะ" width="400" height="300" loading="lazy"><span class="nm">เห็ดไมตาเกะ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/ginnan.html"><img src="../images/t/ginnan.jpg" alt="เมล็ดแปะก๊วย" width="400" height="300" loading="lazy"><span class="nm">เมล็ดแปะก๊วย</span><span class="sn">ต.ค.–พ.ย.</span></a>
 <a href="../th/item/ichijiku.html"><img src="../images/t/ichijiku.jpg" alt="มะเดื่อฝรั่ง" width="400" height="300" loading="lazy"><span class="nm">มะเดื่อฝรั่ง</span><span class="sn">ส.ค.–ต.ค.</span></a>
 <a href="../th/item/nashi.html"><img src="../images/t/nashi.jpg" alt="สาลี่ญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">สาลี่ญี่ปุ่น</span><span class="sn">ส.ค.–ต.ค.</span></a>
-</div></div></section>
+<a href="../th/item/younashi.html"><img src="../images/t/younashi.jpg" alt="ลูกแพร์ฝรั่ง" width="400" height="300" loading="lazy"><span class="nm">ลูกแพร์ฝรั่ง</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/ringo.html"><img src="../images/t/ringo.jpg" alt="แอปเปิล" width="400" height="300" loading="lazy"><span class="nm">แอปเปิล</span><span class="sn">ต.ค.–ธ.ค.</span></a>
+<a href="../th/item/kaki.html"><img src="../images/t/kaki.jpg" alt="ลูกพลับ" width="400" height="300" loading="lazy"><span class="nm">ลูกพลับ</span><span class="sn">ต.ค.–พ.ย.</span></a>
+<a href="../th/item/kuri.html"><img src="../images/t/kuri.jpg" alt="เกาลัดญี่ปุ่น" width="400" height="300" loading="lazy"><span class="nm">เกาลัดญี่ปุ่น</span><span class="sn">ก.ย.–พ.ย.</span></a>
+<a href="../th/item/akebi.html"><img src="../images/t/akebi.jpg" alt="อาเกบิ" width="400" height="300" loading="lazy"><span class="nm">อาเกบิ</span><span class="sn">ก.ย.–ต.ค.</span></a>
+<a href="../th/item/sudachi.html"><img src="../images/t/sudachi.jpg" alt="ซูดาจิ" width="400" height="300" loading="lazy"><span class="nm">ซูดาจิ</span><span class="sn">ส.ค.–ต.ค.</span></a>
+</div></div></div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>ค้นหาตามหมวด</h2><span class="ln"></span><a class="more" href="../th/items.html">ดูวัตถุดิบทั้งหมด &rsaquo;</a></div>
 <div class="cats" id="catCards">
@@ -319,45 +376,61 @@ const NORES = "ไม่พบข้อมูล";
 <script>
 (function(){
   var D = "th", UP = "../", BUILT = 9, LG = "th";
-  var now = new Date().getMonth();
-  if (now === BUILT || typeof ITEMS === "undefined") return;
-  var want = {sea:3, land:2, fruit:2}, pick = [];
-  ["sea","land","fruit"].forEach(function(c){
-    var g = ITEMS.filter(function(x){ return x.c === c && x.m[now] === "2"; });
-    pick = pick.concat(g.slice(0, want[c]));
-  });
-  var i = 0;
-  while (pick.length < 7 && i < 40) {
-    ["sea","land","fruit"].forEach(function(c){
-      var g = ITEMS.filter(function(x){
-        return x.c === c && x.m[now] === "2" && pick.indexOf(x) < 0; });
-      if (g.length && pick.length < 7) pick.push(g[0]);
-    });
-    i++;
-  }
-  if (!pick.length) return;
-  var box = document.getElementById("nowCards");
-  box.innerHTML = pick.slice(0, 7).map(function(x){
+  var rail = document.getElementById("nowRail");
+  var track = document.getElementById("nowCards");
+  if (!track) return;
+
+  function cardHTML(x){
     var nm = x.n[LG] || x.n.ja;
     return '<a href="' + UP + D + '/item/' + x.s + '.html">'
          + '<img src="' + UP + x.t2 + '" alt="' + nm + '" width="400" height="300" loading="lazy">'
          + '<span class="nm">' + nm + '</span>'
          + '<span class="sn">' + (x.t[LG] || "") + '</span></a>';
-  }).join("");
-  var more = document.getElementById("nowMore");
-  if (more) more.href = UP + D + "/month/" + ("0" + (now + 1)).slice(-2) + ".html";
-  document.querySelectorAll(".months a").forEach(function(a, k){
-    a.classList.toggle("on", k === now);
-  });
-  document.querySelectorAll("#catCards a").forEach(function(a){
-    var c = a.className;
-    var g = ITEMS.filter(function(x){ return x.c === c && x.m[now] === "2"; })
-      .concat(ITEMS.filter(function(x){ return x.c === c && x.m[now] === "1"; }))
-      .concat(ITEMS.filter(function(x){ return x.c === c; }));
-    a.querySelectorAll(".strip img").forEach(function(el, k){
-      if (g[k]) el.src = UP + g[k].t2;
-    });
-  });
+  }
+
+  // 同じ並びを二度置いて、切れ目なく回す
+  function flow(){
+    if (!rail) return;
+    track.classList.remove("run");
+    track.style.removeProperty("--half");
+    var dup = track.querySelectorAll('[data-dup="1"]');
+    for (var k = 0; k < dup.length; k++) dup[k].remove();
+    var half = track.scrollWidth;
+    if (!half || half <= rail.clientWidth) return;
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var copy = track.innerHTML.replace(/<a /g, '<a data-dup="1" ');
+    track.insertAdjacentHTML("beforeend", copy);
+    track.style.setProperty("--half", "-" + half + "px");
+    track.style.animationDuration = Math.round(half / 34) + "s";
+    track.classList.add("run");
+  }
+
+  // 月が変わっていれば中身から作り直す
+  var now = new Date().getMonth();
+  if (now !== BUILT && typeof ITEMS !== "undefined") {
+    var g = ITEMS.filter(function(x){ return x.m[now] === "2"; });
+    if (g.length) {
+      track.innerHTML = g.map(cardHTML).join("");
+      var more = document.getElementById("nowMore");
+      if (more) more.href = UP + D + "/month/" + ("0" + (now + 1)).slice(-2) + ".html";
+      var mn = document.querySelectorAll(".months a");
+      for (var k = 0; k < mn.length; k++) mn[k].classList.toggle("on", k === now);
+      var cards = document.querySelectorAll("#catCards a");
+      for (var c = 0; c < cards.length; c++) {
+        var a = cards[c], cls = a.className;
+        var im = a.querySelectorAll(".strip img");
+        if (im.length < 2) continue;          // 用意した1枚のときは触らない
+        var pool = ITEMS.filter(function(x){ return x.c === cls && x.m[now] === "2"; })
+          .concat(ITEMS.filter(function(x){ return x.c === cls && x.m[now] === "1"; }))
+          .concat(ITEMS.filter(function(x){ return x.c === cls; }));
+        for (var q = 0; q < im.length; q++) if (pool[q]) im[q].src = UP + pool[q].t2;
+      }
+    }
+  }
+
+  if (document.readyState === "complete") flow();
+  else addEventListener("load", flow);
+  var tm; addEventListener("resize", function(){ clearTimeout(tm); tm = setTimeout(flow, 250); });
 })();
 </script>
 

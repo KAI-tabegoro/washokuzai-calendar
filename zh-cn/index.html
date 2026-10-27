@@ -163,6 +163,28 @@ a{color:var(--ink)}
 .months a:hover .ph span{background:rgba(32,46,54,.12)}
 .months a.on .ph{outline:2px solid var(--now);outline-offset:2px}
 
+/* 横に流れる帯 */
+.rail{position:relative;overflow:hidden;
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 36px,#000 calc(100% - 36px),transparent);
+      mask-image:linear-gradient(90deg,transparent,#000 36px,#000 calc(100% - 36px),transparent)}
+.rail-track{display:flex;gap:16px;width:max-content;will-change:transform}
+.rail-track.run{animation:railFlow linear infinite}
+.rail:hover .rail-track.run{animation-play-state:paused}
+@keyframes railFlow{from{transform:translateX(0)}to{transform:translateX(var(--half))}}
+.rail-track a{flex:0 0 auto;width:168px;text-decoration:none;display:block}
+.rail-track img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:3px;
+                background:var(--paper-2);display:block;margin-bottom:7px}
+.rail-track .nm{font-size:13.5px;display:block;line-height:1.5;white-space:nowrap;
+                overflow:hidden;text-overflow:ellipsis}
+.rail-track .sn{font-size:11.5px;color:var(--ink-soft);display:block;line-height:1.5;
+                white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rail-track a:hover .nm{color:var(--gold)}
+@media (prefers-reduced-motion:reduce){
+  .rail{overflow-x:auto}
+  .rail-track.run{animation:none}
+}
+@media (max-width:520px){ .rail-track a{width:140px} }
+
 /* 分類カード */
 .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .cats a{text-decoration:none;display:block;background:#fff;border:1px solid var(--rule);
@@ -245,15 +267,50 @@ a{color:var(--ink)}
 </nav></div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>现在最应季的食材</h2><span class="ln"></span><a class="more" id="nowMore" href="../zh-cn/month/10.html">查看本月所有应季食材 &rsaquo;</a></div>
-<div class="cards" id="nowCards">
+<div class="rail" id="nowRail"><div class="rail-track" id="nowCards">
 <a href="../zh-cn/item/sanma.html"><img src="../images/t/sanma.jpg" alt="秋刀鱼" width="400" height="300" loading="lazy"><span class="nm">秋刀鱼</span><span class="sn">9月〜10月</span></a>
 <a href="../zh-cn/item/masaba.html"><img src="../images/t/masaba.jpg" alt="鲭鱼" width="400" height="300" loading="lazy"><span class="nm">鲭鱼</span><span class="sn">10月〜1月</span></a>
 <a href="../zh-cn/item/katsuo.html"><img src="../images/t/katsuo.jpg" alt="鲣鱼" width="400" height="300" loading="lazy"><span class="nm">鲣鱼</span><span class="sn">5月、9月〜10月</span></a>
+<a href="../zh-cn/item/renkodai.html"><img src="../images/t/renkodai.jpg" alt="黄鲷（连子鲷）" width="400" height="300" loading="lazy"><span class="nm">黄鲷（连子鲷）</span><span class="sn">9月〜11月</span></a>
+<a href="../zh-cn/item/nodoguro.html"><img src="../images/t/nodoguro.jpg" alt="喉黑（赤鯥）" width="400" height="300" loading="lazy"><span class="nm">喉黑（赤鯥）</span><span class="sn">8月〜11月</span></a>
+<a href="../zh-cn/item/kamasu.html"><img src="../images/t/kamasu.jpg" alt="梭子鱼" width="400" height="300" loading="lazy"><span class="nm">梭子鱼</span><span class="sn">9月〜11月</span></a>
+<a href="../zh-cn/item/sake.html"><img src="../images/t/sake.jpg" alt="鲑鱼" width="400" height="300" loading="lazy"><span class="nm">鲑鱼</span><span class="sn">9月〜11月</span></a>
+<a href="../zh-cn/item/unagi.html"><img src="../images/t/unagi.jpg" alt="日本鳗" width="400" height="300" loading="lazy"><span class="nm">日本鳗</span><span class="sn">10月〜11月</span></a>
+<a href="../zh-cn/item/kawahagi.html"><img src="../images/t/kawahagi.jpg" alt="剥皮鱼（马面鲀）" width="400" height="300" loading="lazy"><span class="nm">剥皮鱼（马面鲀）</span><span class="sn">10月〜2月</span></a>
+<a href="../zh-cn/item/umazurahagi.html"><img src="../images/t/umazurahagi.jpg" alt="马面剥皮鱼（马面鲀）" width="400" height="300" loading="lazy"><span class="nm">马面剥皮鱼（马面鲀）</span><span class="sn">10月〜2月</span></a>
+<a href="../zh-cn/item/shirasu.html"><img src="../images/t/shirasu.jpg" alt="银鱼（白饭鱼）" width="400" height="300" loading="lazy"><span class="nm">银鱼（白饭鱼）</span><span class="sn">4月〜6月、10月〜11月</span></a>
+<a href="../zh-cn/item/sakuraebi.html"><img src="../images/t/sakuraebi.jpg" alt="樱花虾" width="400" height="300" loading="lazy"><span class="nm">樱花虾</span><span class="sn">4月〜5月、10月</span></a>
+<a href="../zh-cn/item/ikura.html"><img src="../images/t/ikura.jpg" alt="鲑鱼卵" width="400" height="300" loading="lazy"><span class="nm">鲑鱼卵</span><span class="sn">9月〜11月</span></a>
 <a href="../zh-cn/item/kyabetsu.html"><img src="../images/t/kyabetsu.jpg" alt="卷心菜" width="400" height="300" loading="lazy"><span class="nm">卷心菜</span><span class="sn">3月〜5月、10月〜11月</span></a>
 <a href="../zh-cn/item/chingensai.html"><img src="../images/t/chingensai.jpg" alt="青江菜" width="400" height="300" loading="lazy"><span class="nm">青江菜</span><span class="sn">9月〜10月</span></a>
+<a href="../zh-cn/item/hanaho.html"><img src="../images/t/hanaho.jpg" alt="紫苏花穗" width="400" height="300" loading="lazy"><span class="nm">紫苏花穗</span><span class="sn">9月〜10月</span></a>
+<a href="../zh-cn/item/hojiso.html"><img src="../images/t/hojiso.jpg" alt="紫苏穗（结籽）" width="400" height="300" loading="lazy"><span class="nm">紫苏穗（结籽）</span><span class="sn">9月〜10月</span></a>
+<a href="../zh-cn/item/momiji.html"><img src="../images/t/momiji.jpg" alt="食用枫叶" width="400" height="300" loading="lazy"><span class="nm">食用枫叶</span><span class="sn">9月〜10月</span></a>
+<a href="../zh-cn/item/kabocha.html"><img src="../images/t/kabocha.jpg" alt="南瓜" width="400" height="300" loading="lazy"><span class="nm">南瓜</span><span class="sn">8月〜10月</span></a>
+<a href="../zh-cn/item/kabu.html"><img src="../images/t/kabu.jpg" alt="芜菁" width="400" height="300" loading="lazy"><span class="nm">芜菁</span><span class="sn">10月〜2月</span></a>
+<a href="../zh-cn/item/ninjin.html"><img src="../images/t/ninjin.jpg" alt="胡萝卜" width="400" height="300" loading="lazy"><span class="nm">胡萝卜</span><span class="sn">10月〜12月</span></a>
+<a href="../zh-cn/item/renkon.html"><img src="../images/t/renkon.jpg" alt="莲藕" width="400" height="300" loading="lazy"><span class="nm">莲藕</span><span class="sn">10月〜2月</span></a>
+<a href="../zh-cn/item/satsumaimo.html"><img src="../images/t/satsumaimo.jpg" alt="红薯" width="400" height="300" loading="lazy"><span class="nm">红薯</span><span class="sn">10月〜2月</span></a>
+<a href="../zh-cn/item/jagaimo.html"><img src="../images/t/jagaimo.jpg" alt="土豆" width="400" height="300" loading="lazy"><span class="nm">土豆</span><span class="sn">5月〜6月、10月〜12月</span></a>
+<a href="../zh-cn/item/satoimo.html"><img src="../images/t/satoimo.jpg" alt="芋头" width="400" height="300" loading="lazy"><span class="nm">芋头</span><span class="sn">10月〜1月</span></a>
+<a href="../zh-cn/item/yamaimo.html"><img src="../images/t/yamaimo.jpg" alt="日本山药" width="400" height="300" loading="lazy"><span class="nm">日本山药</span><span class="sn">10月〜2月</span></a>
+<a href="../zh-cn/item/mukago.html"><img src="../images/t/mukago.jpg" alt="零余子（山药豆）" width="400" height="300" loading="lazy"><span class="nm">零余子（山药豆）</span><span class="sn">10月〜11月</span></a>
+<a href="../zh-cn/item/matsutake.html"><img src="../images/t/matsutake.jpg" alt="松茸" width="400" height="300" loading="lazy"><span class="nm">松茸</span><span class="sn">9月〜10月</span></a>
+<a href="../zh-cn/item/shiitake.html"><img src="../images/t/shiitake.jpg" alt="香菇" width="400" height="300" loading="lazy"><span class="nm">香菇</span><span class="sn">3月〜5月、9月〜11月</span></a>
+<a href="../zh-cn/item/shimeji.html"><img src="../images/t/shimeji.jpg" alt="鸿喜菇（占地）" width="400" height="300" loading="lazy"><span class="nm">鸿喜菇（占地）</span><span class="sn">9月〜11月</span></a>
+<a href="../zh-cn/item/nameko.html"><img src="../images/t/nameko.jpg" alt="滑菇" width="400" height="300" loading="lazy"><span class="nm">滑菇</span><span class="sn">9月〜10月</span></a>
+<a href="../zh-cn/item/enoki.html"><img src="../images/t/enoki.jpg" alt="金针菇" width="400" height="300" loading="lazy"><span class="nm">金针菇</span><span class="sn">10月〜11月</span></a>
+<a href="../zh-cn/item/maitake.html"><img src="../images/t/maitake.jpg" alt="舞菇（灰树花）" width="400" height="300" loading="lazy"><span class="nm">舞菇（灰树花）</span><span class="sn">9月〜10月</span></a>
+<a href="../zh-cn/item/ginnan.html"><img src="../images/t/ginnan.jpg" alt="白果" width="400" height="300" loading="lazy"><span class="nm">白果</span><span class="sn">10月〜11月</span></a>
 <a href="../zh-cn/item/ichijiku.html"><img src="../images/t/ichijiku.jpg" alt="无花果" width="400" height="300" loading="lazy"><span class="nm">无花果</span><span class="sn">8月〜10月</span></a>
 <a href="../zh-cn/item/nashi.html"><img src="../images/t/nashi.jpg" alt="日本梨" width="400" height="300" loading="lazy"><span class="nm">日本梨</span><span class="sn">8月〜10月</span></a>
-</div></div></section>
+<a href="../zh-cn/item/younashi.html"><img src="../images/t/younashi.jpg" alt="西洋梨" width="400" height="300" loading="lazy"><span class="nm">西洋梨</span><span class="sn">10月〜11月</span></a>
+<a href="../zh-cn/item/ringo.html"><img src="../images/t/ringo.jpg" alt="苹果" width="400" height="300" loading="lazy"><span class="nm">苹果</span><span class="sn">10月〜12月</span></a>
+<a href="../zh-cn/item/kaki.html"><img src="../images/t/kaki.jpg" alt="柿子" width="400" height="300" loading="lazy"><span class="nm">柿子</span><span class="sn">10月〜11月</span></a>
+<a href="../zh-cn/item/kuri.html"><img src="../images/t/kuri.jpg" alt="板栗" width="400" height="300" loading="lazy"><span class="nm">板栗</span><span class="sn">9月〜11月</span></a>
+<a href="../zh-cn/item/akebi.html"><img src="../images/t/akebi.jpg" alt="木通果" width="400" height="300" loading="lazy"><span class="nm">木通果</span><span class="sn">9月〜10月</span></a>
+<a href="../zh-cn/item/sudachi.html"><img src="../images/t/sudachi.jpg" alt="酸橘" width="400" height="300" loading="lazy"><span class="nm">酸橘</span><span class="sn">8月〜10月</span></a>
+</div></div></div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-h"><h2>按分类查找</h2><span class="ln"></span><a class="more" href="../zh-cn/items.html">查看所有食材 &rsaquo;</a></div>
 <div class="cats" id="catCards">
@@ -319,45 +376,61 @@ const NORES = "找不到符合的结果";
 <script>
 (function(){
   var D = "zh-cn", UP = "../", BUILT = 9, LG = "zh-CN";
-  var now = new Date().getMonth();
-  if (now === BUILT || typeof ITEMS === "undefined") return;
-  var want = {sea:3, land:2, fruit:2}, pick = [];
-  ["sea","land","fruit"].forEach(function(c){
-    var g = ITEMS.filter(function(x){ return x.c === c && x.m[now] === "2"; });
-    pick = pick.concat(g.slice(0, want[c]));
-  });
-  var i = 0;
-  while (pick.length < 7 && i < 40) {
-    ["sea","land","fruit"].forEach(function(c){
-      var g = ITEMS.filter(function(x){
-        return x.c === c && x.m[now] === "2" && pick.indexOf(x) < 0; });
-      if (g.length && pick.length < 7) pick.push(g[0]);
-    });
-    i++;
-  }
-  if (!pick.length) return;
-  var box = document.getElementById("nowCards");
-  box.innerHTML = pick.slice(0, 7).map(function(x){
+  var rail = document.getElementById("nowRail");
+  var track = document.getElementById("nowCards");
+  if (!track) return;
+
+  function cardHTML(x){
     var nm = x.n[LG] || x.n.ja;
     return '<a href="' + UP + D + '/item/' + x.s + '.html">'
          + '<img src="' + UP + x.t2 + '" alt="' + nm + '" width="400" height="300" loading="lazy">'
          + '<span class="nm">' + nm + '</span>'
          + '<span class="sn">' + (x.t[LG] || "") + '</span></a>';
-  }).join("");
-  var more = document.getElementById("nowMore");
-  if (more) more.href = UP + D + "/month/" + ("0" + (now + 1)).slice(-2) + ".html";
-  document.querySelectorAll(".months a").forEach(function(a, k){
-    a.classList.toggle("on", k === now);
-  });
-  document.querySelectorAll("#catCards a").forEach(function(a){
-    var c = a.className;
-    var g = ITEMS.filter(function(x){ return x.c === c && x.m[now] === "2"; })
-      .concat(ITEMS.filter(function(x){ return x.c === c && x.m[now] === "1"; }))
-      .concat(ITEMS.filter(function(x){ return x.c === c; }));
-    a.querySelectorAll(".strip img").forEach(function(el, k){
-      if (g[k]) el.src = UP + g[k].t2;
-    });
-  });
+  }
+
+  // 同じ並びを二度置いて、切れ目なく回す
+  function flow(){
+    if (!rail) return;
+    track.classList.remove("run");
+    track.style.removeProperty("--half");
+    var dup = track.querySelectorAll('[data-dup="1"]');
+    for (var k = 0; k < dup.length; k++) dup[k].remove();
+    var half = track.scrollWidth;
+    if (!half || half <= rail.clientWidth) return;
+    if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var copy = track.innerHTML.replace(/<a /g, '<a data-dup="1" ');
+    track.insertAdjacentHTML("beforeend", copy);
+    track.style.setProperty("--half", "-" + half + "px");
+    track.style.animationDuration = Math.round(half / 34) + "s";
+    track.classList.add("run");
+  }
+
+  // 月が変わっていれば中身から作り直す
+  var now = new Date().getMonth();
+  if (now !== BUILT && typeof ITEMS !== "undefined") {
+    var g = ITEMS.filter(function(x){ return x.m[now] === "2"; });
+    if (g.length) {
+      track.innerHTML = g.map(cardHTML).join("");
+      var more = document.getElementById("nowMore");
+      if (more) more.href = UP + D + "/month/" + ("0" + (now + 1)).slice(-2) + ".html";
+      var mn = document.querySelectorAll(".months a");
+      for (var k = 0; k < mn.length; k++) mn[k].classList.toggle("on", k === now);
+      var cards = document.querySelectorAll("#catCards a");
+      for (var c = 0; c < cards.length; c++) {
+        var a = cards[c], cls = a.className;
+        var im = a.querySelectorAll(".strip img");
+        if (im.length < 2) continue;          // 用意した1枚のときは触らない
+        var pool = ITEMS.filter(function(x){ return x.c === cls && x.m[now] === "2"; })
+          .concat(ITEMS.filter(function(x){ return x.c === cls && x.m[now] === "1"; }))
+          .concat(ITEMS.filter(function(x){ return x.c === cls; }));
+        for (var q = 0; q < im.length; q++) if (pool[q]) im[q].src = UP + pool[q].t2;
+      }
+    }
+  }
+
+  if (document.readyState === "complete") flow();
+  else addEventListener("load", flow);
+  var tm; addEventListener("resize", function(){ clearTimeout(tm); tm = setTimeout(flow, 250); });
 })();
 </script>
 

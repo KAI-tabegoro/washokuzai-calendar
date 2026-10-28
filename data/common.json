@@ -2401,9 +2401,9 @@
   ]
  },
  {
-  "id": "メロン",
+  "id": "青肉メロン",
   "cat": "fruit",
-  "m": "000122211000",
+  "m": "111122211111",
   "img": "images/melon.jpg",
   "cook_imgs": [
    "images/cook/melon-1.jpg",
@@ -2728,6 +2728,66 @@
    "images/cook/lemon-2.jpg",
    "images/cook/lemon-3.jpg",
    "images/cook/lemon-4.jpg"
+  ]
+ },
+ {
+  "id": "赤肉メロン",
+  "cat": "fruit",
+  "m": "000122221000",
+  "img": "images/akaniku-melon.jpg",
+  "cook_imgs": [
+   "images/cook/akaniku-melon-1.jpg",
+   "images/cook/akaniku-melon-2.jpg",
+   "images/cook/akaniku-melon-3.jpg",
+   "images/cook/akaniku-melon-4.jpg"
+  ]
+ },
+ {
+  "id": "巨峰",
+  "cat": "fruit",
+  "m": "000000122100",
+  "img": "images/kyoho.jpg",
+  "cook_imgs": [
+   "images/cook/kyoho-1.jpg",
+   "images/cook/kyoho-2.jpg",
+   "images/cook/kyoho-3.jpg",
+   "images/cook/kyoho-4.jpg"
+  ]
+ },
+ {
+  "id": "シャインマスカット",
+  "cat": "fruit",
+  "m": "000000122210",
+  "img": "images/shine-muscat.jpg",
+  "cook_imgs": [
+   "images/cook/shine-muscat-1.jpg",
+   "images/cook/shine-muscat-2.jpg",
+   "images/cook/shine-muscat-3.jpg",
+   "images/cook/shine-muscat-4.jpg"
+  ]
+ },
+ {
+  "id": "甘夏",
+  "cat": "fruit",
+  "m": "001221000000",
+  "img": "images/amanatsu.jpg",
+  "cook_imgs": [
+   "images/cook/amanatsu-1.jpg",
+   "images/cook/amanatsu-2.jpg",
+   "images/cook/amanatsu-3.jpg",
+   "images/cook/amanatsu-4.jpg"
+  ]
+ },
+ {
+  "id": "清見",
+  "cat": "fruit",
+  "m": "012210000000",
+  "img": "images/kiyomi.jpg",
+  "cook_imgs": [
+   "images/cook/kiyomi-1.jpg",
+   "images/cook/kiyomi-2.jpg",
+   "images/cook/kiyomi-3.jpg",
+   "images/cook/kiyomi-4.jpg"
   ]
  }
 ]

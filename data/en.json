@@ -6011,8 +6011,8 @@
   ]
  },
  {
-  "id": "メロン",
-  "name": "Melon",
+  "id": "青肉メロン",
+  "name": "Green-fleshed melon",
   "cooks": [
    {
     "name": "Eaten fresh",
@@ -6033,12 +6033,12 @@
   ],
   "pick": "A fine, evenly raised netting. Press the base; slight give means it is ready.",
   "keep": "Ripen at room temperature. When the base softens and the aroma strengthens, chill two or three hours before eating.",
-  "trivia": "The netting is where the skin split as the fruit grew and then healed. Finer, more even netting is considered better quality.",
+  "trivia": "A melon with pale green flesh. The Earl's type is the best known, and greenhouse fruit from Shizuoka ships almost all year. It is prized for its scent and its refined sweetness. The netting is scar tissue from the skin splitting as the fruit swells; the finer and more even it is, the better the melon.",
   "origins": [
+   "Shizuoka",
    "Ibaraki",
    "Kumamoto",
-   "Hokkaido",
-   "Yamagata"
+   "Aichi"
   ]
  },
  {
@@ -6963,5 +6963,160 @@
    "Fukui"
   ],
   "id": "らっきょう"
+ },
+ {
+  "id": "赤肉メロン",
+  "name": "Red-fleshed melon",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "Judge the moment it ripens; sweeter than the green type."
+   },
+   {
+    "name": "With prosciutto",
+    "desc": "Salt against sweetness, and a fine contrast of colour."
+   },
+   {
+    "name": "Sorbet",
+    "desc": "The flesh frozen, giving a vivid orange."
+   },
+   {
+    "name": "Juice",
+    "desc": "Blended; the colour comes out deep."
+   }
+  ],
+  "pick": "Clearly raised netting and a fruit that feels heavy for its size. It is ready when the base gives a little under the thumb.",
+  "keep": "Ripen at room temperature. Once it smells fragrant, chill two or three hours before eating. Too cold and the sweetness is lost.",
+  "trivia": "A melon with orange flesh, coloured by the carotene it carries. It smells stronger than the green-fleshed type and tastes sweeter. Hokkaido fruit peaks in July and August, later than the green type.",
+  "origins": [
+   "Hokkaido",
+   "Ibaraki",
+   "Kumamoto",
+   "Yamagata"
+  ]
+ },
+ {
+  "id": "巨峰",
+  "name": "Kyoho grape",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "Peeled and eaten; the berries are large and satisfying."
+   },
+   {
+    "name": "Frozen",
+    "desc": "Peeled, frozen and eaten half-thawed."
+   },
+   {
+    "name": "Juice",
+    "desc": "Pressed with the skins for a deep purple."
+   },
+   {
+    "name": "Jelly",
+    "desc": "Peeled berries set in agar or gelatine."
+   }
+  ],
+  "pick": "Large berries coloured deep purple-black with a white bloom, on a thick green stem.",
+  "keep": "Bag unwashed and refrigerate. Keep the bunch intact and eat it soon.",
+  "trivia": "Raised in Shizuoka by Yasushi Oiue and announced in 1942. The name is said to come from the great peak of Mount Fuji. The size of the berries earned it the title king of grapes. The white dust on the skin is bloom, a sign of freshness, not spray.",
+  "origins": [
+   "Yamanashi",
+   "Nagano",
+   "Fukuoka",
+   "Yamagata"
+  ]
+ },
+ {
+  "id": "シャインマスカット",
+  "name": "Shine Muscat",
+  "cooks": [
+   {
+    "name": "Skin and all",
+    "desc": "Washed and eaten whole; no seeds and a thin skin."
+   },
+   {
+    "name": "Frozen",
+    "desc": "Pulled from the bunch, frozen and eaten half-thawed."
+   },
+   {
+    "name": "Salad",
+    "desc": "Halved, with leaves and cheese."
+   },
+   {
+    "name": "Tart",
+    "desc": "Halved and laid out; the colour shows beautifully."
+   }
+  ],
+  "pick": "Plump berries coloured yellow-green on a green stem, not packed too tightly together.",
+  "keep": "Bag unwashed and refrigerate. Keep the bunch intact.",
+  "trivia": "Bred by Japan's National Agriculture and Food Research Organization and registered in 2006. It is seedless, eaten skin and all, and very high in sugar. It was made to carry the scent of a muscat while growing in the Japanese climate, and it is now the country's leading export grape.",
+  "origins": [
+   "Nagano",
+   "Yamanashi",
+   "Okayama",
+   "Yamagata"
+  ]
+ },
+ {
+  "id": "甘夏",
+  "name": "Amanatsu orange",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "The thick rind peeled, then the membrane removed."
+   },
+   {
+    "name": "Marmalade",
+    "desc": "The rind shredded and simmered; the scent carries well."
+   },
+   {
+    "name": "Salad",
+    "desc": "Segments tossed with leaves."
+   },
+   {
+    "name": "Jelly",
+    "desc": "The juice set inside the hollowed rind."
+   }
+  ],
+  "pick": "A taut rind and a fruit that feels heavy for its size, evenly and deeply coloured.",
+  "keep": "Keep somewhere cool, dark and airy. Bag it for the vegetable drawer if it starts to dry.",
+  "trivia": "Properly called Kawano natsudaidai. It was found in 1935 in Tsukumi, Oita, as a branch sport of the natsumikan. It is gentler in acid than its parent and easier to eat. Picked fruit is too sharp at first, so it is rested for a time to let the acid fall before it ships.",
+  "origins": [
+   "Kumamoto",
+   "Kagoshima",
+   "Ehime",
+   "Wakayama"
+  ]
+ },
+ {
+  "id": "清見",
+  "name": "Kiyomi tangor",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "The membrane is thin enough to eat; very juicy."
+   },
+   {
+    "name": "Juice",
+    "desc": "Simply pressed, giving a deep orange."
+   },
+   {
+    "name": "Jelly",
+    "desc": "Juice and segments set together."
+   },
+   {
+    "name": "Salad",
+    "desc": "Served with slices of white fish."
+   }
+  ],
+  "pick": "A thin, smooth rind and a fruit that feels heavy for its size, with a slender stem.",
+  "keep": "Bag it against drying and keep it in the vegetable drawer.",
+  "trivia": "Japan's first tangor, registered in 1979 from a cross between the satsuma mandarin and the Trovita orange. It is named after Seiken temple in Shizuoka. It is the parent of Shiranui and Setoka, and much of Japan's fine citrus descends from it.",
+  "origins": [
+   "Ehime",
+   "Wakayama",
+   "Hiroshima",
+   "Saga"
+  ]
  }
 ]

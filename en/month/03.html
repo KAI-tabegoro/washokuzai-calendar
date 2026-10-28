@@ -122,6 +122,12 @@ a{color:var(--ink)}
   .sec-h h2{font-size:18px}
   .cards{grid-template-columns:repeat(3,1fr);gap:12px}
 }
+/* とても狭い画面では、見出しと「すべて見る」を上下に分ける */
+@media (max-width:380px){
+  .sec-h{flex-wrap:wrap;gap:6px 12px}
+  .sec-h .ln{order:3;flex-basis:100%;margin-top:2px}
+  .sec-h .more{font-size:12px}
+}
 @media (max-width:520px){
   .cards{grid-template-columns:repeat(2,1fr)}
   .brand b{font-size:15px}

@@ -70,6 +70,16 @@ h2{font-family:var(--mincho);font-size:17px;font-weight:600;margin:34px 0 12px;
 .cook p{font-size:13px;color:var(--ink-soft);margin:0}
 
 .body p{margin:0 0 10px}
+.intro{margin:0 0 22px}
+.intro p{font-size:15px}
+.faq{margin:0;border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;font-weight:600;padding:12px 28px 12px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q.";color:var(--gold);margin-right:.5em;font-family:var(--mincho)}
+.faq summary::after{content:"+";position:absolute;right:4px;top:10px;color:var(--ink-soft);font-size:18px}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:0;padding:0 0 14px 1.6em}
 .origins{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:7px}
 .origins li a{display:inline-block;font-size:13px;padding:4px 11px;background:#fff;
    border:1px solid var(--rule);border-radius:2px;text-decoration:none;color:var(--ink)}
@@ -101,6 +111,8 @@ footer a{color:var(--ink-soft)}
   .wrap{padding:0 16px 56px}
   h1{font-size:25px}
   .cal div{font-size:9px;padding:6px 0 5px}
-  .cooks{grid-template-columns:1fr;gap:16px}
+  .cooks{grid-template-columns:1fr 1fr;gap:12px}
+  .cook h3{font-size:13px}
+  .cook p{font-size:12px}
   .rel{grid-template-columns:repeat(3,1fr)}
 }

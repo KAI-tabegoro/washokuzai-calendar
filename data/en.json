@@ -7416,5 +7416,154 @@
   "origins": [
    "Okinawa"
   ]
+ },
+ {
+  "id": "インゲン",
+  "name": "Green beans",
+  "cooks": [
+   {
+    "name": "Goma-ae",
+    "desc": "Boiled, cut and dressed with ground sesame, sugar and soy sauce."
+   },
+   {
+    "name": "Tempura",
+    "desc": "A few beans bundled together and fried."
+   },
+   {
+    "name": "Pork-wrapped",
+    "desc": "Wrapped in thin pork, pan-fried and glazed sweet and salty."
+   },
+   {
+    "name": "Nibitashi",
+    "desc": "Briefly simmered in dashi and topped with bonito flakes."
+   }
+  ],
+  "pick": "Bright, glossy and firm all the way to the tip.",
+  "keep": "Bag it against drying and keep it in the vegetable drawer. It does not keep long; use within two or three days.",
+  "trivia": "The Japanese name, ingen, comes from the tradition that the Chinese monk Ingen brought the bean to Japan in the Edo period. Most varieties today are stringless. Because it can be harvested three times a year, it is also called sandomame, \"three-times bean\", in the Kansai region.",
+  "origins": [
+   "Chiba",
+   "Kagoshima",
+   "Fukushima",
+   "Okinawa"
+  ]
+ },
+ {
+  "id": "黒枝豆",
+  "name": "Black soybean edamame",
+  "cooks": [
+   {
+    "name": "Salt-boiled",
+    "desc": "Rubbed with salt, then boiled; sweeter and richer than ordinary edamame."
+   },
+   {
+    "name": "Mixed rice",
+    "desc": "Boiled, shelled and mixed into freshly cooked rice."
+   },
+   {
+    "name": "Kakiage",
+    "desc": "Shelled beans fried in batter with onion."
+   },
+   {
+    "name": "Salad",
+    "desc": "Shelled beans with cheese and sweetcorn."
+   }
+  ],
+  "pick": "Plump pods, most holding three beans. On the stalk, the leaves and pods should not be wilted.",
+  "keep": "It loses freshness quickly, so boil it on the day you buy it. Boiled pods freeze well.",
+  "trivia": "The young pods of the black soybean used for New Year sweet beans, picked before they ripen. The best-known variety is Tanbaguro, from the Tanba area spanning Hyogo and Kyoto. It is on sale for only two or three weeks in October. The later it is picked, the darker the bean skins become.",
+  "origins": [
+   "Hyogo",
+   "Kyoto",
+   "Okayama"
+  ]
+ },
+ {
+  "id": "落花生",
+  "name": "Fresh peanuts",
+  "cooks": [
+   {
+    "name": "Salt-boiled",
+    "desc": "Boiled in the shell in salted water for about 40 minutes; only possible with fresh peanuts."
+   },
+   {
+    "name": "Roasted in the shell",
+    "desc": "Dried, then slowly roasted in the shell."
+   },
+   {
+    "name": "Jimami tofu",
+    "desc": "An Okinawan dish of peanut milk set with kudzu starch."
+   },
+   {
+    "name": "Peanut miso",
+    "desc": "Roasted peanuts coated in miso and sugar."
+   }
+  ],
+  "pick": "Clean, pale, plump shells. Avoid any that have darkened.",
+  "keep": "Fresh peanuts spoil easily, so boil them the same day. Boiled peanuts freeze well.",
+  "trivia": "The Japanese name means \"the flower falls and bears fruit\": after flowering, the stalk bends down into the soil and the pods form underground. Chiba grows about 80 per cent of Japan's crop. Fresh peanuts are only available for a short time from around August to October, just after digging; boiled, they turn soft and floury like chestnuts.",
+  "origins": [
+   "Chiba",
+   "Ibaraki"
+  ]
+ },
+ {
+  "id": "タラの芽",
+  "name": "Taranome (angelica tree shoots)",
+  "cooks": [
+   {
+    "name": "Tempura",
+    "desc": "Trim the tough base and fry whole; the classic way to eat it."
+   },
+   {
+    "name": "Shiraae",
+    "desc": "Boiled and dressed with mashed tofu."
+   },
+   {
+    "name": "With bacon",
+    "desc": "Halved and sautéed with bacon."
+   },
+   {
+    "name": "Ohitashi",
+    "desc": "Briefly boiled, with dashi soy and bonito flakes."
+   }
+  ],
+  "pick": "Fat, short, plump buds whose leaves have not opened too far.",
+  "keep": "Wrap in damp paper against drying, refrigerate and use soon.",
+  "trivia": "The young shoots of the Japanese angelica tree, a relative of ginseng, called the \"king of wild greens\". They have a soft, slightly chewy texture, a mild bitterness and a rich flavour. Those on sale from winter to early spring are forced indoors from cut branches; wild shoots are gathered in the mountains in April and May.",
+  "origins": [
+   "Yamagata",
+   "Niigata",
+   "Gunma"
+  ]
+ },
+ {
+  "id": "金時人参",
+  "name": "Kintoki carrot",
+  "cooks": [
+   {
+    "name": "Nishime",
+    "desc": "Cut into plum-blossom shapes and simmered; essential in the New Year box."
+   },
+   {
+    "name": "Kohaku namasu",
+    "desc": "Shredded with daikon and dressed in sweet vinegar."
+   },
+   {
+    "name": "Kinpira",
+    "desc": "Shredded with burdock and stir-fried in sesame oil."
+   },
+   {
+    "name": "Glazed",
+    "desc": "Cooked glossy in butter and sugar."
+   }
+  ],
+  "pick": "Deep red, smooth skin with few root hairs.",
+  "keep": "Wrap in newspaper and stand it upright in the vegetable drawer.",
+  "trivia": "An Eastern-type carrot that came from China in the Edo period. It is named after Sakata no Kintoki, a red-faced folk hero. Its red colour comes from lycopene, the same pigment as in tomatoes. Sweet and firm when cooked, it is used in New Year dishes, especially in the Kansai region. Kagawa grows much of Japan's crop.",
+  "origins": [
+   "Kagawa",
+   "Tokushima"
+  ]
  }
 ]

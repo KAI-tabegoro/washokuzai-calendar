@@ -1249,6 +1249,18 @@
   ]
  },
  {
+  "id": "タラの芽",
+  "cat": "land",
+  "m": "112220000000",
+  "img": "images/taranome.jpg",
+  "cook_imgs": [
+   "images/cook/taranome-1.jpg",
+   "images/cook/taranome-2.jpg",
+   "images/cook/taranome-3.jpg",
+   "images/cook/taranome-4.jpg"
+  ]
+ },
+ {
   "id": "ウド",
   "cat": "land",
   "m": "012221000000",
@@ -1981,6 +1993,18 @@
   ]
  },
  {
+  "id": "黒枝豆",
+  "cat": "land",
+  "m": "000000000200",
+  "img": "images/kuroedamame.jpg",
+  "cook_imgs": [
+   "images/cook/kuroedamame-1.jpg",
+   "images/cook/kuroedamame-2.jpg",
+   "images/cook/kuroedamame-3.jpg",
+   "images/cook/kuroedamame-4.jpg"
+  ]
+ },
+ {
   "id": "ソラマメ",
   "cat": "land",
   "m": "000222000000",
@@ -2002,6 +2026,30 @@
    "images/cook/sayaendou-2.jpg",
    "images/cook/sayaendou-3.jpg",
    "images/cook/sayaendou-4.jpg"
+  ]
+ },
+ {
+  "id": "インゲン",
+  "cat": "land",
+  "m": "111112222111",
+  "img": "images/ingen.jpg",
+  "cook_imgs": [
+   "images/cook/ingen-1.jpg",
+   "images/cook/ingen-2.jpg",
+   "images/cook/ingen-3.jpg",
+   "images/cook/ingen-4.jpg"
+  ]
+ },
+ {
+  "id": "落花生",
+  "cat": "land",
+  "m": "000000012210",
+  "img": "images/rakkasei.jpg",
+  "cook_imgs": [
+   "images/cook/rakkasei-1.jpg",
+   "images/cook/rakkasei-2.jpg",
+   "images/cook/rakkasei-3.jpg",
+   "images/cook/rakkasei-4.jpg"
   ]
  },
  {
@@ -2086,6 +2134,18 @@
    "images/cook/ninjin-2.jpg",
    "images/cook/ninjin-3.jpg",
    "images/cook/ninjin-4.jpg"
+  ]
+ },
+ {
+  "id": "金時人参",
+  "cat": "land",
+  "m": "221000000012",
+  "img": "images/kintokininjin.jpg",
+  "cook_imgs": [
+   "images/cook/kintokininjin-1.jpg",
+   "images/cook/kintokininjin-2.jpg",
+   "images/cook/kintokininjin-3.jpg",
+   "images/cook/kintokininjin-4.jpg"
   ]
  },
  {

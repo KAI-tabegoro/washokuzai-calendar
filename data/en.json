@@ -7118,5 +7118,303 @@
    "Hiroshima",
    "Saga"
   ]
+ },
+ {
+  "id": "せとか",
+  "name": "Setoka",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "The membrane is thin enough to eat; the flesh is soft and juicy."
+   },
+   {
+    "name": "Fruit sandwich",
+    "desc": "Whole segments set in whipped cream between bread; the cut face looks striking."
+   },
+   {
+    "name": "Jelly",
+    "desc": "Juice and segments set together."
+   },
+   {
+    "name": "Carpaccio",
+    "desc": "Segments with slices of raw white fish and a drizzle of olive oil."
+   }
+  ],
+  "pick": "A thin, glossy, deep orange rind and a fruit that feels heavy for its size.",
+  "keep": "Bag it against drying and keep it in the vegetable drawer. The thin rind bruises easily, so eat it soon.",
+  "trivia": "Bred by crossing Kiyomi with Encore and then crossing the result with Murcott; registered in 2001. It is named after the Hayasaki Strait (seto) near Kuchinotsu in Nagasaki, where it was bred. Its melting flesh has earned it the nickname \"the otoro of citrus\".",
+  "origins": [
+   "Ehime",
+   "Saga",
+   "Nagasaki",
+   "Kumamoto"
+  ]
+ },
+ {
+  "id": "文旦",
+  "name": "Buntan pomelo",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "Peel away the thick rind and membranes and eat the flesh; the juice sacs pop."
+   },
+   {
+    "name": "Salad",
+    "desc": "Flesh broken up and tossed with leaves and shrimp."
+   },
+   {
+    "name": "Candied peel",
+    "desc": "The thick rind is blanched, then simmered down in sugar."
+   },
+   {
+    "name": "Shiraae",
+    "desc": "Flesh and greens dressed with mashed tofu."
+   }
+  ],
+  "pick": "A taut, glossy rind and a fruit that feels heavy, not shrivelled around the stem.",
+  "keep": "Kept somewhere cool and airy, it lasts one to two weeks at room temperature. Refrigerate peeled flesh and eat it soon.",
+  "trivia": "Kochi grows almost all of Japan's crop. The fruit is harvested in winter and stored for a while so the acidity mellows and the sweetness and fragrance develop before it is shipped. Legend says the name comes from the captain of a Chinese ship that drifted ashore in Kagoshima in the Edo period. Greenhouse fruit also appears in autumn.",
+  "origins": [
+   "Kochi",
+   "Kagoshima"
+  ]
+ },
+ {
+  "id": "伊予柑",
+  "name": "Iyokan",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "The rind is thick but peels by hand; strongly fragrant."
+   },
+   {
+    "name": "Juice",
+    "desc": "Pressed, it gives a deep, reddish orange."
+   },
+   {
+    "name": "Marmalade",
+    "desc": "The fragrant peel is finely shredded and cooked."
+   },
+   {
+    "name": "Dressing",
+    "desc": "Juice mixed with oil and vinegar, for a chicken salad."
+   }
+  ],
+  "pick": "A taut rind of deep reddish orange and a fruit that feels heavy.",
+  "keep": "Keep at cool room temperature. In a warm room, bag it and put it in the vegetable drawer.",
+  "trivia": "Found in Yamaguchi in the Meiji era, it took its name after spreading in Ehime, the old province of Iyo. Ehime now grows most of Japan's crop. The main type today is Miyauchi Iyokan, a bud sport found in Matsuyama in the 1950s.",
+  "origins": [
+   "Ehime",
+   "Saga",
+   "Wakayama"
+  ]
+ },
+ {
+  "id": "ポンカン",
+  "name": "Ponkan mandarin",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "The loose rind peels off easily by hand; richly fragrant."
+   },
+   {
+    "name": "Tart",
+    "desc": "Segments arranged over custard."
+   },
+   {
+    "name": "Chicken with ponkan sauce",
+    "desc": "Juice reduced and coated over pan-fried chicken."
+   },
+   {
+    "name": "Yoghurt",
+    "desc": "Segments on top with a little honey."
+   }
+  ],
+  "pick": "A deep orange, fragrant rind that is not too puffy.",
+  "keep": "Keep at cool room temperature. The loose rind spoils easily, so eat it soon.",
+  "trivia": "Thought to come from India, its name is said to derive from the Indian city of Poona. It reached Kagoshima from Taiwan in the Meiji era. It is strongly fragrant and very sweet. It is a parent of Shiranui (Dekopon).",
+  "origins": [
+   "Ehime",
+   "Kagoshima",
+   "Kochi",
+   "Miyazaki"
+  ]
+ },
+ {
+  "id": "日向夏",
+  "name": "Hyuganatsu",
+  "cooks": [
+   {
+    "name": "Sliced with the pith",
+    "desc": "Only the yellow skin is pared away, leaving the white pith; served with a little sugar or soy sauce."
+   },
+   {
+    "name": "Sunomono",
+    "desc": "Dressed with daikon and cucumber in sweet vinegar."
+   },
+   {
+    "name": "Sorbet",
+    "desc": "The juice frozen; the fresh scent stays."
+   },
+   {
+    "name": "Jam",
+    "desc": "The pith is chopped and cooked in too."
+   }
+  ],
+  "pick": "A bright, glossy yellow rind and a fruit that feels heavy.",
+  "keep": "Bag it against drying and keep it in the vegetable drawer.",
+  "trivia": "Found by chance around 1820, in the Edo period, in a garden in Miyazaki. In Kochi it is called Konatsu and in Ehime New Summer Orange. Its white pith is soft and mildly sweet rather than bitter, and is eaten together with the flesh.",
+  "origins": [
+   "Miyazaki",
+   "Kochi",
+   "Ehime"
+  ]
+ },
+ {
+  "id": "河内晩柑",
+  "name": "Kawachi bankan",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "The flesh is taken out of the membranes; juicy and refreshing."
+   },
+   {
+    "name": "Juice",
+    "desc": "Pressed and poured over ice; little bitterness."
+   },
+   {
+    "name": "Salad",
+    "desc": "With shrimp and avocado."
+   },
+   {
+    "name": "Kanten jelly",
+    "desc": "Juice and segments set with kanten."
+   }
+  ],
+  "pick": "A taut, pale yellow rind and a fruit that feels heavy for its size.",
+  "keep": "Keep at cool room temperature. In summer, bag it and put it in the vegetable drawer.",
+  "trivia": "A relative of the pomelo, found around 1905 in Kawachi, Kumamoto (now part of Kumamoto city). The fruit is left on the tree through the winter and harvested from spring into summer. Its light taste has earned it the name \"Japanese grapefruit\". It is sold under different names depending on where it is grown.",
+  "origins": [
+   "Ehime",
+   "Kumamoto"
+  ]
+ },
+ {
+  "id": "アンズ",
+  "name": "Apricot",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "Ripe fruit can be eaten skin and all; sweet and tart."
+   },
+   {
+    "name": "Jam",
+    "desc": "Stoned and cooked with sugar; a vivid colour."
+   },
+   {
+    "name": "In syrup",
+    "desc": "Halved and poached in light syrup."
+   },
+   {
+    "name": "Dried",
+    "desc": "Halved and dried in the sun or at low heat."
+   }
+  ],
+  "pick": "Evenly orange, with a soft fuzz and a good scent. Fruit with green left on it is sharply sour.",
+  "keep": "It does not keep; refrigerate and eat within two or three days. Cook what you cannot finish.",
+  "trivia": "Native to China, it reached Japan in ancient times. Fresh apricots bruise easily and are rarely seen far from where they are grown. The Mori district of Chikuma in Nagano is known as the \"village of apricots\". The kernel inside the stone gives almond tofu its scent.",
+  "origins": [
+   "Aomori",
+   "Nagano"
+  ]
+ },
+ {
+  "id": "ネクタリン",
+  "name": "Nectarine",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "Cut into wedges with the skin on; with no fuzz, there is no need to peel."
+   },
+   {
+    "name": "With prosciutto",
+    "desc": "Wedges topped with prosciutto; sweet meets salty."
+   },
+   {
+    "name": "Compote",
+    "desc": "Poached with the skin on, the syrup turns pale pink."
+   },
+   {
+    "name": "Smoothie",
+    "desc": "Blended with yoghurt."
+   }
+  ],
+  "pick": "Red, glossy and fragrant. Ready to eat when slightly soft to a gentle press.",
+  "keep": "Ripen firm fruit at room temperature; once soft, refrigerate and eat soon.",
+  "trivia": "A fuzzless variety of the peach, called \"oil peach\" in Chinese. Its flesh is firmer than a peach and has sourness as well as sweetness. The name comes from nectar, the drink of the gods in Greek myth. Nagano is the main producer.",
+  "origins": [
+   "Nagano",
+   "Yamanashi",
+   "Fukushima",
+   "Yamagata"
+  ]
+ },
+ {
+  "id": "プルーン",
+  "name": "Prune plum",
+  "cooks": [
+   {
+    "name": "Eaten fresh",
+    "desc": "Eaten skin and all; sweeter as it ripens."
+   },
+   {
+    "name": "Poached in red wine",
+    "desc": "Halved and simmered with red wine, sugar and cinnamon."
+   },
+   {
+    "name": "Pound cake",
+    "desc": "Halves pressed into the batter and baked."
+   },
+   {
+    "name": "With pork",
+    "desc": "A prune sauce served with pan-fried pork."
+   }
+  ],
+  "pick": "Deep purple with plenty of white bloom left on, and taut skin.",
+  "keep": "Ripen firm fruit at room temperature; once ripe, refrigerate and eat soon.",
+  "trivia": "Prunes are European plum varieties that can be dried whole without fermenting. In Japan, Nagano grows most of the crop and ships it fresh. The white bloom on the skin is made by the fruit itself and is a sign of freshness.",
+  "origins": [
+   "Nagano",
+   "Hokkaido",
+   "Aomori"
+  ]
+ },
+ {
+  "id": "シークヮーサー",
+  "name": "Shikuwasa",
+  "cooks": [
+   {
+    "name": "Over grilled fish",
+    "desc": "Green fruit halved and squeezed over grilled fish or sashimi."
+   },
+   {
+    "name": "Juice",
+    "desc": "The juice topped up with water or soda."
+   },
+   {
+    "name": "Chilled somen",
+    "desc": "Squeezed into the dipping sauce to lift the aroma."
+   },
+   {
+    "name": "Dressing",
+    "desc": "Juice and soy sauce, for seared bonito or raw vegetables."
+   }
+  ],
+  "pick": "Green fruit should be deep green, glossy and taut. Ripe fruit turns yellow to orange.",
+  "keep": "Bag green fruit and refrigerate. Squeezed juice freezes well.",
+  "trivia": "A small citrus that grows wild in Okinawa and Taiwan. The name is said to come from Okinawan words meaning \"to feed sourness\". From summer to autumn the green fruit is used for juice; in winter the ripe yellow fruit is eaten fresh. Ogimi village in northern Okinawa Island is the main producer.",
+  "origins": [
+   "Okinawa"
+  ]
  }
 ]

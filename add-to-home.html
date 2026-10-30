@@ -31,7 +31,8 @@ body{background:var(--paper);color:var(--ink);font-family:var(--gothic);
 .wrap{max-width:680px;margin:0 auto;padding:32px 22px 80px}
 header{border-bottom:1px solid var(--rule-strong);padding-bottom:18px;margin-bottom:26px}
 .home{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
-.home img{width:34px;height:34px;border-radius:50%;display:block}
+.home img{height:64px;width:auto;display:block}
+@media (max-width:560px){.home img{height:52px}}
 .home span{font-family:var(--mincho);font-size:17px;font-weight:600}
 
 .ptabs{display:flex;flex-wrap:wrap;gap:6px;margin:22px 0 26px}
@@ -80,8 +81,7 @@ html[lang="th"] body{line-height:2}
 <div class="wrap">
   <header>
     <a class="home" href="./">
-      <img src="washokuzai-mark.png" alt="" width="34" height="34">
-      <span>和食材カレンダー</span>
+      <img src="washokuzai-logo.png" alt="和食材カレンダー" width="242" height="64">
     </a>
   </header>
 

@@ -101,6 +101,31 @@
     <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://washokuzai-calendar.com/images/shun-calendar-ja.jpg</image:loc>
+      <image:title>日本の旬カレンダー　魚介・野菜・果物の旬と出回る時期</image:title>
+      <image:caption>日本の旬カレンダー　魚介・野菜・果物の旬と出回る時期</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://washokuzai-calendar.com/images/shun-calendar-en.jpg</image:loc>
+      <image:title>Japan seasonal food calendar: seafood, vegetables and fruit by month</image:title>
+      <image:caption>Japan seasonal food calendar: seafood, vegetables and fruit by month</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://washokuzai-calendar.com/images/shun-calendar-th.jpg</image:loc>
+      <image:title>ปฏิทินวัตถุดิบตามฤดูกาลของญี่ปุ่น</image:title>
+      <image:caption>ปฏิทินวัตถุดิบตามฤดูกาลของญี่ปุ่น</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://washokuzai-calendar.com/images/shun-calendar-zh.jpg</image:loc>
+      <image:title>日本當令食材月曆</image:title>
+      <image:caption>日本當令食材月曆</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://washokuzai-calendar.com/images/shun-calendar-zh-cn.jpg</image:loc>
+      <image:title>日本当季食材日历</image:title>
+      <image:caption>日本当季食材日历</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://washokuzai-calendar.com/ja/month/01.html</loc>

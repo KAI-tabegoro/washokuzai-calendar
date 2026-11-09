@@ -310,13 +310,16 @@ const NORES = "Nothing found";
       .replace(/[\u30a1-\u30f6]/g, function(c){
         return String.fromCharCode(c.charCodeAt(0) - 0x60); });
   }
-  var q = document.getElementById("q"), list = document.getElementById("qlist");
-  if (!q || !list || typeof ITEMS === "undefined") return;
+  if (typeof ITEMS === "undefined") return;
 
   var pool = ITEMS.map(function(it){
     var keys = [it.n[LANG], it.n.ja, it.k, it.s].concat(it.a || []);
     return { it: it, key: fold(keys.join(" ")), nm: it.n[LANG] || it.n.ja };
   });
+  // 上の帯の検索（q）と、トップページの「食材を探す」（q2）の両方で使う
+  [["q","qlist"],["q2","qlist2"]].forEach(function(ids){
+  var q = document.getElementById(ids[0]), list = document.getElementById(ids[1]);
+  if (!q || !list) return;
   var cur = -1, shown = [];
 
   function hide(){ list.classList.remove("on"); list.innerHTML = ""; cur = -1; shown = []; }
@@ -356,7 +359,22 @@ const NORES = "Nothing found";
     } else if (e.key === "Escape") { hide(); }
   });
   document.addEventListener("click", function(e){
-    if (!e.target.closest(".srch")) hide();
+    if (!q.closest(".srch").contains(e.target)) hide();
+  });
+  // 「検索」ボタン：候補のいちばん上へ。候補がなければ一覧のページへ
+  var go = q.closest(".srch").querySelector(".srch-go");
+  if (go) go.addEventListener("click", function(){
+    draw();
+    var a = list.querySelector("a");
+    if (a) location.href = a.href;
+    else location.href = UP + {"ja":"ja","en":"en","th":"th","zh":"zh","zh-CN":"zh-cn"}[LANG] + "/items.html";
+  });
+  q.addEventListener("keydown", function(e){
+    if (e.key === "Enter" && cur < 0) {
+      var a = list.querySelector("a");
+      if (a) { e.preventDefault(); location.href = a.href; }
+    }
+  });
   });
 })();
 </script>

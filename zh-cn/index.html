@@ -224,6 +224,44 @@ a{color:var(--ink)}
   .hero p{line-height:1.8}
   .hero .cta{margin-top:16px;padding:10px 22px}
 }
+/* コラムと「食材を探す」の横並び */
+.duo{display:grid;grid-template-columns:1.45fr 1fr;gap:18px;align-items:stretch}
+.duo .bx{background:#fff;border:1px solid var(--rule);border-radius:3px;padding:20px 22px}
+.duo h2{font-family:var(--mincho);font-size:18px;font-weight:600;margin:0 0 14px;letter-spacing:.04em;
+        display:flex;align-items:baseline;gap:12px}
+.duo h2 a{margin-left:auto;font-family:var(--gothic);font-size:12px;font-weight:400;color:var(--ink-soft);
+          text-decoration:none}
+.duo h2 a:hover{color:var(--gold)}
+.col-top{display:grid;grid-template-columns:200px 1fr;gap:18px;text-decoration:none;color:inherit}
+.col-top img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;border-radius:3px;display:block;
+             background:var(--paper-2)}
+.col-top b{display:block;font-family:var(--mincho);font-size:16.5px;font-weight:600;line-height:1.55;margin:0 0 6px}
+.col-top p{margin:0 0 8px;font-size:13px;line-height:1.75;color:var(--ink-soft);
+           display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.col-top i{font-style:normal;font-size:12.5px;color:var(--gold)}
+.col-top:hover b{color:var(--gold)}
+.col-more{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--rule)}
+.col-more li{margin:0 0 6px;font-size:13.5px;line-height:1.6}
+.col-more a{color:var(--ink);text-decoration:none}
+.col-more a:before{content:"・";color:var(--gold)}
+.col-more a:hover{color:var(--gold)}
+.find .srch{display:flex;gap:8px}
+.find .srch input{flex:1 1 auto;width:auto;font-size:14px;padding:11px 13px}
+.find .srch-go{font-family:inherit;font-size:14px;padding:0 20px;border:0;border-radius:3px;
+               background:var(--ink);color:#fff;cursor:pointer;white-space:nowrap}
+.find .srch-go:hover{background:var(--gold)}
+.find .srch-list{left:0;right:auto;width:100%}
+.kw{margin:16px 0 0;font-size:12.5px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.kw a{display:inline-block;padding:4px 12px;border:1px solid var(--rule-strong);border-radius:20px;
+      color:var(--ink);text-decoration:none;font-size:12.5px;background:var(--paper)}
+.kw a:hover{border-color:var(--gold);color:var(--gold)}
+@media (max-width:860px){
+  .duo{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .col-top{grid-template-columns:1fr;gap:10px}
+  .duo .bx{padding:16px}
+}
 @media (max-width:520px){
   .months{grid-template-columns:repeat(4,1fr)}
   .hero h1{letter-spacing:.05em}
@@ -380,6 +418,30 @@ a{color:var(--ink)}
 <span class="ft"><b>水果</b><span>50项</span><i>&rsaquo;</i></span>
 </a>
 </div></div></section>
+<section class="sec"><div class="wrap"><div class="duo">
+<div class="bx">
+<h2>应季专栏<a href="../zh-cn/column/">查看所有专栏 &rsaquo;</a></h2>
+<a class="col-top" href="../zh-cn/column/kanburi.html">
+<img src="../images/col/kanburi.jpg" alt="" width="400" height="267" loading="lazy">
+<span><b>寒鰤什么时候当季？天然与养殖、挑选方法</b><p>寒鰤的盛产期是12月到2月。在北方海域养肥的鰤鱼为了产卵沿日本海南下，正好进入富山湾、能登、佐渡的定置网。本文为采购与销售人员整理天然与养殖的差异、品牌规定、挑选方法、处理方式与出口形态。</p><i>继续阅读 &rsaquo;</i></span></a>
+<ul class="col-more">
+<li><a href="../zh-cn/column/satsumaimo.html">日本红薯什么时候当季？品种、贮藏变甜的原理</a></li>
+<li><a href="../zh-cn/column/ringo.html">日本苹果什么时候当季？品种、套袋与不套袋、CA贮藏</a></li>
+</ul>
+</div>
+<div class="bx find">
+<h2>搜索食材</h2>
+<div class="srch"><input type="search" id="q2" autocomplete="off" placeholder="输入食材名称搜索" aria-label="搜索食材"><button type="button" class="srch-go">搜索</button><div class="srch-list" id="qlist2" role="listbox"></div></div>
+<p class="kw"><span>现在应季：</span>
+<a href="../zh-cn/item/masaba.html">鲭鱼</a>
+<a href="../zh-cn/item/kuromaguro.html">黑鲔鱼</a>
+<a href="../zh-cn/item/kyabetsu.html">卷心菜</a>
+<a href="../zh-cn/item/hakusai.html">大白菜</a>
+<a href="../zh-cn/item/younashi.html">西洋梨</a>
+<a href="../zh-cn/item/ringo.html">苹果</a>
+</p>
+</div>
+</div></div></section>
 </main>
 <footer class="site-foot"><div class="wrap">
 <nav class="foot-nav">
@@ -523,13 +585,16 @@ const NORES = "找不到符合的结果";
       .replace(/[\u30a1-\u30f6]/g, function(c){
         return String.fromCharCode(c.charCodeAt(0) - 0x60); });
   }
-  var q = document.getElementById("q"), list = document.getElementById("qlist");
-  if (!q || !list || typeof ITEMS === "undefined") return;
+  if (typeof ITEMS === "undefined") return;
 
   var pool = ITEMS.map(function(it){
     var keys = [it.n[LANG], it.n.ja, it.k, it.s].concat(it.a || []);
     return { it: it, key: fold(keys.join(" ")), nm: it.n[LANG] || it.n.ja };
   });
+  // 上の帯の検索（q）と、トップページの「食材を探す」（q2）の両方で使う
+  [["q","qlist"],["q2","qlist2"]].forEach(function(ids){
+  var q = document.getElementById(ids[0]), list = document.getElementById(ids[1]);
+  if (!q || !list) return;
   var cur = -1, shown = [];
 
   function hide(){ list.classList.remove("on"); list.innerHTML = ""; cur = -1; shown = []; }
@@ -569,7 +634,22 @@ const NORES = "找不到符合的结果";
     } else if (e.key === "Escape") { hide(); }
   });
   document.addEventListener("click", function(e){
-    if (!e.target.closest(".srch")) hide();
+    if (!q.closest(".srch").contains(e.target)) hide();
+  });
+  // 「検索」ボタン：候補のいちばん上へ。候補がなければ一覧のページへ
+  var go = q.closest(".srch").querySelector(".srch-go");
+  if (go) go.addEventListener("click", function(){
+    draw();
+    var a = list.querySelector("a");
+    if (a) location.href = a.href;
+    else location.href = UP + {"ja":"ja","en":"en","th":"th","zh":"zh","zh-CN":"zh-cn"}[LANG] + "/items.html";
+  });
+  q.addEventListener("keydown", function(e){
+    if (e.key === "Enter" && cur < 0) {
+      var a = list.querySelector("a");
+      if (a) { e.preventDefault(); location.href = a.href; }
+    }
+  });
   });
 })();
 </script>

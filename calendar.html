@@ -768,6 +768,10 @@ input[type="search"]:focus{outline:2px solid var(--ink);outline-offset:1px}
 /* ---------- grid ---------- */
 .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--ink-soft);padding:14px 0 6px}
 .legend span{display:flex;align-items:center;gap:6px}
+.legend .lg-h{color:var(--ink);font-weight:600;margin-right:-6px}
+.legend .lg-sep{width:1px;height:14px;background:var(--rule-strong);margin:0 2px}
+.legend span .sw+.sw{margin-left:-3px}
+@media (max-width:560px){.legend .lg-sep{display:none}.legend{gap:8px 14px}}
 .sw{width:16px;height:11px;display:inline-block;border:1px solid var(--rule-strong)}
 
 .months{
@@ -3995,10 +3999,14 @@ function applyLang(){
   [...$("viewTabs").children].forEach(b => { b.textContent = T["view_" + b.dataset.view]; });
 
   $("legend").innerHTML =
-    `<span><i class="sw" style="background:#2C5871"></i>${T.peak}</span>
-     <span><i class="sw" style="background:#C8D8E1"></i>${T.avail}</span>
+    /* 旬は分類ごとに色が違う（魚介=紺・野菜=緑・果物=赤）。出回りはそれぞれの淡い色 */
+    `<span class="lg-h">${T.peak}</span>
+     <span><i class="sw" style="background:#2C5871"></i>${T.sea}</span>
      <span><i class="sw" style="background:#556B33"></i>${T.land}</span>
-     <span><i class="sw" style="background:#B0543E"></i>${T.fruit}</span>`;
+     <span><i class="sw" style="background:#B0543E"></i>${T.fruit}</span>
+     <span class="lg-sep"></span>
+     <span class="lg-h">${T.avail}</span>
+     <span><i class="sw" style="background:#C8D8E1"></i><i class="sw" style="background:#D9E1CB"></i><i class="sw" style="background:#EFD8CF"></i></span>`;
 }
 
 /* ロゴ画像が見つからない場合は文字のサイト名に切り替えます */

@@ -151,6 +151,18 @@ a{color:var(--ink)}
 .has-band .crumb{padding-top:14px}
 
 .page-h{padding:34px 0 0}
+.mcirc{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin:22px 0 0}
+.mcirc a{text-decoration:none;display:block;text-align:center;min-width:0}
+.mcirc .ph{display:block;position:relative;width:100%;aspect-ratio:1/1;
+           border-radius:50%;overflow:hidden;background:var(--paper-2)}
+.mcirc .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.mcirc .ph span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+                font-family:var(--mincho);color:#fff;font-size:clamp(12px,1.25vw,17px);
+                letter-spacing:.04em;background:rgba(32,46,54,.3);
+                text-shadow:0 1px 7px rgba(20,30,36,.75)}
+.mcirc a:hover .ph span{background:rgba(32,46,54,.12)}
+.mcirc a.on .ph{outline:2px solid var(--now);outline-offset:2px}
+@media (max-width:860px){.mcirc{grid-template-columns:repeat(6,1fr);gap:10px}}
 .mintro{background:#fff;border:1px solid var(--rule);border-radius:3px;padding:16px 20px;margin:22px 0 4px;
         font-size:14px;line-height:1.95;color:var(--ink)}
 .mintro p{margin:0 0 6px}
@@ -263,6 +275,20 @@ a{color:var(--ink)}
 <h1>7月當令的食材</h1>
 <p>7月當令的食材共72項。海鮮30項、蔬菜24項、水果18項。</p>
 </div></section>
+<div class="wrap"><nav class="mcirc" aria-label="依月份尋找當令食材">
+<a href="01.html" title="1月當令的食材"><span class="ph"><img src="../../images/season/m/01.jpg" alt="" width="240" height="240" decoding="async"><span>1月</span></span></a>
+<a href="02.html" title="2月當令的食材"><span class="ph"><img src="../../images/season/m/02.jpg" alt="" width="240" height="240" decoding="async"><span>2月</span></span></a>
+<a href="03.html" title="3月當令的食材"><span class="ph"><img src="../../images/season/m/03.jpg" alt="" width="240" height="240" decoding="async"><span>3月</span></span></a>
+<a href="04.html" title="4月當令的食材"><span class="ph"><img src="../../images/season/m/04.jpg" alt="" width="240" height="240" decoding="async"><span>4月</span></span></a>
+<a href="05.html" title="5月當令的食材"><span class="ph"><img src="../../images/season/m/05.jpg" alt="" width="240" height="240" decoding="async"><span>5月</span></span></a>
+<a href="06.html" title="6月當令的食材"><span class="ph"><img src="../../images/season/m/06.jpg" alt="" width="240" height="240" decoding="async"><span>6月</span></span></a>
+<a href="07.html" class="on" aria-current="page" title="7月當令的食材"><span class="ph"><img src="../../images/season/m/07.jpg" alt="" width="240" height="240" decoding="async"><span>7月</span></span></a>
+<a href="08.html" title="8月當令的食材"><span class="ph"><img src="../../images/season/m/08.jpg" alt="" width="240" height="240" decoding="async"><span>8月</span></span></a>
+<a href="09.html" title="9月當令的食材"><span class="ph"><img src="../../images/season/m/09.jpg" alt="" width="240" height="240" decoding="async"><span>9月</span></span></a>
+<a href="10.html" title="10月當令的食材"><span class="ph"><img src="../../images/season/m/10.jpg" alt="" width="240" height="240" decoding="async"><span>10月</span></span></a>
+<a href="11.html" title="11月當令的食材"><span class="ph"><img src="../../images/season/m/11.jpg" alt="" width="240" height="240" decoding="async"><span>11月</span></span></a>
+<a href="12.html" title="12月當令的食材"><span class="ph"><img src="../../images/season/m/12.jpg" alt="" width="240" height="240" decoding="async"><span>12月</span></span></a>
+</nav></div>
 <div class="wrap"><div class="mintro">
 <p>7月，海鮮有<a href="../../zh/item/kohada.html">小鰭（窩斑鰶）</a>、<a href="../../zh/item/tachiuo.html">白帶魚</a>、<a href="../../zh/item/maaji.html">竹筴魚</a>等，蔬菜有<a href="../../zh/item/myoga.html">茗荷</a>、<a href="../../zh/item/shoga.html">生薑</a>、<a href="../../zh/item/nasu.html">茄子</a>等，水果有<a href="../../zh/item/sumomo.html">李子（日本李）</a>、<a href="../../zh/item/blueberry.html">藍莓</a>、<a href="../../zh/item/momo.html">水蜜桃</a>等正值當令。</p>
 <p>7月開始當令的有<a href="../../zh/item/kohada.html">小鰭（窩斑鰶）</a>、<a href="../../zh/item/myoga.html">茗荷</a>、<a href="../../zh/item/sumomo.html">李子（日本李）</a>、<a href="../../zh/item/tachiuo.html">白帶魚</a>、<a href="../../zh/item/shoga.html">生薑</a>、<a href="../../zh/item/blueberry.html">藍莓</a>。7月當令期即將結束的有<a href="../../zh/item/maaji.html">竹筴魚</a>、<a href="../../zh/item/mizansho.html">青山椒（果實）</a>、<a href="../../zh/item/sakuranbo.html">櫻桃</a>、<a href="../../zh/item/tobiuo.html">飛魚</a>、<a href="../../zh/item/minitomato.html">小番茄</a>、<a href="../../zh/item/biwa.html">枇杷</a>。</p>

@@ -3081,7 +3081,12 @@ function pickLang(){
   const hit = LANGS.find(l => nav.startsWith(l.code));
   return hit ? hit.code : "ja";
 }
-const state = {fav:false, cat:"all", q:"", month:null, view:"list", lang:pickLang()};
+const state = {fav:false, cat:"all", q:"", month:null, view:"list", lang:pickLang()}
+/* MONTHPARAM: ?month=11 のように月を付けて開くと、その月が旬のものだけを表示する（月別ページから来たとき） */
+try{
+  const mq = parseInt(new URLSearchParams(location.search).get("month"), 10);
+  if (mq >= 1 && mq <= 12) state.month = mq - 1;
+}catch(e){};
 const t = () => UI[state.lang];
 
 /* 品目名を選択中の言語で返します。訳がなければ英語、それもなければ日本語。 */

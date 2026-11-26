@@ -633,6 +633,11 @@ body{
   .season-scene img{transition: none}
 }
 @media print{.season{display:none}}
+/* SEASONWIDE-CSS-START 2026-11-26 季節の写真を、ほかのページの帯と同じく画面の幅いっぱい・同じ高さに */
+.season{width:100vw;margin-left:calc(50% - 50vw);border-left:0;border-right:0;border-radius:0}
+.season-scene{height:clamp(170px,21vw,300px)}
+body{overflow-x:clip}
+/* SEASONWIDE-CSS-END */
 /* SEASON-CSS-END */
 
 /* CONSENT-CSS-START */
@@ -1041,8 +1046,80 @@ html[lang="zh-CN"] .ai-set[data-ilang="zh-CN"]{display:block}
 <meta name="robots" content="max-image-preview:large">
 <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
 <link rel="icon" href="/favicon-192.png" sizes="192x192" type="image/png">
+<style id="calhead-css">
+/* CALHEAD-CSS-START 上の帯（mk_calhead.py が入れる） */
+.site-head{font-family:var(--gothic,inherit);font-size:15px;line-height:1.75}
+.site-head .sh-wrap{max-width:1120px;margin:0 auto;padding:0 24px;box-sizing:border-box}
+.site-head *{box-sizing:border-box}
+.site-head a{color:var(--ink)}
+/* 上の帯 */
+.site-head{background:#fff;border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:40}
+.site-head .sh-wrap{display:flex;align-items:center;gap:20px;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
+.brand img{height:46px;width:auto;display:block}
+.brand b{font-family:var(--mincho);font-size:17px;font-weight:600;letter-spacing:.04em;
+         white-space:nowrap}
+.gnav{display:flex;gap:15px;flex:1 1 auto;flex-wrap:nowrap;font-size:13px}
+.gnav a{color:var(--ink-soft);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;
+        white-space:nowrap}
+.gnav a:hover{color:var(--ink)}
+.gnav a.on{color:var(--ink);border-bottom-color:var(--gold)}
+.head-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.lang-sel{font-family:inherit;font-size:12.5px;color:var(--ink-soft);background:#fff;
+          border:1px solid var(--rule-strong);border-radius:3px;padding:5px 7px}
+.nav-toggle{display:none;background:none;border:1px solid var(--rule-strong);border-radius:3px;
+            padding:6px 9px;font-size:13px;color:var(--ink-soft);cursor:pointer;font-family:inherit}
+
+/* 検索 */
+.srch{position:relative}
+.srch input{font-family:inherit;font-size:13px;width:186px;padding:7px 11px;
+            border:1px solid var(--rule-strong);border-radius:3px;background:var(--paper);
+            color:var(--ink)}
+.srch input:focus{outline:none;border-color:var(--gold);background:#fff}
+.srch-list{position:absolute;right:0;top:calc(100% + 5px);width:300px;max-height:340px;
+           overflow:auto;background:#fff;border:1px solid var(--rule-strong);border-radius:3px;
+           box-shadow:0 6px 22px rgba(40,61,72,.13);display:none;z-index:60}
+.srch-list.on{display:block}
+.srch-list a{display:flex;align-items:center;gap:10px;padding:7px 11px;text-decoration:none;
+             border-bottom:1px solid var(--rule)}
+.srch-list a:last-child{border-bottom:0}
+.srch-list a:hover,.srch-list a.sel{background:var(--paper-2)}
+.srch-list img{width:42px;height:28px;object-fit:cover;border-radius:2px;flex:0 0 auto;
+               background:var(--paper-2)}
+.srch-list .nm{font-size:13.5px}
+.srch-list .sb{font-size:11.5px;color:var(--ink-soft)}
+.srch-none{padding:11px;font-size:13px;color:var(--ink-soft)}
+
+
+@media (max-width:1060px){
+  .wrap{padding:0 16px}
+  .site-head .sh-wrap{height:auto;padding-top:11px;padding-bottom:11px;flex-wrap:wrap;gap:10px 14px}
+  .nav-toggle{display:block;order:2;margin-left:auto}
+  .head-tools{order:3;width:100%}
+  .srch{flex:1 1 auto}
+  .srch input{width:100%}
+  .srch-list{width:100%}
+  .gnav{order:4;width:100%;display:none;gap:0;flex-wrap:wrap;flex-direction:column;
+        border-top:1px solid var(--rule);padding-top:6px}
+  .gnav.open{display:flex}
+  .gnav a{padding:9px 0;border-bottom:1px solid var(--rule);border-left:2px solid transparent}
+  .gnav a.on{border-bottom-color:var(--rule);border-left-color:var(--gold);padding-left:9px}
+  .sec{padding-top:36px}
+  .sec-h h2{font-size:18px}
+  .cards{grid-template-columns:repeat(3,1fr);gap:12px}
+}
+@media (max-width:520px){
+  .brand img{height:40px}
+}
+@media (max-width:1060px){.site-head .sh-wrap{padding:11px 16px}}
+/* 前の見出しは隠す（カレンダーの JS が使うので消さない） */
+.masthead{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);padding:0!important}
+.wrap > .season:first-of-type{margin-top:0}
+/* CALHEAD-CSS-END */
+</style>
 </head>
 <body>
+<div id="calHead"></div><!-- /calHead -->
 <div class="wrap">
 
 <header class="masthead">
@@ -4860,6 +4937,51 @@ async function switchLang(code){
 }
 
 boot();
+</script>
+<script id="calhead-js">
+/* CALHEAD-JS-START 上の帯（mk_calhead.py が入れる） */
+(function(){
+var H = {"ja": "<header class=\"site-head\"><div class=\"sh-wrap\">\n<a class=\"brand\" href=\"index.html\"><img src=\"washokuzai-logo.png\" alt=\"和食材カレンダー\" width=\"174\" height=\"46\"></a>\n<button class=\"nav-toggle\" type=\"button\" id=\"hNavBtn\" aria-expanded=\"false\" aria-controls=\"hGnav\">☰</button>\n<nav class=\"gnav\" id=\"hGnav\">\n<a href=\"index.html\">ホーム</a>\n<a href=\"calendar.html?lang=ja\" class=\"on\">旬のカレンダー</a>\n<a href=\"ja/items.html\">食材から探す</a>\n<a href=\"region.html?lang=ja\">産地から探す</a>\n<a href=\"ja/column/\">コラム</a>\n<a href=\"about.html?lang=ja\">このサイトについて</a>\n</nav>\n<div class=\"head-tools\">\n<div class=\"srch\"><input type=\"search\" id=\"hq\" autocomplete=\"off\" placeholder=\"食材名で検索（例：マアジ、筍 など）\" aria-label=\"食材から探す\"><div class=\"srch-list\" id=\"hqlist\" role=\"listbox\"></div></div>\n<select class=\"lang-sel\" id=\"hLang\" aria-label=\"Language\">\n<option value=\"ja\" selected>日本語</option>\n<option value=\"en\">English</option>\n<option value=\"th\">ไทย</option>\n<option value=\"zh\">繁體中文</option>\n<option value=\"zh-CN\">简体中文</option>\n</select>\n</div>\n</div></header>", "en": "<header class=\"site-head\"><div class=\"sh-wrap\">\n<a class=\"brand\" href=\"en/index.html\"><img src=\"washokuzai-logo.png\" alt=\"Washokuzai Calendar\" width=\"174\" height=\"46\"></a>\n<button class=\"nav-toggle\" type=\"button\" id=\"hNavBtn\" aria-expanded=\"false\" aria-controls=\"hGnav\">☰</button>\n<nav class=\"gnav\" id=\"hGnav\">\n<a href=\"en/index.html\">Home</a>\n<a href=\"calendar.html?lang=en\" class=\"on\">Calendar</a>\n<a href=\"en/items.html\">Ingredients</a>\n<a href=\"region.html?lang=en\">By region</a>\n<a href=\"en/column/\">Journal</a>\n<a href=\"about.html?lang=en\">About</a>\n</nav>\n<div class=\"head-tools\">\n<div class=\"srch\"><input type=\"search\" id=\"hq\" autocomplete=\"off\" placeholder=\"Search by name (e.g. mackerel, bamboo shoot)\" aria-label=\"Ingredients\"><div class=\"srch-list\" id=\"hqlist\" role=\"listbox\"></div></div>\n<select class=\"lang-sel\" id=\"hLang\" aria-label=\"Language\">\n<option value=\"ja\">日本語</option>\n<option value=\"en\" selected>English</option>\n<option value=\"th\">ไทย</option>\n<option value=\"zh\">繁體中文</option>\n<option value=\"zh-CN\">简体中文</option>\n</select>\n</div>\n</div></header>", "th": "<header class=\"site-head\"><div class=\"sh-wrap\">\n<a class=\"brand\" href=\"th/index.html\"><img src=\"washokuzai-logo.png\" alt=\"ปฏิทินวัตถุดิบญี่ปุ่น\" width=\"174\" height=\"46\"></a>\n<button class=\"nav-toggle\" type=\"button\" id=\"hNavBtn\" aria-expanded=\"false\" aria-controls=\"hGnav\">☰</button>\n<nav class=\"gnav\" id=\"hGnav\">\n<a href=\"th/index.html\">หน้าแรก</a>\n<a href=\"calendar.html?lang=th\" class=\"on\">ปฏิทิน</a>\n<a href=\"th/items.html\">วัตถุดิบ</a>\n<a href=\"region.html?lang=th\">ตามแหล่งผลิต</a>\n<a href=\"th/column/\">บทความ</a>\n<a href=\"about.html?lang=th\">เกี่ยวกับเรา</a>\n</nav>\n<div class=\"head-tools\">\n<div class=\"srch\"><input type=\"search\" id=\"hq\" autocomplete=\"off\" placeholder=\"ค้นหาจากชื่อ (เช่น ปลาทู หน่อไม้)\" aria-label=\"วัตถุดิบ\"><div class=\"srch-list\" id=\"hqlist\" role=\"listbox\"></div></div>\n<select class=\"lang-sel\" id=\"hLang\" aria-label=\"Language\">\n<option value=\"ja\">日本語</option>\n<option value=\"en\">English</option>\n<option value=\"th\" selected>ไทย</option>\n<option value=\"zh\">繁體中文</option>\n<option value=\"zh-CN\">简体中文</option>\n</select>\n</div>\n</div></header>", "zh": "<header class=\"site-head\"><div class=\"sh-wrap\">\n<a class=\"brand\" href=\"zh/index.html\"><img src=\"washokuzai-logo.png\" alt=\"和食材月曆\" width=\"174\" height=\"46\"></a>\n<button class=\"nav-toggle\" type=\"button\" id=\"hNavBtn\" aria-expanded=\"false\" aria-controls=\"hGnav\">☰</button>\n<nav class=\"gnav\" id=\"hGnav\">\n<a href=\"zh/index.html\">首頁</a>\n<a href=\"calendar.html?lang=zh\" class=\"on\">當令月曆</a>\n<a href=\"zh/items.html\">所有食材</a>\n<a href=\"region.html?lang=zh\">依產地尋找</a>\n<a href=\"zh/column/\">專欄</a>\n<a href=\"about.html?lang=zh\">關於本站</a>\n</nav>\n<div class=\"head-tools\">\n<div class=\"srch\"><input type=\"search\" id=\"hq\" autocomplete=\"off\" placeholder=\"輸入食材名稱搜尋（例：竹筴魚、竹筍）\" aria-label=\"所有食材\"><div class=\"srch-list\" id=\"hqlist\" role=\"listbox\"></div></div>\n<select class=\"lang-sel\" id=\"hLang\" aria-label=\"Language\">\n<option value=\"ja\">日本語</option>\n<option value=\"en\">English</option>\n<option value=\"th\">ไทย</option>\n<option value=\"zh\" selected>繁體中文</option>\n<option value=\"zh-CN\">简体中文</option>\n</select>\n</div>\n</div></header>", "zh-CN": "<header class=\"site-head\"><div class=\"sh-wrap\">\n<a class=\"brand\" href=\"zh-cn/index.html\"><img src=\"washokuzai-logo.png\" alt=\"和食材日历\" width=\"174\" height=\"46\"></a>\n<button class=\"nav-toggle\" type=\"button\" id=\"hNavBtn\" aria-expanded=\"false\" aria-controls=\"hGnav\">☰</button>\n<nav class=\"gnav\" id=\"hGnav\">\n<a href=\"zh-cn/index.html\">首页</a>\n<a href=\"calendar.html?lang=zh-CN\" class=\"on\">应季日历</a>\n<a href=\"zh-cn/items.html\">所有食材</a>\n<a href=\"region.html?lang=zh-CN\">按产地查找</a>\n<a href=\"zh-cn/column/\">专栏</a>\n<a href=\"about.html?lang=zh-CN\">关于本站</a>\n</nav>\n<div class=\"head-tools\">\n<div class=\"srch\"><input type=\"search\" id=\"hq\" autocomplete=\"off\" placeholder=\"输入食材名称搜索（例：竹荚鱼、竹笋）\" aria-label=\"所有食材\"><div class=\"srch-list\" id=\"hqlist\" role=\"listbox\"></div></div>\n<select class=\"lang-sel\" id=\"hLang\" aria-label=\"Language\">\n<option value=\"ja\">日本語</option>\n<option value=\"en\">English</option>\n<option value=\"th\">ไทย</option>\n<option value=\"zh\">繁體中文</option>\n<option value=\"zh-CN\" selected>简体中文</option>\n</select>\n</div>\n</div></header>"};
+
+var box = document.getElementById("calHead");
+function bind(){
+  var btn = document.getElementById("hNavBtn"), nav = document.getElementById("hGnav");
+  if (btn) btn.addEventListener("click", function(){
+    var on = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", on ? "true" : "false");
+  });
+  var sel = document.getElementById("hLang");
+  if (sel) sel.addEventListener("change", function(){
+    var old = document.getElementById("lang"); if (old) old.value = sel.value;
+    switchLang(sel.value);
+  });
+  var hq = document.getElementById("hq"), q = document.getElementById("q");
+  if (hq && q) {
+    hq.value = q.value;
+    hq.addEventListener("input", function(){
+      q.value = hq.value;
+      q.dispatchEvent(new Event("input", {bubbles: true}));
+    });
+    hq.addEventListener("keydown", function(e){
+      if (e.key === "Enter") { e.preventDefault(); q.scrollIntoView({behavior: "smooth", block: "center"}); }
+    });
+  }
+}
+var cur = null;
+function draw(code){
+  if (!H[code]) code = "ja";
+  if (code === cur) return;
+  cur = code;
+  box.innerHTML = H[code];
+  bind();
+}
+if (typeof applyLang === "function") {
+  var _al = applyLang;
+  applyLang = function(){ var r = _al.apply(this, arguments); try { draw(state.lang); } catch(e){} return r; };
+}
+try { draw(state.lang); } catch(e) { draw("ja"); }
+})();
+/* CALHEAD-JS-END */
 </script>
 </body>
 </html>
